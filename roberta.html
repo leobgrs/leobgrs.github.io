@@ -379,16 +379,7 @@
   </script>
 </body>
 </html>
-O ChatGPT disse:
-ChatGPT
-Parece que seu código está quase funcionando corretamente. O problema pode estar no comportamento da função newQuestion(), ou na forma como as perguntas são removidas do array questions. Aqui estão alguns ajustes que podem ajudar:
 
-Verificar o Final das Perguntas: O código verifica se ainda existem perguntas no array antes de chamar newQuestion(). Uma mensagem final deve ser exibida quando não houver mais perguntas.
-Remoção de Perguntas: O método splice altera o array original e remove perguntas, então após a última pergunta o array questions estará vazio.
-Aqui está o código ajustado para garantir que tudo funcione corretamente:
-
-html
-Copiar código
 <script>
     const questionElement = document.getElementById('question');
     const optionsContainer = document.getElementById('options-container');
