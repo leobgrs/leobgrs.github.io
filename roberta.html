@@ -1,8 +1,8 @@
-<html><head><base href="https://www.divaldo-lara-politica.com/">
+<html><head><base href="https://leobgrs.github.io/">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jogo Político: A Trajetória de Roberta Mércio em Bagé</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> -->
 <style>
   :root {
     --primary-color: #1a5f7a;
@@ -48,6 +48,27 @@
     font-size: 1em;
   }
 
+  .profile-image-container {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .profile-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 500px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .profile-caption {
+    font-style: italic;
+    color: var(--text-color);
+    margin-top: 10px;
+  }
+
   .game-container {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
@@ -59,7 +80,10 @@
     margin: 0 auto;
     border: 2px solid var(--primary-color);
     flex: 1;
-    margin: 20px 0;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   h1 {
@@ -75,6 +99,8 @@
     background-color: var(--secondary-color);
     padding: 15px;
     border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
   }
 
   .question {
@@ -90,6 +116,8 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
   }
 
   .option-button {
@@ -128,6 +156,7 @@
     font-size: 0.9em;
     margin-top: 20px;
     border-radius: 0 0 10px 10px;
+    width: 100%;
   }
 
   footer p {
@@ -158,22 +187,10 @@
     .game-header p {
       font-size: 0.9em;
     }
-  }
 
-  .historical-image {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    display: none;
-  }
-
-  .image-caption {
-    font-size: 0.9em;
-    font-style: italic;
-    margin-top: 10px;
-    color: var(--text-color);
+    .profile-image {
+      width: 100%;
+    }
   }
 </style>
 </head>
@@ -183,10 +200,13 @@
     <p>Um jogo educativo sobre a carreira e propostas da candidata à prefeitura de Bagé</p>
   </header>
 
+  <div class="profile-image-container">
+    <img src="roberta.jpg" alt="Imagem de campanha política mostrando uma mulher sorridente com cabelos castanhos, vestindo uma blusa azul, em frente a um fundo colorido com elementos gráficos de campanha eleitoral" class="profile-image">
+    <p class="profile-caption">Roberta Mércio, candidata à prefeitura de Bagé</p>
+  </div>
+
   <div class="game-container">
     <h1>Desafio Político: Conheça Roberta Mércio</h1>
-    <img id="questionImage" src="" alt="" class="historical-image">
-    <p id="imageCaption" class="image-caption"></p>
     <div class="question-area">
       <p class="question" id="question">Carregando pergunta...</p>
     </div>
@@ -198,8 +218,8 @@
   </div>
 
   <footer>
-    <p>Jogo Político: A Trajetória de Roberta Mércio - Um jogo educacional e cultural</p>
-    <p>Criado por LEOBGRS</p>
+    <p>Jogo Político: A Trajetória de Roberta Mércio - Um jogo educacional,cultural e Politico</p>
+    <p>Criado e Desenvolvido por LGL - (53)99942-7999</p>
   </footer>
 
   <script>
@@ -207,8 +227,6 @@
     const optionsContainer = document.getElementById('options-container');
     const scoreElement = document.getElementById('score');
     const messageElement = document.getElementById('message');
-    const questionImage = document.getElementById('questionImage');
-    const imageCaption = document.getElementById('imageCaption');
 
     let currentQuestion = null;
     let score = 0;
@@ -217,72 +235,52 @@
       {
         question: "Em que ano Roberta Mércio iniciou sua carreira política?",
         options: ["2012", "2016", "2020", "2008"],
-        correctAnswer: "2016",
-        image: "https://example.com/roberta-mercio-2016.jpg",
-        caption: "Roberta Mércio no início de sua carreira política"
+        correctAnswer: "2016"
       },
       {
         question: "A qual partido político Roberta Mércio é filiada?",
         options: ["PDT", "MDB", "PSDB", "PL"],
-        correctAnswer: "PL",
-        image: "https://example.com/mdb-logo.jpg",
-        caption: "Logo do MDB, partido de Roberta Mércio"
+        correctAnswer: "PL"
       },
       {
         question: "Qual cargo Roberta Mércio ocupou antes de se candidatar à prefeitura?",
         options: ["Vereadora", "Deputada Estadual", "Secretária Municipal", "Deputada Federal"],
-        correctAnswer: "Vereadora",
-        image: "https://example.com/roberta-mercio-vereadora.jpg",
-        caption: "Roberta Mércio durante seu mandato como vereadora"
+        correctAnswer: "Vereadora"
       },
       {
         question: "Qual é uma das principais propostas de Roberta Mércio para a saúde em Bagé?",
         options: ["Construção de novo hospital", "Ampliação do atendimento básico", "Contratação de mais médicos", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores",
-        image: "https://example.com/roberta-mercio-saude.jpg",
-        caption: "Roberta Mércio apresentando suas propostas para a saúde"
+        correctAnswer: "Todas as anteriores"
       },
       {
         question: "Qual projeto Roberta Mércio propõe para o desenvolvimento econômico de Bagé?",
         options: ["Bagé Empreendedora", "Inova Bagé", "Crescer Juntos", "Futuro Econômico"],
-        correctAnswer: "Inova Bagé",
-        image: "https://example.com/roberta-mercio-economia.jpg",
-        caption: "Roberta Mércio explicando o projeto Inova Bagé"
+        correctAnswer: "Inova Bagé"
       },
       {
         question: "Qual é o foco principal do plano de educação de Roberta Mércio?",
         options: ["Educação tecnológica", "Ensino integral", "Valorização dos professores", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores",
-        image: "https://example.com/roberta-mercio-educacao.jpg",
-        caption: "Roberta Mércio em visita a uma escola municipal"
+        correctAnswer: "Todas as anteriores"
       },
       {
         question: "Qual proposta Roberta Mércio apresenta para a cultura em Bagé?",
         options: ["Festival de Artes", "Restauração de patrimônios históricos", "Criação de centros culturais", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores",
-        image: "https://example.com/roberta-mercio-cultura.jpg",
-        caption: "Roberta Mércio em evento cultural em Bagé"
+        correctAnswer: "Todas as anteriores"
       },
       {
         question: "Qual é o plano de Roberta Mércio para o transporte público em Bagé?",
         options: ["Renovação da frota", "Ampliação de linhas", "Tarifa reduzida", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores",
-        image: "https://example.com/roberta-mercio-transporte.jpg",
-        caption: "Roberta Mércio apresentando seu plano de mobilidade urbana"
+        correctAnswer: "Todas as anteriores"
       },
       {
         question: "Qual é a proposta de Roberta Mércio para o meio ambiente em Bagé?",
         options: ["Ampliação de áreas verdes", "Coleta seletiva", "Energias renováveis", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores",
-        image: "https://example.com/roberta-mercio-meio-ambiente.jpg",
-        caption: "Roberta Mércio em ação de plantio de árvores"
+        correctAnswer: "Todas as anteriores"
       },
       {
         question: "Qual é o lema da campanha de Roberta Mércio?",
         options: ["Bagé para Todos", "Juntos por Bagé", "Renovação e Progresso", "Futuro Melhor"],
-        correctAnswer: "Juntos por Bagé",
-        image: "https://example.com/roberta-mercio-campanha.jpg",
-        caption: "Roberta Mércio em comício com o lema de sua campanha"
+        correctAnswer: "Juntos por Bagé"
       }
     ];
 
@@ -297,8 +295,6 @@
     function displayQuestion(question) {
       questionElement.textContent = question.question;
       optionsContainer.innerHTML = '';
-      questionImage.style.display = 'none';
-      imageCaption.textContent = '';
       
       shuffleArray(question.options).forEach(option => {
         const button = document.createElement('button');
@@ -324,10 +320,6 @@
         score++;
         messageElement.textContent = 'Correto! Muito bem!';
         messageElement.style.color = '#4CAF50';
-        questionImage.src = currentQuestion.image;
-        questionImage.alt = currentQuestion.caption;
-        imageCaption.textContent = currentQuestion.caption;
-        questionImage.style.display = 'block';
       } else {
         messageElement.textContent = `Incorreto. A resposta correta é: ${currentQuestion.correctAnswer}`;
         messageElement.style.color = '#F44336';
@@ -338,8 +330,6 @@
 
     function newQuestion() {
       messageElement.textContent = '';
-      questionImage.style.display = 'none';
-      imageCaption.textContent = '';
       if (questions.length > 0) {
         const randomIndex = Math.floor(Math.random() * questions.length);
         currentQuestion = questions.splice(randomIndex, 1)[0];
