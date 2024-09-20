@@ -460,8 +460,21 @@ questionElement.innerHTML = `
         currentQuestion = availableQuestions.splice(randomIndex, 1)[0];
         displayQuestion(currentQuestion);
       } else {
-        questionElement.innerHTML = '<div style="text-align: justify;">Muito obrigado por participar! Parabéns por chegar até o final e conhecer melhor as propostas de Roberta Mércio. Juntos, podemos construir uma Bagé mais forte e próspera!</div>';
-        optionsContainer.innerHTML = '';
+questionElement.innerHTML = `
+    <div style="text-align: justify;">
+        Muito obrigado por participar! Parabéns por chegar até o final e conhecer melhor as propostas de Roberta Mércio. Juntos, podemos construir uma Bagé mais forte e próspera!
+    </div>
+    <div style="text-align: center; font-size: 40px; font-weight: bold; animation: blink 1s infinite;">
+        VOTE 22
+    </div>
+    <style>
+        @keyframes blink {
+            0% { color: green; }
+            50% { color: yellow; }
+            100% { color: green; }
+        }
+    </style>
+`;        optionsContainer.innerHTML = '';
         messageElement.textContent = '';
       }
     }
