@@ -1,0 +1,356 @@
+<html><head><base href="https://www.divaldo-lara-politica.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jogo Político: A Trajetória de Roberta Mércio em Bagé</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #1a5f7a;
+    --secondary-color: #ffd700;
+    --background-color: #f0f8ff;
+    --text-color: #333333;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f8ff"/><path d="M0 0L100 100M100 0L0 100" stroke="%23d3e5f2" stroke-width="2"/></svg>');
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+  }
+
+  .game-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 20px;
+  }
+
+  .game-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+
+  .game-header p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+  }
+
+  .game-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    border: 2px solid var(--primary-color);
+    flex: 1;
+    margin: 20px 0;
+  }
+
+  h1 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .question-area {
+    margin-bottom: 20px;
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .question {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--text-color);
+    font-family: 'Playfair Display', serif;
+  }
+
+  .options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .option-button {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 1em;
+    padding: 15px;
+    transition: all 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .option-button:hover, .option-button:focus {
+    background-color: #2980b9;
+    transform: scale(1.05);
+    outline: none;
+  }
+
+  .score, .message {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+
+  .message {
+    height: 1.5em;
+  }
+
+  footer {
+    text-align: center;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 0.9em;
+    margin-top: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  footer p {
+    margin: 5px 0;
+  }
+
+  @media (max-width: 600px) {
+    .options-container {
+      grid-template-columns: 1fr;
+    }
+
+    body {
+      padding: 10px;
+    }
+
+    .game-container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    .game-header h2 {
+      font-size: 1.5em;
+    }
+
+    .game-header p {
+      font-size: 0.9em;
+    }
+  }
+
+  .historical-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: none;
+  }
+
+  .image-caption {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 10px;
+    color: var(--text-color);
+  }
+</style>
+</head>
+<body>
+  <header class="game-header">
+    <h2>A Trajetória Política de Roberta Mércio</h2>
+    <p>Um jogo educativo sobre a carreira e propostas da candidata à prefeitura de Bagé</p>
+  </header>
+
+  <div class="game-container">
+    <h1>Desafio Político: Conheça Roberta Mércio</h1>
+    <img id="questionImage" src="" alt="" class="historical-image">
+    <p id="imageCaption" class="image-caption"></p>
+    <div class="question-area">
+      <p class="question" id="question">Carregando pergunta...</p>
+    </div>
+    <div class="options-container" id="options-container">
+      <!-- Options will be dynamically added here -->
+    </div>
+    <div class="score" id="score">Pontuação: 0</div>
+    <div class="message" id="message"></div>
+  </div>
+
+  <footer>
+    <p>Jogo Político: A Trajetória de Roberta Mércio - Um jogo educacional e cultural</p>
+    <p>Criado por Renato Guimarães</p>
+  </footer>
+
+  <script>
+    const questionElement = document.getElementById('question');
+    const optionsContainer = document.getElementById('options-container');
+    const scoreElement = document.getElementById('score');
+    const messageElement = document.getElementById('message');
+    const questionImage = document.getElementById('questionImage');
+    const imageCaption = document.getElementById('imageCaption');
+
+    let currentQuestion = null;
+    let score = 0;
+
+    const questions = [
+      {
+        question: "Em que ano Roberta Mércio iniciou sua carreira política?",
+        options: ["2012", "2016", "2020", "2008"],
+        correctAnswer: "2016",
+        image: "https://example.com/roberta-mercio-2016.jpg",
+        caption: "Roberta Mércio no início de sua carreira política"
+      },
+      {
+        question: "A qual partido político Roberta Mércio é filiada?",
+        options: ["PDT", "MDB", "PSDB", "PL"],
+        correctAnswer: "MDB",
+        image: "https://example.com/mdb-logo.jpg",
+        caption: "Logo do MDB, partido de Roberta Mércio"
+      },
+      {
+        question: "Qual cargo Roberta Mércio ocupou antes de se candidatar à prefeitura?",
+        options: ["Vereadora", "Deputada Estadual", "Secretária Municipal", "Deputada Federal"],
+        correctAnswer: "Vereadora",
+        image: "https://example.com/roberta-mercio-vereadora.jpg",
+        caption: "Roberta Mércio durante seu mandato como vereadora"
+      },
+      {
+        question: "Qual é uma das principais propostas de Roberta Mércio para a saúde em Bagé?",
+        options: ["Construção de novo hospital", "Ampliação do atendimento básico", "Contratação de mais médicos", "Todas as anteriores"],
+        correctAnswer: "Todas as anteriores",
+        image: "https://example.com/roberta-mercio-saude.jpg",
+        caption: "Roberta Mércio apresentando suas propostas para a saúde"
+      },
+      {
+        question: "Qual projeto Roberta Mércio propõe para o desenvolvimento econômico de Bagé?",
+        options: ["Bagé Empreendedora", "Inova Bagé", "Crescer Juntos", "Futuro Econômico"],
+        correctAnswer: "Inova Bagé",
+        image: "https://example.com/roberta-mercio-economia.jpg",
+        caption: "Roberta Mércio explicando o projeto Inova Bagé"
+      },
+      {
+        question: "Qual é o foco principal do plano de educação de Roberta Mércio?",
+        options: ["Educação tecnológica", "Ensino integral", "Valorização dos professores", "Todas as anteriores"],
+        correctAnswer: "Todas as anteriores",
+        image: "https://example.com/roberta-mercio-educacao.jpg",
+        caption: "Roberta Mércio em visita a uma escola municipal"
+      },
+      {
+        question: "Qual proposta Roberta Mércio apresenta para a cultura em Bagé?",
+        options: ["Festival de Artes", "Restauração de patrimônios históricos", "Criação de centros culturais", "Todas as anteriores"],
+        correctAnswer: "Todas as anteriores",
+        image: "https://example.com/roberta-mercio-cultura.jpg",
+        caption: "Roberta Mércio em evento cultural em Bagé"
+      },
+      {
+        question: "Qual é o plano de Roberta Mércio para o transporte público em Bagé?",
+        options: ["Renovação da frota", "Ampliação de linhas", "Tarifa reduzida", "Todas as anteriores"],
+        correctAnswer: "Todas as anteriores",
+        image: "https://example.com/roberta-mercio-transporte.jpg",
+        caption: "Roberta Mércio apresentando seu plano de mobilidade urbana"
+      },
+      {
+        question: "Qual é a proposta de Roberta Mércio para o meio ambiente em Bagé?",
+        options: ["Ampliação de áreas verdes", "Coleta seletiva", "Energias renováveis", "Todas as anteriores"],
+        correctAnswer: "Todas as anteriores",
+        image: "https://example.com/roberta-mercio-meio-ambiente.jpg",
+        caption: "Roberta Mércio em ação de plantio de árvores"
+      },
+      {
+        question: "Qual é o lema da campanha de Roberta Mércio?",
+        options: ["Bagé para Todos", "Juntos por Bagé", "Renovação e Progresso", "Futuro Melhor"],
+        correctAnswer: "Juntos por Bagé",
+        image: "https://example.com/roberta-mercio-campanha.jpg",
+        caption: "Roberta Mércio em comício com o lema de sua campanha"
+      }
+    ];
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function displayQuestion(question) {
+      questionElement.textContent = question.question;
+      optionsContainer.innerHTML = '';
+      questionImage.style.display = 'none';
+      imageCaption.textContent = '';
+      
+      shuffleArray(question.options).forEach(option => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.classList.add('option-button');
+        button.addEventListener('click', () => checkAnswer(option));
+        optionsContainer.appendChild(button);
+      });
+    }
+
+    function checkAnswer(selectedAnswer) {
+      const buttons = document.querySelectorAll('.option-button');
+      buttons.forEach(button => {
+        button.disabled = true;
+        if (button.textContent === currentQuestion.correctAnswer) {
+          button.style.backgroundColor = '#4CAF50';
+        } else if (button.textContent === selectedAnswer && selectedAnswer !== currentQuestion.correctAnswer) {
+          button.style.backgroundColor = '#F44336';
+        }
+      });
+
+      if (selectedAnswer === currentQuestion.correctAnswer) {
+        score++;
+        messageElement.textContent = 'Correto! Muito bem!';
+        messageElement.style.color = '#4CAF50';
+        questionImage.src = currentQuestion.image;
+        questionImage.alt = currentQuestion.caption;
+        imageCaption.textContent = currentQuestion.caption;
+        questionImage.style.display = 'block';
+      } else {
+        messageElement.textContent = `Incorreto. A resposta correta é: ${currentQuestion.correctAnswer}`;
+        messageElement.style.color = '#F44336';
+      }
+      scoreElement.textContent = `Pontuação: ${score}`;
+      setTimeout(newQuestion, 3000);
+    }
+
+    function newQuestion() {
+      messageElement.textContent = '';
+      questionImage.style.display = 'none';
+      imageCaption.textContent = '';
+      if (questions.length > 0) {
+        const randomIndex = Math.floor(Math.random() * questions.length);
+        currentQuestion = questions.splice(randomIndex, 1)[0];
+        displayQuestion(currentQuestion);
+      } else {
+        questionElement.textContent = 'Parabéns! Você completou todas as perguntas sobre a carreira de Roberta Mércio.';
+        optionsContainer.innerHTML = '';
+      }
+    }
+
+    newQuestion();
+  </script>
+</body>
+</html>
