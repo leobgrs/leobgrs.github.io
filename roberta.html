@@ -321,7 +321,7 @@
         currentQuestion = questions.splice(randomIndex, 1)[0];
         displayQuestion(currentQuestion);
       } else {
-        questionElement.textContent = 'Parabéns! Você completou todas as perguntas sobre a carreira de Roberta Mércio.';
+        questionElement.innerHTML = '<div style="text-align: justify;">Muito obrigado por participar! Parabéns por chegar até o final e conhecer melhor as propostas de Roberta Mércio. Juntos, podemos construir uma Bagé mais forte e próspera!</div>';
         optionsContainer.innerHTML = '';
       }
     }
