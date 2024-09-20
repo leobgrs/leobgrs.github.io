@@ -447,7 +447,7 @@
         currentQuestion = availableQuestions.splice(randomIndex, 1)[0];
         displayQuestion(currentQuestion);
       } else {
-        questionElement.textContent = 'Parabéns! Você mostrou que conhece as propostas e a trajetória de Roberta Mércio! Agora, é hora de agir por uma Bagé melhor. No dia da eleição, vote em 22 quem acredita no progresso e no futuro de nossa cidade.<BR> Vote 22 Roberta Mércio para Prefeita!';
+        questionElement.innerHTML = '<div style="text-align: justify;">Muito obrigado por participar! Parabéns por chegar até o final e conhecer melhor as propostas de Roberta Mércio. Juntos, podemos construir uma Bagé mais forte e próspera!</div>';
         optionsContainer.innerHTML = '';
         messageElement.textContent = '';
       }
