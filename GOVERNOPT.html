@@ -1,0 +1,465 @@
+<html>
+  <head>
+  <!-- <base href="https://www.bage.rs.gov.br/transicao"> -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transição de Governo 2025 | Prefeitura Municipal de Bagé</title>
+<link rel="icon" type="image/webp" href="/a/79517927-312c-4dc3-8451-7cb625a78eef">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+  :root {
+    --primary-color: #cc0000;
+    --secondary-color: #ff1a1a;
+    --text-color: #333;
+    --background-color: #fff;
+    --highlight-color: #ff4d4d;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('IMAGE/BANDEIRA PT.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    opacity: 0.8;
+    pointer-events: none;
+    z-index: -1;
+    animation: rotateStar 60s linear infinite;
+  }
+
+  @keyframes rotateStar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .logo {
+    width: 120px;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+  }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .header-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  nav {
+    background-color: rgba(255,255,255,0.95);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  nav ul li {
+    margin: 0.5rem 1rem;
+  }
+  
+  nav ul li a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+  }
+  
+  nav ul li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(204,0,0,0.2);
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+  }
+  
+  .intro {
+    text-align: center;
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.9));
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 2px solid rgba(204,0,0,0.1);
+  }
+  
+  .secretarias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
+  
+  .secretaria-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(204,0,0,0.1);
+  }
+  
+  .secretaria-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(204,0,0,0.2);
+  }
+  
+  .secretaria-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  
+  .secretaria-card:hover img {
+    transform: scale(1.05);
+  }
+  
+  .secretaria-card-content {
+    padding: 1.5rem;
+  }
+  
+  .secretaria-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+  }
+  
+  .secretaria-card a {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+  
+  .secretaria-card a:hover {
+    background-color: var(--secondary-color);
+    transform: translateX(5px);
+  }
+  
+  section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: rgba(255,255,255,0.95);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  section h2 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 2px;
+  }
+  
+  footer {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+  
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.8em;
+    }
+    
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    nav ul li {
+      width: 100%;
+      text-align: center;
+    }
+    
+    .header-content {
+      flex-direction: row;
+      padding: 0 1rem;
+    }
+    
+    .header-logo {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .secretarias-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="IMAGE/BANDEIRA PT.webp" alt="Logo PT" class="header-logo">
+      <div>
+        <h1>TRANSIÇÃO DE GOVERNO - BAGÉ 2025</h1>
+        <p>Transparência • Compromisso • Responsabilidade</p>
+      </div>
+      <img src="IMAGE/PODEMOS.jfif" alt="Logo Podemos" class="header-logo">
+    </div>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#sobre">Sobre a Transição</a></li>
+      <li><a href="#equipe">Equipe</a></li>
+      <li><a href="#secretarias">Secretarias</a></li>
+      <li><a href="#cronograma">Cronograma</a></li>
+      <li><a href="#documentos">Documentos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <section id="sobre" class="intro">
+      <h2>Sobre a Transição de Governo</h2>
+      <p>Bem-vindo ao portal oficial da Transição de Governo da Prefeitura Municipal de Bagé. Este espaço foi criado para garantir uma transição transparente e eficiente, assegurando a continuidade dos serviços públicos e o compromisso com o desenvolvimento de nossa cidade.</p>
+    </section>
+    
+    <section id="secretarias">
+      <h2>Secretarias Municipais</h2>
+      <div class="secretarias-grid">
+        <div class="secretaria-card">
+          <img src="https://www.bage.rs.gov.br/wp-content/uploads/2023/06/financas.jpg" alt="Secretaria de Finanças" width="300" height="200">
+          <div class="secretaria-card-content">
+            <h3>Finanças</h3>
+            <p>Gestão orçamentária, financeira e patrimonial do município.</p>
+            <a href="https://www.bage.rs.gov.br/transicao/financas">Ver detalhes →</a>
+          </div>
+        </div>
+        
+        <div class="secretaria-card">
+          <img src="https://www.bage.rs.gov.br/wp-content/uploads/2023/06/saude.jpg" alt="Secretaria de Saúde" width="300" height="200">
+          <div class="secretaria-card-content">
+            <h3>Saúde</h3>
+            <p>Políticas de saúde pública e atendimento à população.</p>
+            <a href="https://www.bage.rs.gov.br/transicao/saude">Ver detalhes →</a>
+          </div>
+        </div>
+        
+        <div class="secretaria-card">
+          <img src="https://www.bage.rs.gov.br/wp-content/uploads/2023/06/educacao.jpg" alt="Secretaria de Educação" width="300" height="200">
+          <div class="secretaria-card-content">
+            <h3>Educação</h3>
+            <p>Gestão do ensino público municipal e políticas educacionais.</p>
+            <a href="https://www.bage.rs.gov.br/transicao/educacao">Ver detalhes →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="cronograma">
+      <h2>Cronograma da Transição</h2>
+      <div style="background: rgba(204,0,0,0.05); padding: 2rem; border-radius: 10px; margin-top: 1rem;">
+        <ul style="list-style-type: none;">
+          <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+            <strong style="color: var(--primary-color);">Novembro 2024:</strong> Início dos trabalhos da equipe de transição
+          </li>
+          <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+            <strong style="color: var(--primary-color);">Dezembro 2024:</strong> Análise de relatórios e documentos
+          </li>
+          <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+            <strong style="color: var(--primary-color);">Janeiro 2025:</strong> Definição das diretrizes do novo governo
+          </li>
+        </ul>
+      </div>
+    </section>
+    
+    <section id="documentos">
+      <h2>Documentos e Relatórios</h2>
+      <div class="grid-documentos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+          <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Execução Orçamentária 2024</h4>
+          <canvas id="budgetChart"></canvas>
+          <a href="./Relatório Geral de Transição 2025 _ Prefeitura Municipal de Bagé.pdf" style="color: var(--primary-color); display: block; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
+        </div>
+        
+        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+          <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investimentos por Área</h4>
+          <canvas id="investmentChart"></canvas>
+          <a href="https://www.bage.rs.gov.br/transicao/docs/investimentos-2024.pdf" style="color: var(--primary-color); display: block; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
+        </div>
+        
+        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+          <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Evolução de Serviços</h4>
+          <canvas id="servicesChart"></canvas>
+          <a href="https://www.bage.rs.gov.br/transicao/docs/servicos-2024.pdf" style="color: var(--primary-color); display: block; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contato">
+      <h2>Entre em Contato</h2>
+      <div style="text-align: center; margin-top: 2rem;">
+        <p style="font-size: 1.2em; margin-bottom: 1rem;">
+          <strong>Email:</strong> transicao2025@bage.rs.gov.br
+        </p>
+        <p style="font-size: 1.2em; margin-bottom: 1rem;">
+          <strong>Telefone:</strong> (53) 3240-5000
+        </p>
+        <p style="font-size: 1.2em;">
+          <strong>Endereço:</strong> Av. General Osório, 998 - Centro, Bagé - RS, 96400-100
+        </p>
+      </div>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2023 Prefeitura Municipal de Bagé. Todos os direitos reservados.</p>
+    <p style="margin-top: 0.5rem;">Desenvolvido pela Equipe de Transição 2025</p>
+  </footer>
+  
+  <script>
+// Budget Chart
+const budgetCtx = document.getElementById('budgetChart');
+new Chart(budgetCtx, {
+  type: 'pie',
+  data: {
+    labels: ['Executado', 'Em execução', 'Planejado'],
+    datasets: [{
+      data: [65, 20, 15],
+      backgroundColor: ['#cc0000', '#ff1a1a', '#ff4d4d']
+    }]
+  }
+});
+
+// Investment Chart
+const investmentCtx = document.getElementById('investmentChart');
+new Chart(investmentCtx, {
+  type: 'bar',
+  data: {
+    labels: ['Saúde', 'Educação', 'Infraestrutura', 'Social'],
+    datasets: [{
+      label: 'Milhões R$',
+      data: [45, 38, 28, 22],
+      backgroundColor: '#cc0000'
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+// Services Chart
+const servicesCtx = document.getElementById('servicesChart');
+new Chart(servicesCtx, {
+  type: 'line',
+  data: {
+    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
+    datasets: [{
+      label: 'Atendimentos',
+      data: [1200, 1350, 1500, 1800, 2100, 2400],
+      borderColor: '#cc0000',
+      tension: 0.1
+    }]
+  }
+});
+</script>
+</body>
+</html>
