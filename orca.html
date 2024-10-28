@@ -1,0 +1,319 @@
+<html><head><base href="https://www.bage.rs.gov.br/transicao/docs/orcamento-2024.pdf">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orçamento 2024 - Transição de Governo | Prefeitura Municipal de Bagé</title>
+<link rel="icon" type="image/webp" href="/a/79517927-312c-4dc3-8451-7cb625a78eef">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+/* Mantendo o estilo base anterior e adicionando específicos para documentos */
+:root {
+    --primary-color: #cc0000;
+    --secondary-color: #ff1a1a;
+    --text-color: #333;
+    --background-color: #fff;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/a/79517927-312c-4dc3-8451-7cb625a78eef');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.header-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.document-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.document-header {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.chart-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.data-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.summary-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.summary-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.summary-value {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="/a/79517927-312c-4dc3-8451-7cb625a78eef" alt="Logo PT" class="header-logo">
+            <div>
+                <h1>ORÇAMENTO 2024</h1>
+                <p>Relatório Detalhado de Execução Orçamentária</p>
+            </div>
+            <img src="/a/e2f7b17c-aa14-4097-804e-4f527e3c02a3" alt="Logo Podemos" class="header-logo">
+        </div>
+    </header>
+
+    <div class="document-container">
+        <div class="document-header">
+            <h2>Resumo Executivo</h2>
+            <p>Este documento apresenta a análise detalhada do orçamento municipal de 2024, incluindo receitas, despesas e investimentos realizados pela gestão municipal.</p>
+        </div>
+
+        <div class="summary-cards">
+            <div class="summary-card">
+                <h3>Orçamento Total</h3>
+                <div class="summary-value">R$ 850M</div>
+            </div>
+            <div class="summary-card">
+                <h3>Executado</h3>
+                <div class="summary-value">68%</div>
+            </div>
+            <div class="summary-card">
+                <h3>Em Execução</h3>
+                <div class="summary-value">22%</div>
+            </div>
+            <div class="summary-card">
+                <h3>A Executar</h3>
+                <div class="summary-value">10%</div>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Distribuição por Área</h3>
+                <canvas id="distributionChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Evolução Mensal</h3>
+                <canvas id="evolutionChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Comparativo de Investimentos</h3>
+                <canvas id="investmentChart"></canvas>
+            </div>
+        </div>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Secretaria</th>
+                    <th>Orçamento Previsto</th>
+                    <th>Executado</th>
+                    <th>Percentual</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Saúde</td>
+                    <td>R$ 250.000.000,00</td>
+                    <td>R$ 175.000.000,00</td>
+                    <td>70%</td>
+                </tr>
+                <tr>
+                    <td>Educação</td>
+                    <td>R$ 200.000.000,00</td>
+                    <td>R$ 140.000.000,00</td>
+                    <td>70%</td>
+                </tr>
+                <tr>
+                    <td>Infraestrutura</td>
+                    <td>R$ 150.000.000,00</td>
+                    <td>R$ 90.000.000,00</td>
+                    <td>60%</td>
+                </tr>
+                <tr>
+                    <td>Assistência Social</td>
+                    <td>R$ 100.000.000,00</td>
+                    <td>R$ 65.000.000,00</td>
+                    <td>65%</td>
+                </tr>
+                <tr>
+                    <td>Administração</td>
+                    <td>R$ 80.000.000,00</td>
+                    <td>R$ 48.000.000,00</td>
+                    <td>60%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+<script>
+// Distribution Chart
+const distributionCtx = document.getElementById('distributionChart');
+new Chart(distributionCtx, {
+    type: 'pie',
+    data: {
+        labels: ['Saúde', 'Educação', 'Infraestrutura', 'Assistência Social', 'Administração'],
+        datasets: [{
+            data: [250, 200, 150, 100, 80],
+            backgroundColor: [
+                '#cc0000',
+                '#ff1a1a',
+                '#ff4d4d',
+                '#ff8080',
+                '#ffb3b3'
+            ]
+        }]
+    }
+});
+
+// Evolution Chart
+const evolutionCtx = document.getElementById('evolutionChart');
+new Chart(evolutionCtx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        datasets: [{
+            label: 'Execução Orçamentária 2024',
+            data: [50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600],
+            borderColor: '#cc0000',
+            tension: 0.1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Milhões R$'
+                }
+            }
+        }
+    }
+});
+
+// Investment Chart
+const investmentCtx = document.getElementById('investmentChart');
+new Chart(investmentCtx, {
+    type: 'bar',
+    data: {
+        labels: ['2020', '2021', '2022', '2023', '2024'],
+        datasets: [{
+            label: 'Investimentos Totais',
+            data: [500, 550, 600, 700, 850],
+            backgroundColor: '#cc0000'
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Milhões R$'
+                }
+            }
+        }
+    }
+});
+</script>
+</body>
+</html>
