@@ -376,11 +376,12 @@
           <a href="https://www.bage.rs.gov.br/transicao/docs/orcamento-2024.pdf" style="color: var(--primary-color); display: block; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
         </div>
         
-        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-          <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investimentos por Área</h4>
-          <canvas id="investmentChart"></canvas>
-          <a href="relatorio-in-2024.pdf" style="color: var(--primary-color); display: block; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
-        </div>
+       <div id="reportContainer" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investimentos por Área</h4>
+    <canvas id="investmentChart"></canvas>
+    <button onclick="showDownloadLink()">Mostrar Relatório</button>
+    <a id="downloadLink" href="relatorio-in-2024.pdf" style="color: var(--primary-color); display: none; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
+</div>
         
         <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
           <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Evolução de Serviços</h4>
@@ -410,7 +411,12 @@
     <p>&copy; 2024 Equipe de Transição| Todos os direitos reservados.</p>
     <p style="margin-top: 0.5rem;">Desenvolvido por Leonardo Goulart Lopes|Analista de Sistemas|2025</p>
   </footer>
-  
+  <script>
+    function showDownloadLink() {
+        var downloadLink = document.getElementById('downloadLink');
+        downloadLink.style.display = 'block';
+    }
+</script>
   <script>
 // Budget Chart
 const budgetCtx = document.getElementById('budgetChart');
