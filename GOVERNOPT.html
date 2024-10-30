@@ -372,18 +372,18 @@
       <div class="grid-documentos" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
         <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
           <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Execução Orçamentária 2024</h4>
-          <canvas id="budgetChart">
+          <canvas id="budgetChart"></canvas>
             <a href="./relatorio-in-2024.pdf" target="_blank" style="color: var(--primary-color); display: inline-block; margin-top: 1rem; text-decoration: none; margin-right: 1rem;">Visualizar PDF →</a>
-          </canvas>
+
           <a href="https://www.bage.rs.gov.br/transicao/docs/orcamento-2024.pdf" style="color: var(--primary-color); display: block; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
         </div>
         
-       <div id="reportContainer" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investimentos por Área</h4>
-    <canvas id="investmentChart"></canvas>
-    <button onclick="showDownloadLink()">Mostrar Relatório</button>
-    <a id="downloadLink" href="relatorio-in-2024.pdf" style="color: var(--primary-color); display: none; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
-</div>
+        <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+          <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Investimentos por Área</h4>
+          <canvas id="investmentChart"></canvas>
+          <a href="./relatorio-in-2024.pdf" target="_blank" style="color: var(--primary-color); display: inline-block; margin-top: 1rem; text-decoration: none; margin-right: 1rem;">Visualizar PDF →</a>
+          <a href="./relatorio-in-2024.pdf" download style="color: var(--primary-color); display: inline-block; margin-top: 1rem; text-decoration: none;">Download PDF →</a>
+      </div>
         
         <div style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
           <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Evolução de Serviços</h4>
