@@ -1,0 +1,297 @@
+<html><head><base href="https://www.bage.rs.gov.br/transicao/docs/servicos-2024.pdf">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de Serviços 2024 - Prefeitura Municipal de Bagé</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #cc0000;
+    --secondary-color: #ff1a1a;
+    --text-color: #333;
+    --background-color: #fff;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/a/79517927-312c-4dc3-8451-7cb625a78eef');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60%;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .header-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+  
+  .report-section {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .table-container {
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+  }
+  
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .chart-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .summary-box {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+  
+  .stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 1rem 0;
+  }
+  
+  footer {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+  
+  @media print {
+    body::before {
+      display: none;
+    }
+    
+    .report-section {
+      break-inside: avoid;
+    }
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <img src="/a/79517927-312c-4dc3-8451-7cb625a78eef" alt="Logo PT" class="header-logo">
+      <div>
+        <h1>RELATÓRIO DE SERVIÇOS 2024</h1>
+        <p>Prefeitura Municipal de Bagé</p>
+      </div>
+      <img src="/a/e2f7b17c-aa14-4097-804e-4f527e3c02a3" alt="Logo Podemos" class="header-logo">
+    </div>
+  </header>
+
+  <main>
+    <div class="report-section">
+      <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Sumário Executivo</h2>
+      <p>Este relatório apresenta uma análise detalhada dos serviços prestados pela Prefeitura Municipal de Bagé durante o ano de 2024, destacando os principais indicadores de desempenho e evolução dos atendimentos.</p>
+      
+      <div class="summary-box">
+        <h3>Destaques do Ano</h3>
+        <ul style="list-style: none; margin-top: 1rem;">
+          <li>✓ Aumento de 25% no número total de atendimentos</li>
+          <li>✓ Implementação de 3 novos programas sociais</li>
+          <li>✓ Redução de 30% no tempo médio de espera</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="report-section">
+      <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Atendimentos por Área</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Área</th>
+              <th>Total de Atendimentos</th>
+              <th>Variação 2023-2024</th>
+              <th>Satisfação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Saúde</td>
+              <td>45.678</td>
+              <td>+15%</td>
+              <td>92%</td>
+            </tr>
+            <tr>
+              <td>Educação</td>
+              <td>32.456</td>
+              <td>+12%</td>
+              <td>89%</td>
+            </tr>
+            <tr>
+              <td>Assistência Social</td>
+              <td>28.934</td>
+              <td>+25%</td>
+              <td>87%</td>
+            </tr>
+            <tr>
+              <td>Infraestrutura</td>
+              <td>15.678</td>
+              <td>+8%</td>
+              <td>85%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="serviceChart"></canvas>
+      </div>
+    </div>
+
+    <div class="report-section">
+      <h2 style="color: var(--primary-color); margin-bottom: 1rem;">Indicadores de Desempenho</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Tempo Médio de Atendimento</h3>
+          <div class="stat-number">15 min</div>
+          <p>Redução de 30% em relação a 2023</p>
+        </div>
+        <div class="stat-card">
+          <h3>Satisfação do Usuário</h3>
+          <div class="stat-number">88%</div>
+          <p>Aumento de 5% em relação a 2023</p>
+        </div>
+        <div class="stat-card">
+          <h3>Demandas Resolvidas</h3>
+          <div class="stat-number">93%</div>
+          <p>Aumento de 8% em relação a 2023</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2024 Prefeitura Municipal de Bagé - Documento Oficial</p>
+    <p>Gerado em: <script>document.write(new Date().toLocaleDateString())</script></p>
+  </footer>
+
+  <script>
+    const ctx = document.getElementById('serviceChart');
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+        datasets: [{
+          label: 'Total de Atendimentos Mensais',
+          data: [3200, 3500, 3800, 4200, 4500, 4800, 5000, 5200, 5500, 5800, 6000, 6200],
+          backgroundColor: '#cc0000',
+          borderColor: '#cc0000',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
