@@ -1,0 +1,967 @@
+<html><head>
+    <!-- <base href="https://storage.googleapis.com"> -->
+<link rel="icon" type="image/x-icon" href="./cabeca-de-ovelha-branca_181624-39135.avif">
+<title>OvinoPro - Sistema Profissional de Gestão Ovina</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<style>
+:root {
+    --primary-color: #2C5530;
+    --secondary-color: #8BA888;
+    --accent-color: #E6D5AC;
+    --dark-color: #1A1A1A;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+#loginOverlay {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('./ove.jpg');
+    background-size: cover;
+    background-position: bottom center; 
+    background-repeat: no-repeat;
+    position: fixed;  
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; 
+    height: 100vh; 
+}
+
+
+#loginOverlay:before {
+    display: none; /* Remove the floating OVINO PRO text */
+}
+
+#loginOverlay .card {
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    margin-top: 0;  
+}
+
+#loginOverlay .card-body {
+    padding: 2rem;
+}
+
+#loginOverlay .login-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+#loginOverlay .form-control {
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+#loginOverlay .btn-primary {
+    padding: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.navbar {
+    background-color: var(--primary-color) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo-img {
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: brightness(1.1) contrast(1.1);
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.developer-info {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 0;
+    font-size: 0.9rem;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    color: white !important;
+    font-weight: bold;
+    font-size: 2rem;
+    padding: 5px 0;
+}
+
+.nav-link {
+    color: white !important;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.hero-section {
+    background: linear-gradient(rgba(44, 85, 48, 0.9), rgba(139, 168, 136, 0.8)),
+                url('');
+    background-size: cover;
+    background-position: center;
+    padding-top: 120px;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.feature-card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    padding: 2rem 0;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.stats-section {
+    background-color: var(--accent-color);
+    padding: 3rem 0;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.crud-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.crud-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.table-responsive {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.report-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.report-chart {
+    height: 300px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    color: white;
+    background-color: #20ba5a;
+}
+</style>
+</head>
+<body>
+
+<div id="loginOverlay" class="position-fixed w-100 h-100 bg-light" style="z-index: 9999;">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h2 class="login-title">OVINO PRO</h2>
+                        <p class="text-center text-muted mb-4">
+                            Sistema Profissional de Gestão Ovina<br>
+                            <small class="text-success">Simplifique sua gestão. Maximize seus resultados.</small>
+                        </p>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="username" placeholder="Usuário" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="password" class="form-control" id="password" placeholder="Senha" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 mb-3">Entrar no Sistema</button>
+                            <p class="text-center mb-0">
+                                <small class="text-muted">
+                                    Não tem uma conta? 
+                                    <a href="https://wa.me/5553999427999" class="text-success">Solicite seu acesso</a>
+                                </small>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="./cabeca-de-ovelha-branca_181624-39135.avif" 
+                 alt="Cabeça de ovelha branca em estilo profissional" 
+                 class="logo-img"
+                 width="80" 
+                 height="80">
+            OvinoPro
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#rebanho">Rebanho</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sanidade">Sanidade</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#relatorios">Relatórios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contato">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section" id="inicio">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="display-4">Gestão Inteligente para sua Ovinocultura</h1>
+                <p class="lead mb-4">
+                    Transforme sua propriedade com o sistema mais completo do mercado:
+                    <ul class="lead mb-4">
+                        <li>Controle total do rebanho</li>
+                        <li>Gestão sanitária simplificada</li>
+                        <li>Relatórios gerenciais detalhados</li>
+                        <li>Suporte técnico especializado</li>
+                        <li>Informações disponíveis em qualquer lugar</li>
+                        <li>Sistema compativel para celular e desktop</li>
+                    </ul>
+                </p>
+                <a href="https://wa.me/5553999427999" class="btn btn-primary btn-lg">
+                    <i class="fab fa-whatsapp me-2"></i>Comece Agora - Teste Grátis
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Recursos Principais</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card p-4">
+                    <i class="fas fa-paw feature-icon"></i>
+                    <h3>Controle de Rebanho</h3>
+                    <p>Gerencie seu rebanho com facilidade, acompanhando nascimentos, genealogia e desenvolvimento.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card p-4">
+                    <i class="fas fa-heartbeat feature-icon"></i>
+                    <h3>Sanidade Animal</h3>
+                    <p>Controle vacinas, vermífugos e tratamentos, mantendo seu rebanho saudável.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card p-4">
+                    <i class="fas fa-chart-line feature-icon"></i>
+                    <h3>Relatórios Detalhados</h3>
+                    <p>Análises e relatórios completos para tomada de decisões estratégicas.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="stat-number">5000+</div>
+                    <div class="stat-label">Produtores Atendidos</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="stat-number">1M+</div>
+                    <div class="stat-label">Animais Cadastrados</div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfação dos Clientes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gestão de Rebanho Section -->
+<section class="crud-section" id="rebanho">
+    <div class="container">
+        <h2 class="text-center mb-5">Gestão do Rebanho</h2>
+        
+        <!-- CRUD Form -->
+        <div class="crud-card">
+            <h4>Cadastrar Novo Animal</h4>
+            <form id="animalForm">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <input type="text" class="form-control" placeholder="Identificação">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <select class="form-control">
+                            <option>Raça</option>
+                            <option>Merino</option>
+                            <option>Corriedale</option>
+                            <option>Texel</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive mt-4">
+            <table class="table" id="animalTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Raça</th>
+                        <th>Data Nascimento</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Merino</td>
+                        <td>15/01/2023</td>
+                        <td><span class="badge bg-success">Ativo</span></td>
+                        <td>
+                            <button onclick="viewAnimal('001')" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-title="Visualizar detalhes"><i class="fas fa-eye"></i></button>
+                            <button onclick="editAnimal('001')" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-title="Editar registro"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteAnimal('001')" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-title="Excluir registro"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Corriedale</td>
+                        <td>20/02/2023</td>
+                        <td><span class="badge bg-success">Ativo</span></td>
+                        <td>
+                            <button onclick="viewAnimal('002')" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-title="Visualizar detalhes"><i class="fas fa-eye"></i></button>
+                            <button onclick="editAnimal('002')" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-title="Editar registro"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteAnimal('002')" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-title="Excluir registro"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Sanidade Section -->
+<section class="crud-section" id="sanidade">
+    <div class="container">
+        <h2 class="text-center mb-5">Controle Sanitário</h2>
+        
+        <!-- CRUD Form -->
+        <div class="crud-card">
+            <h4>Registrar Procedimento Sanitário</h4>
+            <form id="saudeForm">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <select class="form-control" id="tipoProc">
+                            <option value="">Tipo de Procedimento</option>
+                            <option value="vacina">Vacinação</option>
+                            <option value="vermifugo">Vermifugação</option>
+                            <option value="tratamento">Tratamento</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <input type="text" class="form-control" placeholder="ID do Animal">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <input type="date" class="form-control" placeholder="Data">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <button type="submit" class="btn btn-primary w-100">Registrar</button>
+                    </div>
+                    <div class="col-md-12 mb-3">
+                        <textarea class="form-control" placeholder="Observações" rows="2"></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Table -->
+        <div class="table-responsive mt-4">
+            <table class="table" id="saudeTable">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Animal</th>
+                        <th>Procedimento</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>15/03/2024</td>
+                        <td>001</td>
+                        <td>Vacinação Clostridiose</td>
+                        <td><span class="badge bg-success">Realizado</span></td>
+                        <td>
+                            <button onclick="viewSaude('15/03/2024', '001')" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-title="Visualizar procedimento"><i class="fas fa-eye"></i></button>
+                            <button onclick="editSaude('15/03/2024', '001')" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-title="Editar procedimento"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteSaude('15/03/2024', '001')" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-title="Excluir procedimento"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10/03/2024</td>
+                        <td>002</td>
+                        <td>Vermifugação</td>
+                        <td><span class="badge bg-success">Realizado</span></td>
+                        <td>
+                            <button onclick="viewSaude('10/03/2024', '002')" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-title="Visualizar procedimento"><i class="fas fa-eye"></i></button>
+                            <button onclick="editSaude('10/03/2024', '002')" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-title="Editar procedimento"><i class="fas fa-edit"></i></button>
+                            <button onclick="deleteSaude('10/03/2024', '002')" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-title="Excluir procedimento"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- Relatórios Section -->
+<section class="py-5" id="relatorios">
+    <div class="container">
+        <h2 class="text-center mb-5">Relatórios</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="report-card">
+                    <h4>Distribuição por Raça</h4>
+                    <canvas class="report-chart" id="racaChart"></canvas>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="report-card">
+                    <h4>Evolução do Rebanho</h4>
+                    <canvas class="report-chart" id="evolucaoChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="py-5" id="contato">
+    <div class="container">
+        <h2 class="text-center mb-5">Entre em Contato</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Nome">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" placeholder="E-mail">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="4" placeholder="Mensagem"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>OvinoPro</h5>
+                <p>Sistema Profissional de Gestão Ovina para Pequenos e Médios Produtores.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Links Rápidos</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#inicio" class="text-white">Início</a></li>
+                    <li><a href="#rebanho" class="text-white">Rebanho</a></li>
+                    <li><a href="#sanidade" class="text-white">Sanidade</a></li>
+                    <li><a href="#relatorios" class="text-white">Relatórios</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Contato</h5>
+                <p>
+                    <i class="fas fa-phone"></i> (51) 9999-9999<br>
+                    <i class="fas fa-envelope"></i> contato@gestaovinos.com.br<br>
+                    <i class="fas fa-map-marker-alt"></i> Bagé, RS - Brasil
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="developer-info text-center mt-4">
+        <div class="container">
+            Desenvolvido por Leonardo Goulart Lopes | Contato: (53) 99942-7999<br>
+            © 2024 OvinoPro - Todos os direitos reservados
+        </div>
+    </div>
+</footer>
+
+<!-- WhatsApp Float Button -->
+<a href="https://wa.me/5553999427999" 
+   class="whatsapp-float" 
+   target="_blank"
+   data-bs-toggle="tooltip" 
+   data-bs-placement="left" 
+   data-bs-title="Fale conosco pelo WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
+
+// Add animation on scroll for feature cards
+window.addEventListener('scroll', function() {
+    const cards = document.querySelectorAll('.feature-card');
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < window.innerHeight - 100) {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }
+    });
+});
+
+// Login handling
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+    if (username === 'leo' && password === 'leo') {
+        document.getElementById('loginOverlay').style.display = 'none';
+    } else {
+        alert('Usuário ou senha incorretos!');
+    }
+});
+
+// Logout function
+function logout() {
+    document.getElementById('loginOverlay').style.display = 'block';
+    document.getElementById('username').value = '';
+    document.getElementById('password').value = '';
+}
+
+// CRUD Operations
+let animals = [
+    {id: '001', raca: 'Merino', dataNascimento: '15/01/2023', status: 'Ativo'},
+    {id: '002', raca: 'Corriedale', dataNascimento: '20/02/2023', status: 'Ativo'}
+];
+
+function renderTable() {
+    const tbody = document.querySelector('#animalTable tbody');
+    tbody.innerHTML = animals.map(animal => `
+        <tr>
+            <td>${animal.id}</td>
+            <td>${animal.raca}</td>
+            <td>${animal.dataNascimento}</td>
+            <td><span class="badge bg-success">${animal.status}</span></td>
+            <td>
+                <button onclick="viewAnimal('${animal.id}')" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-title="Visualizar detalhes"><i class="fas fa-eye"></i></button>
+                <button onclick="editAnimal('${animal.id}')" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-title="Editar registro"><i class="fas fa-edit"></i></button>
+                <button onclick="deleteAnimal('${animal.id}')" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-title="Excluir registro"><i class="fas fa-trash"></i></button>
+            </td>
+        </tr>
+    `).join('');
+    
+    // Reinitialize tooltips after table update
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+}
+
+function viewAnimal(id) {
+    const animal = animals.find(a => a.id === id);
+    alert(`Detalhes do Animal:\nID: ${animal.id}\nRaça: ${animal.raca}\nData Nascimento: ${animal.dataNascimento}\nStatus: ${animal.status}`);
+}
+
+function editAnimal(id) {
+    const animal = animals.find(a => a.id === id);
+    document.querySelector('[placeholder="Identificação"]').value = animal.id;
+    document.querySelector('select').value = animal.raca;
+    const dateParts = animal.dataNascimento.split('/');
+    document.querySelector('input[type="date"]').value = `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+}
+
+function deleteAnimal(id) {
+    if (confirm('Deseja realmente excluir este animal?')) {
+        animals = animals.filter(a => a.id !== id);
+        renderTable();
+    }
+}
+
+document.getElementById('animalForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const newAnimal = {
+        id: document.querySelector('[placeholder="Identificação"]').value,
+        raca: document.querySelector('select').value,
+        dataNascimento: new Date(document.querySelector('input[type="date"]').value).toLocaleDateString('pt-BR'),
+        status: 'Ativo'
+    };
+    
+    const existingIndex = animals.findIndex(a => a.id === newAnimal.id);
+    if (existingIndex >= 0) {
+        animals[existingIndex] = newAnimal;
+    } else {
+        animals.push(newAnimal);
+    }
+    
+    renderTable();
+    this.reset();
+});
+
+// Sanidade CRUD Operations
+let saudeRegistros = [
+    {data: '15/03/2024', animal: '001', procedimento: 'Vacinação Clostridiose', status: 'Realizado'},
+    {data: '10/03/2024', animal: '002', procedimento: 'Vermifugação', status: 'Realizado'}
+];
+
+function renderSaudeTable() {
+    const tbody = document.querySelector('#saudeTable tbody');
+    if (tbody) {
+        tbody.innerHTML = saudeRegistros.map(registro => `
+            <tr>
+                <td>${registro.data}</td>
+                <td>${registro.animal}</td>
+                <td>${registro.procedimento}</td>
+                <td><span class="badge bg-success">${registro.status}</span></td>
+                <td>
+                    <button onclick="viewSaude('${registro.data}', '${registro.animal}')" class="btn btn-sm btn-info" data-bs-toggle="tooltip" data-bs-title="Visualizar procedimento"><i class="fas fa-eye"></i></button>
+                    <button onclick="editSaude('${registro.data}', '${registro.animal}')" class="btn btn-sm btn-primary" data-bs-toggle="tooltip" data-bs-title="Editar procedimento"><i class="fas fa-edit"></i></button>
+                    <button onclick="deleteSaude('${registro.data}', '${registro.animal}')" class="btn btn-sm btn-danger" data-bs-toggle="tooltip" data-bs-title="Excluir procedimento"><i class="fas fa-trash"></i></button>
+                </td>
+            </tr>
+        `).join('');
+        
+        // Reinitialize tooltips after table update
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    }
+}
+
+function viewSaude(data, animal) {
+    const registro = saudeRegistros.find(r => r.data === data && r.animal === animal);
+    alert(`Detalhes do Procedimento:\nData: ${registro.data}\nAnimal: ${registro.animal}\nProcedimento: ${registro.procedimento}\nStatus: ${registro.status}`);
+}
+
+function editSaude(data, animal) {
+    const registro = saudeRegistros.find(r => r.data === data && r.animal === animal);
+    
+    // Store the original data/animal for update identification
+    document.getElementById('saudeForm').setAttribute('data-editing-date', data);
+    document.getElementById('saudeForm').setAttribute('data-editing-animal', animal);
+    
+    // Parse the procedimento string to get the procedure type
+    let procedureType = '';
+    if (registro.procedimento.toLowerCase().includes('vacinação')) {
+        procedureType = 'vacina';
+    } else if (registro.procedimento.toLowerCase().includes('vermifugação')) {
+        procedureType = 'vermifugo';
+    } else {
+        procedureType = 'tratamento';
+    }
+    
+    // Set the procedure type
+    document.querySelector('#tipoProc').value = procedureType;
+    
+    // Set the animal ID
+    document.querySelector('input[placeholder="ID do Animal"]').value = registro.animal;
+    
+    // Set the date - convert from DD/MM/YYYY to YYYY-MM-DD for input[type="date"]
+    const [day, month, year] = registro.data.split('/');
+    document.querySelector('#saudeForm input[type="date"]').value = `${year}-${month}-${day}`;
+    
+    // Extract and set observations from procedimento string
+    const observacoes = registro.procedimento.includes(' - ') ? 
+        registro.procedimento.split(' - ')[1] : '';
+    document.querySelector('#saudeForm textarea').value = observacoes;
+    
+    // Change button text to indicate editing mode
+    document.querySelector('#saudeForm button[type="submit"]').textContent = 'Atualizar';
+}
+
+function deleteSaude(data, animal) {
+    if (confirm('Deseja realmente excluir este registro sanitário?')) {
+        saudeRegistros = saudeRegistros.filter(r => !(r.data === data && r.animal === animal));
+        renderSaudeTable();
+    }
+}
+
+document.getElementById('saudeForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const dateValue = this.querySelector('input[type="date"]').value;
+    const animalId = this.querySelector('input[placeholder="ID do Animal"]').value;
+    const procedimento = this.querySelector('#tipoProc').value;
+    const observacoes = this.querySelector('textarea').value;
+    
+    // Format procedure string based on type
+    let procedimentoText = '';
+    switch(procedimento) {
+        case 'vacina':
+            procedimentoText = 'Vacinação';
+            break;
+        case 'vermifugo':
+            procedimentoText = 'Vermifugação';
+            break;
+        case 'tratamento':
+            procedimentoText = 'Tratamento';
+            break;
+    }
+    
+    const newRegistro = {
+        data: new Date(dateValue).toLocaleDateString('pt-BR'),
+        animal: animalId,
+        procedimento: procedimentoText + (observacoes ? ' - ' + observacoes : ''),
+        status: 'Realizado'
+    };
+    
+    // Check if we're editing an existing record
+    const editingDate = this.getAttribute('data-editing-date');
+    const editingAnimal = this.getAttribute('data-editing-animal');
+    
+    if (editingDate && editingAnimal) {
+        // Update existing record
+        const existingIndex = saudeRegistros.findIndex(r => 
+            r.data === editingDate && r.animal === editingAnimal
+        );
+        
+        if (existingIndex >= 0) {
+            saudeRegistros[existingIndex] = newRegistro;
+        }
+        
+        // Clear editing state
+        this.removeAttribute('data-editing-date');
+        this.removeAttribute('data-editing-animal');
+        document.querySelector('#saudeForm button[type="submit"]').textContent = 'Registrar';
+    } else {
+        // Add new record
+        saudeRegistros.push(newRegistro);
+    }
+    
+    renderSaudeTable();
+    this.reset();
+});
+
+// Call renderSaudeTable on page load
+document.addEventListener('DOMContentLoaded', function() {
+    renderSaudeTable();
+});
+
+// Update charts
+document.addEventListener('DOMContentLoaded', function() {
+    const racaCtx = document.getElementById('racaChart');
+    if (racaCtx && racaCtx instanceof HTMLCanvasElement) { 
+        new Chart(racaCtx.getContext('2d'), {
+            type: 'pie',
+            data: {
+                labels: ['Merino', 'Corriedale', 'Texel', 'Ideal', 'Romney Marsh'],
+                datasets: [{
+                    data: [35, 25, 20, 15, 5],
+                    backgroundColor: ['#2C5530', '#8BA888', '#E6D5AC', '#1A1A1A', '#4A7A4E']
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    }
+
+    const evolucaoCtx = document.getElementById('evolucaoChart');
+    if (evolucaoCtx && evolucaoCtx instanceof HTMLCanvasElement) { 
+        new Chart(evolucaoCtx.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set'],
+                datasets: [{
+                    label: 'Quantidade de Animais',
+                    data: [100, 120, 125, 130, 145, 150, 165, 180, 200],
+                    borderColor: '#2C5530',
+                    backgroundColor: 'rgba(44, 85, 48, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+});
+
+// Initialize all tooltips
+document.addEventListener('DOMContentLoaded', function() {
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
+</script>
+</body>
+</html>
