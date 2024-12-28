@@ -1,466 +1,708 @@
 <html><head><base href="https://">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secretaria de Pol&#xed;ticas P&#xfa;blicas para Mulheres - Gestora: Patr&#xed;cia Alves Marques da Silva</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-<style>
-:root {
-  --primary: #9b4f96;  
-  --secondary: #ff69b4; 
-  --text: #333;
-  --light: #fff;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-  background: #f9f9f9;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-.header {
-  background: var(--primary);
-  color: var(--light);
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.navbar {
-  background: var(--secondary);
-}
-
-.navbar-nav {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-}
-
-.navbar-nav a {
-  color: var(--light);
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.navbar-nav a:hover {
-  color: var(--primary);
-}
-
-.hero {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero-content {
-  z-index: 1;
-  color: var(--light);
-  padding: 2rem;
-  background: rgba(0,0,0,0.5);
-  border-radius: 10px;
-}
-
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
-}
-
-.card {
-  background: var(--light);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.cta-button {
-  background: var(--primary);
-  color: var(--light);
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-  margin: 1rem 0;
-  font-size: 1.1rem;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.cta-button:hover {
-  background: var(--secondary);
-}
-
-.footer {
-  background: var(--primary);
-  color: var(--light);
-  text-align: center;
-  padding: 2rem;
-  margin-top: 2rem;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-.animate-fade {
-  animation: fadeIn 1s ease-in;
-}
-
-/* Modal styles */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.7);
-  z-index: 1000;
-}
-
-.modal-content {
-  position: relative;
-  background-color: var(--light);
-  margin: 15% auto; 
-  padding: 1rem;
-  width: 95%; 
-  max-width: 800px;
-  border-radius: 10px;
-  animation: slideIn 0.3s ease-out;
-  max-height: 90vh;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-@keyframes slideIn {
-  from {transform: translateY(-100px); opacity: 0;}
-  to {transform: translateY(0); opacity: 1;}
-}
-
-.close-button {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--text);
-}
-
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-  /* Navigation */
-  .navbar-toggler {
-    background-color: var(--primary);
-  }
-
-  .navbar-collapse {
-    background-color: var(--secondary);
-  }
-
-  /* Header */
-  .header {
-    padding: 1rem 0.5rem;
-  }
-  
-  .header h1 {
-    font-size: 1.8rem !important;
-    line-height: 1.4;
-  }
-
-  .header h2 {
-    font-size: 1.4rem !important;
-    margin: 0.5rem 0;
-  }
-
-  .header div[style*="display: flex"] {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  /* Improve navbar for mobile */
-  .navbar {
-    padding: 0.5rem;
-  }
-
-  .navbar-nav {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.5rem;
-  }
-
-  .nav-link {
-    padding: 0.8rem !important;
-    text-align: center;
-    border-radius: 4px;
-  }
-
-  /* Better card layout for mobile */
-  .cards-container {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1rem;
-  }
-
-  .card {
-    margin: 0;
-    padding: 1rem;
-  }
-
-  .card svg {
-    width: 60px;
-    height: 60px;
-  }
-
-  .card h3 {
-    font-size: 1.5rem !important;
-  }
-
-  /* Modal titles */
-  .modal-content h2 {
-    font-size: 1.6rem !important;
-    margin-bottom: 1rem;
-  }
-
-  /* Section titles */
-  section h2 {
-    font-size: 1.7rem !important;
-  }
-
-  /* Hero section */
-  .hero {
-    height: auto;
-    min-height: 40vh;
-    padding: 2rem 1rem;
-  }
-
-  .hero-content {
-    width: 95%;
-    padding: 1.5rem;
-  }
-
-  .hero-content h2 {
-    font-size: 1.8rem !important;
-  }
-
-  /* Improve form responsiveness on mobile */
-  .modal-content {
-    margin: 25% auto;
-    width: 98%;
-    padding: 0.8rem;
-    border-radius: 8px;
-    max-height: 70vh;
-  }
-
-  .modal {
-    padding: 0.5rem;
-  }
-
-  .close-button {
-    padding: 0.8rem;
-    font-size: 1.8rem;
-  }
-
-  #denunciaForm {
-    gap: 0.6rem;
-  }
-
-  #denunciaForm input,
-  #denunciaForm select,
-  #denunciaForm textarea {
-    font-size: 16px;
-    padding: 0.8rem;
-  }
-}
-
-/* Add touch-friendly adjustments */
-@media screen and (max-width: 768px) {
-  button, 
-  .cta-button,
-  input,
-  select,
-  textarea,
-  .nav-link {
-    min-height: 44px;
-    min-width: 44px;
-    padding: 12px;
-  }
-}
-
-/* Improve modal scrolling on mobile */
-.modal-content {
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Add better tap targets for mobile */
-.card:active {
-  transform: scale(0.98);
-}
-
-/* Small devices */
-@media screen and (max-width: 480px) {
-  .header h1 {
-    font-size: 1.6rem !important;
-  }
-
-  .header h2 {
-    font-size: 1.3rem !important;
-  }
-
-  .navbar {
-    padding: 0.5rem;
-  }
-
-  .navbar-nav a {
-    font-size: 0.9rem;
-  }
-
-  .hero-content h2 {
-    font-size: 1.6rem !important;
-  }
-
-  .hero-content p {
-    font-size: 0.9rem;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  .card h3 {
-    font-size: 1.4rem !important;
-  }
-
-  .footer {
-    padding: 1rem;
-    font-size: 0.9rem;
-  }
-}
-
-/* Make base elements responsive */
-html {
-  font-size: 16px;
-}
-
-img, svg {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Improve form responsiveness */
-form {
-  width: 100%;
-  max-width: 100%;
-}
-
-/* Improve table responsiveness */
-table {
-  width: 100%;
-  overflow-x: auto;
-  display: block;
-}
-
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  color: white;
-  border-radius: 50px;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  text-decoration: none;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-  z-index: 1000;
-  transition: all 0.3s ease;
-}
-
-.whatsapp-float:hover {
-  transform: scale(1.05);
-  background: #128C7E;
-}
-
-@media screen and (max-width: 768px) {
-  .whatsapp-float {
-    bottom: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-}
-
-#denunciaForm {
-  display: grid;
-  gap: 1rem;
-  padding-bottom: 1rem; 
-}
-
-#denunciaForm .cta-button {
-  position: sticky;
-  bottom: 0;
-  margin-top: 1rem;
-  width: 100%;
-  z-index: 2;
-}
-
-#denunciaForm input,
-#denunciaForm select,
-#denunciaForm textarea {
-  padding: 0.8rem;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-#denunciaForm label {
-  font-weight: bold;
-  color: var(--primary);
-  margin-bottom: 0.3rem;
-  display: block;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Direitos das Mulheres - Secretaria de Pol&#xed;ticas P&#xfa;blicas para Mulheres</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #9b4f96;  
+      --secondary: #ff69b4; 
+      --text: #333;
+      --light: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: #f9f9f9;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, #7b3d77 100%);
+      padding: 2.5rem 2rem;
+      border-bottom: 5px solid var(--secondary);
+      color: var(--light);
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-family: 'Segoe UI', serif;
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+      font-weight: 800;
+      animation: titleFadeIn 1.2s ease-out;
+    }
+
+    @keyframes titleFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header h2 {
+      color: var(--light);
+    }
+
+    .prefeitura-header {
+      color: white;
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      font-family: 'Segoe UI', serif;
+      animation: titleFadeIn 1.2s ease-out;
+    }
+
+    @media screen and (max-width: 768px) {
+      .prefeitura-header {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .prefeitura-header {
+        font-size: 1rem;
+      }
+    }
+
+    .navbar {
+      background: var(--secondary);
+    }
+
+    .navbar-nav {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    .navbar-nav a {
+      color: var(--light);
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .navbar-nav a:hover {
+      color: var(--light);
+      opacity: 0.8;
+    }
+
+    .nav-link {
+      color: var(--light) !important;
+    }
+
+    .nav-link:hover {
+      color: var(--light) !important;
+      opacity: 0.8;
+    }
+
+    .hero {
+      position: relative;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      z-index: 1;
+      color: var(--light);
+      padding: 2rem;
+      background: rgba(0,0,0,0.5);
+      border-radius: 10px;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+    }
+
+    .card {
+      background: var(--light);
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .cta-button {
+      background: var(--primary);
+      color: var(--light);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+      margin: 1rem 0;
+      font-size: 1.1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .cta-button:hover {
+      background: var(--secondary);
+    }
+
+    .footer {
+      background: var(--primary);
+      color: var(--light);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .animate-fade {
+      animation: fadeIn 1s ease-in;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: relative;
+      background-color: var(--light);
+      margin: 15% auto; 
+      padding: 1rem;
+      width: 95%; 
+      max-width: 800px;
+      border-radius: 10px;
+      animation: modalSlideIn 0.3s ease-out;
+      max-height: 90vh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        transform: translateY(-10%);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .close-button {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+      /* Navigation */
+      .navbar-toggler {
+        background-color: var(--primary);
+      }
+
+      .navbar-collapse {
+        background-color: var(--secondary);
+      }
+
+      /* Header */
+      .header {
+        padding: 1rem 0.5rem;
+      }
+      
+      .header h1 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+        color: white;
+      }
+      
+      .header h2 {
+        font-size: 1.4rem !important;
+      }
+
+      .header div[style*="display: flex"] {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+
+      /* Improve navbar for mobile */
+      .navbar {
+        padding: 0.5rem;
+      }
+
+      .navbar-nav {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.5rem;
+      }
+
+      .nav-link {
+        padding: 0.8rem !important;
+        text-align: center;
+        border-radius: 4px;
+      }
+
+      /* Better card layout for mobile */
+      .cards-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1rem;
+      }
+
+      .card {
+        margin: 0;
+        padding: 1rem;
+      }
+
+      .card svg {
+        width: 60px;
+        height: 60px;
+      }
+
+      .card h3 {
+        font-size: 1.5rem !important;
+      }
+
+      /* Modal titles */
+      .modal-content h2 {
+        font-size: 1.6rem !important;
+        margin-bottom: 1rem;
+      }
+
+      /* Section titles */
+      section h2 {
+        font-size: 1.7rem !important;
+      }
+
+      /* Hero section */
+      .hero {
+        height: auto;
+        min-height: 40vh;
+        padding: 2rem 1rem;
+      }
+
+      .hero-content {
+        width: 95%;
+        padding: 1.5rem;
+      }
+
+      .hero-content h2 {
+        font-size: 1.8rem !important;
+      }
+
+      /* Improve form responsiveness on mobile */
+      .modal-content {
+        margin: 25% auto;
+        width: 98%;
+        padding: 0.8rem;
+        border-radius: 8px;
+        max-height: 70vh;
+      }
+
+      .modal {
+        padding: 0.5rem;
+      }
+
+      .close-button {
+        padding: 0.8rem;
+        font-size: 1.8rem;
+      }
+
+      #denunciaForm {
+        gap: 0.6rem;
+      }
+
+      #denunciaForm input,
+      #denunciaForm select,
+      #denunciaForm textarea {
+        font-size: 16px;
+        padding: 0.8rem;
+      }
+    }
+
+    /* Add touch-friendly adjustments */
+    @media screen and (max-width: 768px) {
+      button, 
+      .cta-button,
+      input,
+      select,
+      textarea,
+      .nav-link {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+      }
+    }
+
+    /* Improve modal scrolling on mobile */
+    .modal-content {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Add better tap targets for mobile */
+    .card:active {
+      transform: scale(0.98);
+    }
+
+    /* Small devices */
+    @media screen and (max-width: 480px) {
+      .header h1 {
+        font-size: 1.8rem;
+        color: white;
+      }
+
+      .header h2 {
+        font-size: 1.3rem !important;
+      }
+
+      .navbar {
+        padding: 0.5rem;
+      }
+
+      .navbar-nav a {
+        font-size: 0.9rem;
+      }
+
+      .hero-content h2 {
+        font-size: 1.6rem !important;
+      }
+
+      .hero-content p {
+        font-size: 0.9rem;
+      }
+
+      .card {
+        padding: 1rem;
+      }
+
+      .card h3 {
+        font-size: 1.4rem !important;
+      }
+
+      .footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Make base elements responsive */
+    html {
+      font-size: 16px;
+    }
+
+    img, svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Improve form responsiveness */
+    form {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* Improve table responsiveness */
+    table {
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      border-radius: 50px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.05);
+      background: #128C7E;
+    }
+
+    @media screen and (max-width: 768px) {
+      .whatsapp-float {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 16px;
+        font-size: 14px;
+      }
+    }
+
+    #denunciaForm {
+      display: grid;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    #denunciaForm input,
+    #denunciaForm select,
+    #denunciaForm textarea {
+      padding: 0.8rem;
+      margin-bottom: 0.5rem;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    #denunciaForm label {
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    #denunciaForm .cta-button {
+      position: sticky;
+      bottom: 0;
+      margin-top: 1rem;
+      width: 100%;
+      z-index: 2;
+    }
+
+    @media screen and (max-width: 768px) {
+      #denunciaForm {
+        gap: 0.6rem;
+      }
+      
+      #denunciaForm input,
+      #denunciaForm select,
+      #denunciaForm textarea {
+        font-size: 16px;
+        padding: 0.8rem;
+      }
+    }
+
+    .is-invalid {
+      border-color: #dc3545 !important;
+      background-color: #fff8f8;
+    }
+
+    #denunciaForm input:focus,
+    #denunciaForm select:focus,
+    #denunciaForm textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 0.25rem rgba(155, 79, 150, 0.25);
+      outline: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      .modal-content {
+        padding: 1.5rem;
+        margin: 5vh auto;
+        max-height: 90vh;
+      }
+      
+      #denunciaForm input,
+      #denunciaForm select,
+      #denunciaForm textarea {
+        font-size: 16px; 
+        margin-bottom: 1rem;
+      }
+    }
+
+    .form-feedback {
+      color: #dc3545;
+      font-size: 0.875em;
+      margin-top: 0.25rem;
+      display: none;
+    }
+
+    .is-invalid + .form-feedback {
+      display: block;
+    }
+
+    #anonima {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    #anonima + label {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--primary);
+      background: #f8f0f8;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #anonima:checked + label {
+      background: var(--primary);
+      color: white;
+    }
+
+    /* Add hover effect */
+    #anonima + label:hover {
+      background: #f0e0f0;
+    }
+
+    #anonima:checked + label:hover {
+      background: #8a3f85;
+    }
+
+    /* Make checkbox more visible on mobile */
+    @media screen and (max-width: 768px) {
+      #anonima {
+        width: 24px;
+        height: 24px;
+      }
+      
+      #anonima + label {
+        font-size: 1rem;
+        padding: 15px;
+      }
+    }
+
+    .text-primary {
+      color: var(--primary) !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--primary);
+    }
+
+    .text-blue {
+      color: var(--primary) !important; 
+    }
+
+    :focus {
+      outline-color: var(--primary);
+    }
+
+    ::selection {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      .header h1 {
+        font-size: 2.2rem;
+        padding: 0 1rem;
+        color: white;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .header h1 {
+        font-size: 1.8rem;
+        color: white;
+      }
+    }
+    
+    /* Add new 3D text style */
+    .text-3d {
+      color: white;
+      text-shadow: 
+        1px 1px 1px #999,
+        2px 2px 1px #777,
+        3px 3px 1px #666,
+        4px 4px 1px #555,
+        5px 5px 8px rgba(0,0,0,0.3);
+      font-weight: bold;
+      margin: 0.5rem 0;
+      font-size: 1.8rem;
+      font-family: 'Playfair Display', serif;
+    }
+
+    @media screen and (max-width: 768px) {
+      .text-3d {
+        font-size: 1.4rem;
+        text-shadow:
+          1px 1px 1px #999,
+          2px 2px 1px #777,
+          3px 3px 4px rgba(0,0,0,0.3);
+      }
+    }
+    
+    .pt-star {
+      font-size: 2.5rem;
+      color: #ff0000; /* Changed from #ffd700 to red */
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      vertical-align: middle;
+      margin-left: 10px;
+      display: inline-block;
+      animation: starPulse 2s infinite;
+    }
+
+    @keyframes starPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    @media screen and (max-width: 768px) {
+      .pt-star {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header class="header">
   <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem;">
     <div style="text-align: center;">
-      <h1>Secretaria de Pol&#xed;ticas P&#xfa;blicas para Mulheres</h1>
-      <h2 style="color: #fff; font-size: 1.4rem; margin: 1rem 0; text-decoration: underline;">Gestora: Patr&#xed;cia Alves Marques da Silva</h2>
-      <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.5rem; flex-direction: column;">
-        <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
-          <span style="font-weight: bold; font-size: 1.2rem;">Governo do PT</span>
-          <svg width="40" height="40" viewBox="0 0 24 24" style="fill: #ff0000;">
-            <path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/>
-          </svg>
-        </div>
-        <div style="text-align: center; color: #fff;">
-          <p style="font-weight: bold; font-size: 1.1rem; margin: 0;">PREFEITURA MUNICIPAL DE BAG&#xc9;</p>
-        </div>
-      </div>
+      <h2 class="prefeitura-header">Prefeitura Municipal de Bag&#xe9; - Governo PT 2025 <svg class="pt-star" width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2L14.8 8.8L22 9.3L16.7 14.3L18.2 21.4L12 17.8L5.8 21.4L7.3 14.3L2 9.3L9.2 8.8L12 2Z"/>
+        </svg></h2>
+      <h1 style="font-size: 2.8rem; margin-bottom: 1rem; color: white;">Secretaria de Pol&#xed;ticas P&#xfa;blicas para Mulheres</h1>
+      <h2 class="text-3d">Secret&#xe1;ria: Patr&#xed;cia Alves Marques da Silva</h2>
     </div>
   </div>
 </header>
@@ -473,252 +715,292 @@ table {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link text-white" href="direitos.html">Direitos</a>
+          <a class="nav-link" href="direitos.html">Direitos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="politicas.html">Pol&#xed;ticas P&#xfa;blicas</a>
+          <a class="nav-link" href="politicas.html">Pol&#xed;ticas P&#xfa;blicas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="denuncias.html">Canal de Den&#xfa;ncias</a>
+          <a class="nav-link" href="javascript:void(0)" onclick="openModal(&apos;denuncia-form&apos;)">Den&#xfa;ncia Online <i class="bi bi-exclamation-triangle-fill"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="recursos.html">Recursos</a>
+          <a class="nav-link" href="recursos.html">Recursos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="contato.html">Contato</a>
+          <a class="nav-link" href="contato.html">Contato</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<section class="hero">
-  <div class="hero-content animate-fade">
-    <h2>Juntas Somos Mais Fortes</h2>
-    <p>Conhe&#xe7;a seus direitos e participe ativamente das pol&#xed;ticas p&#xfa;blicas</p>
-    <button class="cta-button" onclick="openModal(&apos;saiba-mais&apos;)">Saiba Mais</button>
-  </div>
-</section>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <h2 class="mb-4" style="color: var(--light);">Direitos das Mulheres</h2>
+      <button onclick="openModal(&apos;denuncia-form&apos;)" class="cta-button">
+        <i class="bi bi-shield-fill-exclamation"></i> Fazer Den&#xfa;ncia Online
+      </button>
+    </div>
+  </section>
 
-<section style="padding: 2rem; background: #fff;">
-  <h2 style="text-align: center; color: var(--primary); margin-bottom: 2rem;">Direitos das Mulheres</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto;">
+  <section class="container py-5">
+    <h1 class="text-primary text-center mb-5">Direitos Fundamentais das Mulheres</h1>
     
-    <!-- Card 1: Igualdade -->
-    <div class="card shadow-sm h-100">
-      <div class="card-body text-center">
-        <svg class="mb-3" width="100" height="100" viewBox="0 0 24 24" style="fill: var(--primary);">
-          <path d="M12 2L8 6h3v6H5V9l-4 4 4 4v-3h6v6h-3l4 4 4-4h-3v-6h6v3l4-4-4-4v3h-6V6h3z"/>
-        </svg>
-        <h3 class="card-title">Igualdade de Direitos</h3>
-        <p class="card-text">Direito &#xe0; igualdade de tratamento e oportunidades em todos os aspectos da vida</p>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-primary">Lei Maria da Penha</h3>
+            <p>A Lei Maria da Penha (Lei 11.340/2006) estabelece mecanismos para coibir e prevenir a viol&#xea;ncia dom&#xe9;stica e familiar contra a mulher. Principais pontos:</p>
+            <ul>
+              <li>Medidas protetivas de urg&#xea;ncia</li>
+              <li>Pris&#xe3;o preventiva do agressor</li>
+              <li>Atendimento policial especializado</li>
+              <li>Assist&#xea;ncia jur&#xed;dica gratuita</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-primary">Direitos Trabalhistas</h3>
+            <p>Garantias espec&#xed;ficas no ambiente de trabalho:</p>
+            <ul>
+              <li>Igualdade salarial para mesmas fun&#xe7;&#xf5;es</li>
+              <li>Prote&#xe7;&#xe3;o &#xe0; maternidade</li>
+              <li>Licen&#xe7;a-maternidade de 120 dias</li>
+              <li>Prote&#xe7;&#xe3;o contra discrimina&#xe7;&#xe3;o</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-primary">Direitos &#xe0; Sa&#xfa;de</h3>
+            <p>Acesso integral &#xe0; sa&#xfa;de garantido por lei:</p>
+            <ul>
+              <li>Atendimento humanizado no SUS</li>
+              <li>Planejamento familiar</li>
+              <li>Pr&#xe9;-natal gratuito</li>
+              <li>Preven&#xe7;&#xe3;o e tratamento de c&#xe2;ncer</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h3 class="card-title text-primary">Direitos Pol&#xed;ticos</h3>
+            <p>Participa&#xe7;&#xe3;o na vida pol&#xed;tica:</p>
+            <ul>
+              <li>Direito ao voto</li>
+              <li>Candidatura a cargos p&#xfa;blicos</li>
+              <li>Participa&#xe7;&#xe3;o em conselhos</li>
+              <li>Representa&#xe7;&#xe3;o pol&#xed;tica</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Card 2: Proteção -->
-    <div class="card shadow-sm h-100">
-      <div class="card-body text-center">
-        <svg class="mb-3" width="100" height="100" viewBox="0 0 24 24" style="fill: var(--primary);">
-          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6c1.4 0 2.5 1.1 2.5 2.5S13.4 12 12 12s-2.5-1.1-2.5-2.5S10.6 7 12 7zm0 10c-2.7 0-5.8-1.29-6-2.9 1.2-1.1 3.5-1.6 6-1.6s4.8.5 6 1.6c-.2 1.61-3.3 2.9-6 2.9z"/>
-        </svg>
-        <h3 class="card-title">Prote&#xe7;&#xe3;o Contra Viol&#xea;ncia</h3>
-        <p class="card-text">Direito &#xe0; prote&#xe7;&#xe3;o contra todas as formas de viol&#xea;ncia e discrimina&#xe7;&#xe3;o</p>
+  <section class="bg-light py-5">
+    <div class="container">
+      <h2 class="text-primary text-center mb-4">Como Buscar Seus Direitos</h2>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="text-center">
+            <svg width="64" height="64" viewBox="0 0 24 24" style="fill: var(--primary);">
+              <path d="M12 2L14.8 8.8L22 9.3L16.7 14.3L18.2 21.4L12 17.8L5.8 21.4L7.3 14.3L2 9.3L9.2 8.8L12 2Z"/>
+            </svg>
+            <h4 class="mt-3">Den&#xfa;ncia Online</h4>
+            <p>Utilize nosso canal de den&#xfa;ncias online para reportar viola&#xe7;&#xf5;es</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="text-center">
+            <svg width="64" height="64" viewBox="0 0 24 24" style="fill: var(--primary);">
+              <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+            </svg>
+            <h4 class="mt-3">Ligue 180</h4>
+            <p>Central de Atendimento &#xe0; Mulher 24h</p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="text-center">
+            <svg width="64" height="64" viewBox="0 0 24 24" style="fill: var(--primary);">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+            </svg>
+            <h4 class="mt-3">Assist&#xea;ncia Jur&#xed;dica</h4>
+            <p>Acesso &#xe0; Defensoria P&#xfa;blica especializada</p>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- Card 3: Saúde -->
-    <div class="card shadow-sm h-100">
-      <div class="card-body text-center">
-        <svg class="mb-3" width="100" height="100" viewBox="0 0 24 24" style="fill: var(--primary);">
-          <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.22 0 .41.1.55.25.12.13.2.31.2.5 0 .41-.34.75-.75.75s-.75-.34-.75-.75c0-.19.08-.37.2-.5.14-.15.33-.25.55-.25zM12 7c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
-          <path d="M12 8l1.5 1.5h2l.5 1.5.5-1.5h2l1.5-1.5-1.5-1.5h-2l-.5-1.5-.5 1.5h-2z"/>
-        </svg>
-        <h3 class="card-title">Sa&#xfa;de e Bem-estar</h3>
-        <p class="card-text">Direito ao acesso &#xe0; sa&#xfa;de integral e de qualidade</p>
+  <section class="container py-5">
+    <h2 class="text-primary text-center mb-4">Perguntas Frequentes</h2>
+    
+    <div class="accordion" id="faqAccordion">
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+            Como solicitar uma medida protetiva?
+          </button>
+        </h3>
+        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Voc&#xea; pode solicitar medidas protetivas em qualquer delegacia, especialmente nas Delegacias da Mulher. O pedido tamb&#xe9;m pode ser feito atrav&#xe9;s da Defensoria P&#xfa;blica ou Minist&#xe9;rio P&#xfa;blico.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+            Quais s&#xe3;o os tipos de viol&#xea;ncia previstos na Lei Maria da Penha?
+          </button>
+        </h3>
+        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            A lei prev&#xea; cinco tipos de viol&#xea;ncia: f&#xed;sica, psicol&#xf3;gica, sexual, patrimonial e moral. Cada uma possui caracter&#xed;sticas espec&#xed;ficas e prote&#xe7;&#xf5;es legais.
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <h3 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+            Como denunciar discrimina&#xe7;&#xe3;o no trabalho?
+          </button>
+        </h3>
+        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+          <div class="accordion-body">
+            Voc&#xea; pode denunciar ao sindicato da categoria, ao Minist&#xe9;rio P&#xfa;blico do Trabalho ou registrar uma reclama&#xe7;&#xe3;o na Justi&#xe7;a do Trabalho. Guarde provas e documentos que evidenciem a discrimina&#xe7;&#xe3;o.
+          </div>
+        </div>
       </div>
     </div>
-
-    <!-- Card 4: Trabalho -->
-    <div class="card shadow-sm h-100">
-      <div class="card-body text-center">
-        <svg class="mb-3" width="100" height="100" viewBox="0 0 24 24" style="fill: var(--primary);">
-          <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
-        </svg>
-        <h3 class="card-title">Direitos Trabalhistas</h3>
-        <p class="card-text">Direito &#xe0; igualdade salarial e prote&#xe7;&#xe3;o no ambiente de trabalho</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section style="padding: 2rem; text-align: center; background-color: #f5f5f5; margin: 2rem 0;">
-  <h2 style="color: var(--primary); margin-bottom: 1rem;">Den&#xfa;ncias e Apoio</h2>
-  <div style="max-width: 800px; margin: 0 auto;">
-    <p style="font-size: 1.2rem; margin-bottom: 1rem;">Voc&#xea; n&#xe3;o est&#xe1; sozinha! Se precisar de ajuda ou quiser fazer uma den&#xfa;ncia, utilize um dos canais abaixo:</p>
-    <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0;">
-      <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <h3 style="color: var(--primary);">Ligue 180</h3>
-        <p>Central de Atendimento &#xe0; Mulher</p>
-        <p style="font-size: 0.9rem;">24 horas por dia, 7 dias por semana</p>
-      </div>
-      <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <h3 style="color: var(--primary);">Ligue 190</h3>
-        <p>Pol&#xed;cia Militar</p>
-        <p style="font-size: 0.9rem;">Para emerg&#xea;ncias imediatas</p>
-      </div>
-    </div>
-    <button class="cta-button" onclick="openModal(&apos;denuncia-form&apos;)" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-      Fazer Den&#xfa;ncia Online
-    </button>
-  </div>
-</section>
-
-<section style="background: var(--primary); color: var(--light); padding: 2rem; text-align: center; margin: 2rem 0;">
-  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
-    <h2>Fortalecendo Direitos, Construindo Pol&#xed;ticas P&#xfa;blicas</h2>
-    <svg width="24" height="24" viewBox="0 0 24 24" style="fill: #ff0000;">
-      <path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/>
-    </svg>
-  </div>
-  <p style="font-size: 1.2rem; margin-top: 1rem;">
-    Mulheres em A&#xe7;&#xe3;o
-  </p>
-</section>
-
-<main class="cards-container">
-  <div class="card animate-fade">
-    <h3>Lei Maria da Penha</h3>
-    <p>Conhe&#xe7;a seus direitos e prote&#xe7;&#xf5;es garantidos pela Lei 11.340/2006</p>
-    <button class="cta-button" onclick="openModal(&apos;maria-penha&apos;)">Ler Mais</button>
-  </div>
-
-  <div class="card animate-fade">
-    <h3>Pol&#xed;ticas de Sa&#xfa;de</h3>
-    <p>Informa&#xe7;&#xf5;es sobre programas e servi&#xe7;os de sa&#xfa;de espec&#xed;ficos para mulheres</p>
-    <button class="cta-button" onclick="openModal(&apos;saude&apos;)">Explorar</button>
-  </div>
-
-  <div class="card animate-fade">
-    <h3>Igualdade no Trabalho</h3>
-    <p>Recursos e informa&#xe7;&#xf5;es sobre direitos trabalhistas e igualdade de g&#xea;nero</p>
-    <button class="cta-button" onclick="openModal(&apos;trabalho&apos;)">Descobrir</button>
-  </div>
+  </section>
 </main>
 
-<!-- Modais -->
-<div id="saiba-mais" class="modal">
-  <div class="modal-content">
-    <span class="close-button" onclick="closeModal(&apos;saiba-mais&apos;)">&#xd7;</span>
-    <h2>Sobre o Mulheres em A&#xe7;&#xe3;o</h2>
-    <p>O Mulheres em A&#xe7;&#xe3;o &#xe9; uma iniciativa dedicada a promover e proteger os direitos das mulheres atrav&#xe9;s de:</p>
-    <ul>
-      <li>Informa&#xe7;&#xe3;o sobre direitos e pol&#xed;ticas p&#xfa;blicas</li>
-      <li>Apoio e orienta&#xe7;&#xe3;o para den&#xfa;ncias</li>
-      <li>Recursos educacionais</li>
-      <li>Conex&#xe3;o com redes de apoio</li>
-    </ul>
-    <p>Nossa miss&#xe3;o &#xe9; fortalecer o papel da mulher na sociedade e garantir acesso a todos os seus direitos.</p>
-  </div>
-</div>
-
-<div id="maria-penha" class="modal">
-  <div class="modal-content">
-    <span class="close-button" onclick="closeModal(&apos;maria-penha&apos;)">&#xd7;</span>
-    <h2>Lei Maria da Penha</h2>
-    <p>A Lei Maria da Penha (Lei 11.340/2006) &#xe9; um marco na prote&#xe7;&#xe3;o dos direitos das mulheres, oferecendo:</p>
-    <ul>
-      <li>Medidas protetivas de urg&#xea;ncia</li>
-      <li>Puni&#xe7;&#xf5;es mais rigorosas para agressores</li>
-      <li>Assist&#xea;ncia social &#xe0;s v&#xed;timas</li>
-      <li>Programas de recupera&#xe7;&#xe3;o e reeduca&#xe7;&#xe3;o</li>
-    </ul>
-  </div>
-</div>
-
-<div id="saude" class="modal">
-  <div class="modal-content">
-    <span class="close-button" onclick="closeModal(&apos;saude&apos;)">&#xd7;</span>
-    <h2>Pol&#xed;ticas de Sa&#xfa;de para Mulheres</h2>
-    <p>O Sistema &#xda;nico de Sa&#xfa;de oferece diversos programas espec&#xed;ficos para mulheres:</p>
-    <ul>
-      <li>Pr&#xe9;-natal e acompanhamento gestacional</li>
-      <li>Preven&#xe7;&#xe3;o do c&#xe2;ncer de mama e colo do &#xfa;tero</li>
-      <li>Planejamento familiar</li>
-      <li>Atendimento especializado em viol&#xea;ncia contra a mulher</li>
-    </ul>
-  </div>
-</div>
-
-<div id="trabalho" class="modal">
-  <div class="modal-content">
-    <span class="close-button" onclick="closeModal(&apos;trabalho&apos;)">&#xd7;</span>
-    <h2>Direitos Trabalhistas das Mulheres</h2>
-    <p>Conhe&#xe7;a seus direitos no ambiente de trabalho:</p>
-    <ul>
-      <li>Igualdade salarial para mesmas fun&#xe7;&#xf5;es</li>
-      <li>Prote&#xe7;&#xe3;o &#xe0; maternidade</li>
-      <li>Combate ao ass&#xe9;dio moral e sexual</li>
-      <li>N&#xe3;o discrimina&#xe7;&#xe3;o por g&#xea;nero</li>
-    </ul>
-  </div>
-</div>
-
 <div id="denuncia-form" class="modal">
-  <div class="modal-content" style="max-width: 800px;">
+  <div class="modal-content">
     <span class="close-button" onclick="closeModal(&apos;denuncia-form&apos;)">&#xd7;</span>
-    <h2>Formul&#xe1;rio de Den&#xfa;ncia</h2>
-    <p style="color: #666; margin-bottom: 1rem;">Todas as informa&#xe7;&#xf5;es s&#xe3;o confidenciais e ser&#xe3;o tratadas com sigilo.</p>
+    <h2 class="text-primary mb-4">Fa&#xe7;a sua Den&#xfa;ncia</h2>
     
-    <form id="denunciaForm" class="needs-validation" onsubmit="handleDenunciaSubmit(event)" novalidate>
-      <div class="mb-3">
-        <label for="tipo-denuncia" class="form-label">Tipo de Den&#xfa;ncia:*</label>
-        <select class="form-select" id="tipo-denuncia" required>
-          <option value>Selecione o tipo de den&#xfa;ncia</option>
-          <option value="violencia-domestica">Viol&#xea;ncia Dom&#xe9;stica</option>
+    <form id="denunciaForm" onsubmit="handleDenunciaSubmit(event)">
+      <div>
+        <label for="tipo-denuncia">Tipo de Viol&#xea;ncia/Den&#xfa;ncia *</label>
+        <select id="tipo-denuncia" required>
+          <option value>Selecione o tipo</option>
+          <option value="violencia-fisica">Viol&#xea;ncia F&#xed;sica</option>
+          <option value="violencia-psicologica">Viol&#xea;ncia Psicol&#xf3;gica</option>
+          <option value="violencia-sexual">Viol&#xea;ncia Sexual</option>
+          <option value="violencia-patrimonial">Viol&#xea;ncia Patrimonial</option>
+          <option value="violencia-moral">Viol&#xea;ncia Moral</option>
           <option value="assedio-moral">Ass&#xe9;dio Moral</option>
           <option value="assedio-sexual">Ass&#xe9;dio Sexual</option>
           <option value="discriminacao">Discrimina&#xe7;&#xe3;o de G&#xea;nero</option>
+          <option value="ameaca">Amea&#xe7;a</option>
+          <option value="perseguicao">Persegui&#xe7;&#xe3;o (Stalking)</option>
           <option value="outros">Outros</option>
         </select>
       </div>
 
-      <div class="mb-3">
-        <label for="data-ocorrencia" class="form-label">Data da Ocorr&#xea;ncia:*</label>
-        <input type="date" class="form-control" id="data-ocorrencia" required>
+      <div>
+        <label for="data-ocorrencia">Data da Ocorr&#xea;ncia *</label>
+        <input type="date" id="data-ocorrencia" required>
       </div>
 
-      <div class="mb-3">
-        <label for="local-ocorrencia" class="form-label">Local da Ocorr&#xea;ncia:*</label>
-        <input type="text" class="form-control" id="local-ocorrencia" required placeholder="Endere&#xe7;o ou local onde ocorreu">
+      <div>
+        <label for="hora-ocorrencia">Hora Aproximada</label>
+        <input type="time" id="hora-ocorrencia">
       </div>
 
-      <div class="mb-3">
-        <label for="descricao" class="form-label">Descri&#xe7;&#xe3;o detalhada do ocorrido:*</label>
-        <textarea class="form-control" id="descricao" rows="5" required placeholder="Descreva em detalhes o que aconteceu"></textarea>
+      <div>
+        <label for="local-ocorrencia">Local da Ocorr&#xea;ncia *</label>
+        <input type="text" id="local-ocorrencia" placeholder="Endere&#xe7;o ou refer&#xea;ncia do local" required>
       </div>
 
-      <div class="mb-3">
-        <label>Seus dados de contato (opcional):</label>
-        <input type="text" class="form-control" id="nome" placeholder="Seu nome">
-        <input type="tel" class="form-control" id="telefone" placeholder="Seu telefone">
-        <input type="email" class="form-control" id="email" placeholder="Seu e-mail">
+      <div>
+        <label for="recorrencia">A situa&#xe7;&#xe3;o &#xe9; recorrente?</label>
+        <select id="recorrencia">
+          <option value="nao">N&#xe3;o, primeira vez</option>
+          <option value="sim">Sim, j&#xe1; aconteceu antes</option>
+        </select>
       </div>
 
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="anonima" onclick="toggleDadosContato()">
-        <label class="form-check-label" for="anonima">Desejo fazer den&#xfa;ncia an&#xf4;nima</label>
+      <div>
+        <label for="relacao">Rela&#xe7;&#xe3;o com o Aggressor</label>
+        <select id="relacao">
+          <option value>Prefiro n&#xe3;o informar</option>
+          <option value="conjuge">C&#xf4;njuge/Companheiro</option>
+          <option value="ex-conjuge">Ex-C&#xf4;njuge/Ex-Companheiro</option>
+          <option value="familiar">Familiar</option>
+          <option value="conhecido">Conhecido</option>
+          <option value="desconhecido">Desconhecido</option>
+          <option value="superior">Superior Hier&#xe1;rquico</option>
+          <option value="colega">Colega de Trabalho</option>
+          <option value="outro">Outro</option>
+        </select>
       </div>
 
-      <div style="background: #f8f8f8; padding: 1rem; border-radius: 4px; margin: 1rem 0;">
-        <p style="font-size: 0.9rem; color: #666;">
-          Em caso de emerg&#xea;ncia, ligue imediatamente:<br>
-          180 - Central de Atendimento &#xe0; Mulher<br>
-          190 - Pol&#xed;cia Militar
-        </p>
+      <div>
+        <label for="descricao">Descri&#xe7;&#xe3;o da Ocorr&#xea;ncia *</label>
+        <textarea id="descricao" rows="5" placeholder="Descreva o ocorrido em detalhes. Quanto mais informa&#xe7;&#xf5;es, melhor poderemos ajudar." required></textarea>
       </div>
 
-      <button type="submit" class="cta-button" style="width: 100%;">Enviar Den&#xfa;ncia</button>
+      <div>
+        <label for="risco">Voc&#xea; se sente em risco imediato?</label>
+        <select id="risco" required>
+          <option value="nao">N&#xe3;o</option>
+          <option value="sim">Sim</option>
+          <option value="talvez">N&#xe3;o tenho certeza</option>
+        </select>
+      </div>
+
+      <div style="margin: 20px 0; padding: 10px; border: 2px solid var(--primary); border-radius: 8px;">
+        <input type="checkbox" id="anonima" onchange="toggleDadosContato()">
+        <label for="anonima">
+          <i class="bi bi-shield-lock-fill" style="margin-right: 8px;"></i>
+          Fazer Den&#xfa;ncia An&#xf4;nima
+        </label>
+      </div>
+
+      <div id="dados-contato">
+        <div>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" placeholder="Seu nome">
+        </div>
+
+        <div>
+          <label for="telefone">Telefone para Contato</label>
+          <input type="tel" id="telefone" placeholder="(XX) XXXXX-XXXX">
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Seu email">
+        </div>
+
+        <div>
+          <label for="contato-seguro">Melhor hor&#xe1;rio para contato</label>
+          <input type="text" id="contato-seguro" placeholder="Ex: Entre 9h e 12h">
+        </div>
+      </div>
+
+      <button type="submit" class="cta-button">Enviar Den&#xfa;ncia</button>
     </form>
   </div>
 </div>
@@ -732,7 +1014,7 @@ table {
 
 <a href="https://wa.me/5553999427999" target="_blank" class="whatsapp-float">
   <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-    <path d="M12 2C6.48 2 2 6.48 2 12C2 13.96 2.58 15.75 3.54 17.29L2.1 22L6.9 20.58C8.39 21.5 10.14 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.89 16.12C16.66 16.68 15.86 17.18 15.22 17.32C14.82 17.41 14.3 17.47 13.07 16.94C11.22 16.15 9.87 14.32 9.77 14.19C9.67 14.06 8.67 12.74 8.67 11.36C8.67 9.98 9.39 9.31 9.67 9.02C9.91 8.77 10.22 8.67 10.51 8.67C10.61 8.67 10.71 8.67 10.8 8.68C11.08 8.69 11.22 8.71 11.41 9.13C11.64 9.65 12.17 11.03 12.22 11.14C12.27 11.25 12.3 11.38 12.23 11.53C11.67 12.74 11.07 12.67 11.45 13.29C12.31 14.74 13.31 15.37 14.58 15.93C14.86 16.06 14.99 16.04 15.13 15.87C15.27 15.7 15.78 15.11 15.94 14.83C16.1 14.55 16.27 14.6 16.5 14.68C16.73 14.76 18.11 15.45 18.37 15.57C18.63 15.7 18.8 15.76 18.85 15.87C18.91 16 18.91 16.51 18.68 17.12L16.89 16.12Z"/>
+    <path d="M12 2L14.8 8.8L22 9.3L16.7 14.3L18.2 21.4L12 17.8L5.8 21.4L7.3 14.3L2 9.3L9.2 8.8L12 2Z"/>
   </svg>
   Fale Conosco
 </a>
@@ -740,148 +1022,93 @@ table {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 
-<script>document.addEventListener('DOMContentLoaded', function () {
-  const cards = document.querySelectorAll('.card');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = 'translateY(0)';
-      }
-    });
-  });
-  cards.forEach(card => {
-    card.style.opacity = 0;
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'all 0.5s ease-in-out';
-    observer.observe(card);
-  });
-  function setMobileVH() {
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-  }
-  window.addEventListener('resize', setMobileVH);
-  setMobileVH();
-});
-function openModal(modalId) {
-  const modal = document.getElementById(modalId);
+<script>function openModal(id) {
+  const modal = document.getElementById(id);
   modal.style.display = 'block';
-  handleModalOpen(modalId);
-  if (window.innerWidth <= 768) {
-    const navbar = document.querySelector('.navbar');
+  document.body.style.overflow = 'hidden';
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
     navbar.style.display = 'none';
   }
-}
-function closeModal(modalId) {
-  document.getElementById(modalId).style.display = 'none';
-  handleModalClose();
   if (window.innerWidth <= 768) {
-    const navbar = document.querySelector('.navbar');
-    navbar.style.display = '';
-  }
-}
-window.onclick = function (event) {
-  if (event.target.className === 'modal') {
-    event.target.style.display = 'none';
-    handleModalClose();
-    if (window.innerWidth <= 768) {
-      const navbar = document.querySelector('.navbar');
-      navbar.style.display = '';
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse.classList.contains('show')) {
+      navbarCollapse.classList.remove('show');
     }
   }
-};
+}
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+  const navbar = document.querySelector('.navbar');
+  if (navbar) {
+    navbar.style.display = 'block';
+  }
+}
 function toggleDadosContato() {
-  const anonima = document.getElementById('anonima');
-  const nome = document.getElementById('nome');
-  const telefone = document.getElementById('telefone');
-  const email = document.getElementById('email');
-  if (anonima.checked) {
-    nome.value = '';
-    telefone.value = '';
-    email.value = '';
-    nome.disabled = true;
-    telefone.disabled = true;
-    email.disabled = true;
+  const checkbox = document.getElementById('anonima');
+  const dadosContato = document.getElementById('dados-contato');
+  if (checkbox.checked) {
+    dadosContato.style.display = 'none';
   } else {
-    nome.disabled = false;
-    telefone.disabled = false;
-    email.disabled = false;
+    dadosContato.style.display = 'block';
   }
 }
 function handleDenunciaSubmit(event) {
   event.preventDefault();
-  const tipoDenuncia = document.getElementById('tipo-denuncia').value;
-  const dataOcorrencia = document.getElementById('data-ocorrencia').value;
-  const localOcorrencia = document.getElementById('local-ocorrencia').value;
-  const descricao = document.getElementById('descricao').value;
-  if (!tipoDenuncia || !dataOcorrencia || !localOcorrencia || !descricao) {
+  const requiredFields = ['tipo-denuncia', 'data-ocorrencia', 'local-ocorrencia', 'descricao'];
+  let isValid = true;
+  requiredFields.forEach(fieldId => {
+    const field = document.getElementById(fieldId);
+    if (!field.value.trim()) {
+      field.classList.add('is-invalid');
+      isValid = false;
+    } else {
+      field.classList.remove('is-invalid');
+    }
+  });
+  if (!isValid) {
     alert('Por favor, preencha todos os campos obrigatórios.');
     return;
   }
-  alert('Sua denúncia foi registrada com sucesso. Em caso de emergência, ligue imediatamente para 180 ou 190.');
-  closeModal('denuncia-form');
-  document.getElementById('denunciaForm').reset();
-}
-function handleModalOpen(modalId) {
-  const modal = document.getElementById(modalId);
-  const modalContent = modal.querySelector('.modal-content');
-  modalContent.scrollTop = 0;
-  document.body.style.overflow = 'hidden';
-  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-    document.body.style.position = 'fixed';
-  }
-}
-function handleModalClose() {
-  document.body.style.overflow = 'auto';
-  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-    document.body.style.position = '';
-  }
-}
-(() => {
-  'use strict';
-
-  const forms = document.querySelectorAll('.needs-validation');
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-      form.classList.add('was-validated');
-    }, false);
-  });
-})();
-function handleModalTouchMove(event) {
-  const modal = event.target.closest('.modal');
-  const modalContent = event.target.closest('.modal-content');
-  if (modal && !modalContent) {
-    event.preventDefault();
-  }
-}
-document.addEventListener('touchmove', handleModalTouchMove, {
-  passive: false
-});
-document.querySelectorAll('.modal-content').forEach(content => {
-  content.addEventListener('touchstart', function (e) {
-    this.allowTouchMove = true;
-  });
-  content.addEventListener('touchmove', function (e) {
-    if (this.allowTouchMove) {
-      e.stopPropagation();
-    }
-  });
-});
-window.addEventListener('resize', () => {
-  const modal = document.querySelector('.modal[style*="display: block"]');
-  const navbar = document.querySelector('.navbar');
-  if (modal) {
-    if (window.innerWidth <= 768) {
-      navbar.style.display = 'none';
-    } else {
-      navbar.style.display = '';
-    }
-  }
-});</script>
+  const formData = {
+    tipoDenuncia: document.getElementById('tipo-denuncia').value,
+    dataOcorrencia: document.getElementById('data-ocorrencia').value,
+    horaOcorrencia: document.getElementById('hora-ocorrencia').value,
+    localOcorrencia: document.getElementById('local-ocorrencia').value,
+    recorrencia: document.getElementById('recorrencia').value,
+    relacao: document.getElementById('relacao').value,
+    descricao: document.getElementById('descricao').value,
+    risco: document.getElementById('risco').value,
+    anonima: document.getElementById('anonima').checked,
+    nome: document.getElementById('nome').value,
+    telefone: document.getElementById('telefone').value,
+    email: document.getElementById('email').value,
+    contatoSeguro: document.getElementById('contato-seguro').value
+  };
+  console.log('Dados da denúncia:', formData);
+  const submitButton = event.target.querySelector('button[type="submit"]');
+  submitButton.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Enviando...';
+  submitButton.disabled = true;
+  setTimeout(() => {
+    submitButton.innerHTML = 'Enviar Denúncia';
+    submitButton.disabled = false;
+    const successAlert = document.createElement('div');
+    successAlert.className = 'alert alert-success mt-3';
+    successAlert.role = 'alert';
+    successAlert.innerHTML = `
+        <h4 class="alert-heading">Denúncia Registrada!</h4>
+        <p>Sua denúncia foi registrada com sucesso. Em caso de emergência, ligue imediatamente para 180.</p>
+      `;
+    document.getElementById('denunciaForm').appendChild(successAlert);
+    setTimeout(() => {
+      successAlert.remove();
+      closeModal('denuncia-form');
+      document.getElementById('denunciaForm').reset();
+    }, 5000);
+  }, 1000);
+}</script>
 
 </body>
 </html>
