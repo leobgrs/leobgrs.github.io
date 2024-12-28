@@ -1,7 +1,7 @@
 <html><head><base href="https://">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secretaria de Políticas Públicas para Mulheres - Gestora: Patrícia Alves Marques da Silva</title>
+<title>Secretaria de Pol&#xed;ticas P&#xfa;blicas para Mulheres - Gestora: Patr&#xed;cia Alves Marques da Silva</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <style>
@@ -142,16 +142,15 @@ body {
 .modal-content {
   position: relative;
   background-color: var(--light);
-  margin: 2% auto; 
-  padding: 2rem;
-  width: 90%; 
+  margin: 15% auto; 
+  padding: 1rem;
+  width: 95%; 
   max-width: 800px;
   border-radius: 10px;
   animation: slideIn 0.3s ease-out;
-  max-height: 96vh; 
-  overflow-y: auto; 
-  display: flex;
-  flex-direction: column;
+  max-height: 90vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 @keyframes slideIn {
@@ -186,49 +185,132 @@ body {
 
   /* Header */
   .header {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
   }
-
+  
   .header h1 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    line-height: 1.4;
   }
 
   .header h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
   }
 
-  /* Hero section */
-  .hero {
-    height: 40vh;
+  .header div[style*="display: flex"] {
+    flex-direction: column;
+    gap: 0.8rem;
   }
 
-  .hero-content {
-    padding: 1rem;
-    width: 90%;
+  /* Improve navbar for mobile */
+  .navbar {
+    padding: 0.5rem;
   }
 
-  .hero-content h2 {
-    font-size: 1.5rem;
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
   }
 
-  /* Cards */
+  .nav-link {
+    padding: 0.8rem !important;
+    text-align: center;
+    border-radius: 4px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Better card layout for mobile */
   .cards-container {
     grid-template-columns: 1fr;
     padding: 1rem;
     gap: 1rem;
   }
 
-  /* Modal */
-  .modal-content {
+  .card {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  .card svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Adjust hero section for mobile */
+  .hero {
+    height: auto;
+    min-height: 40vh;
+    padding: 2rem 1rem;
+  }
+
+  .hero-content {
     width: 95%;
-    margin: 1% auto;
     padding: 1.5rem;
-    max-height: 98vh;
   }
-  
+
+  .hero-content h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Improve form responsiveness on mobile */
+  .modal-content {
+    margin: 25% auto;
+    width: 98%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    max-height: 70vh;
+  }
+
+  .modal {
+    padding: 0.5rem;
+  }
+
+  .close-button {
+    padding: 0.8rem;
+    font-size: 1.8rem;
+  }
+
   #denunciaForm {
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
+
+  #denunciaForm input,
+  #denunciaForm select,
+  #denunciaForm textarea {
+    font-size: 16px;
+    padding: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* Add touch-friendly adjustments */
+  button, 
+  .cta-button,
+  input,
+  select,
+  textarea,
+  .nav-link {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px;
+  }
+}
+
+/* Improve modal scrolling on mobile */
+.modal-content {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Add better tap targets for mobile */
+.card:active {
+  transform: scale(0.98);
 }
 
 /* Small devices */
@@ -285,16 +367,6 @@ img, svg {
 form {
   width: 100%;
   max-width: 100%;
-}
-
-/* Add touch-friendly tap targets */
-button, 
-a, 
-input, 
-select, 
-textarea {
-  min-height: 44px;
-  min-width: 44px;
 }
 
 /* Improve table responsiveness */
@@ -372,17 +444,17 @@ table {
 <header class="header">
   <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem;">
     <div style="text-align: center;">
-      <h1>Secretaria de Políticas Públicas para Mulheres</h1>
-      <h2 style="color: #fff; font-size: 1.4rem; margin: 1rem 0; text-decoration: underline;">Gestora: Patrícia Alves Marques da Silva</h2>
+      <h1>Secretaria de Pol&#xed;ticas P&#xfa;blicas para Mulheres</h1>
+      <h2 style="color: #fff; font-size: 1.4rem; margin: 1rem 0; text-decoration: underline;">Gestora: Patr&#xed;cia Alves Marques da Silva</h2>
       <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-top: 0.5rem; flex-direction: column;">
         <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
           <span style="font-weight: bold; font-size: 1.2rem;">Governo do PT</span>
-          <svg width="28" height="28" viewBox="0 0 24 24" style="fill: #ff0000;">
+          <svg width="40" height="40" viewBox="0 0 24 24" style="fill: #ff0000;">
             <path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/>
           </svg>
         </div>
         <div style="text-align: center; color: #fff;">
-          <p style="font-weight: bold; font-size: 1.1rem; margin: 0;">PREFEITURA MUNICIPAL DE BAGÉ</p>
+          <p style="font-weight: bold; font-size: 1.1rem; margin: 0;">PREFEITURA MUNICIPAL DE BAG&#xc9;</p>
         </div>
       </div>
     </div>
@@ -400,10 +472,10 @@ table {
           <a class="nav-link text-white" href="direitos.html">Direitos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="politicas.html">Políticas Públicas</a>
+          <a class="nav-link text-white" href="politicas.html">Pol&#xed;ticas P&#xfa;blicas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="denuncias.html">Canal de Denúncias</a>
+          <a class="nav-link text-white" href="denuncias.html">Canal de Den&#xfa;ncias</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-white" href="recursos.html">Recursos</a>
@@ -419,8 +491,8 @@ table {
 <section class="hero">
   <div class="hero-content animate-fade">
     <h2>Juntas Somos Mais Fortes</h2>
-    <p>Conheça seus direitos e participe ativamente das políticas públicas</p>
-    <button class="cta-button" onclick="openModal('saiba-mais')">Saiba Mais</button>
+    <p>Conhe&#xe7;a seus direitos e participe ativamente das pol&#xed;ticas p&#xfa;blicas</p>
+    <button class="cta-button" onclick="openModal(&apos;saiba-mais&apos;)">Saiba Mais</button>
   </div>
 </section>
 
@@ -435,7 +507,7 @@ table {
           <path d="M12 2L8 6h3v6H5V9l-4 4 4 4v-3h6v6h-3l4 4 4-4h-3v-6h6v3l4-4-4-4v3h-6V6h3z"/>
         </svg>
         <h3 class="card-title">Igualdade de Direitos</h3>
-        <p class="card-text">Direito à igualdade de tratamento e oportunidades em todos os aspectos da vida</p>
+        <p class="card-text">Direito &#xe0; igualdade de tratamento e oportunidades em todos os aspectos da vida</p>
       </div>
     </div>
 
@@ -445,8 +517,8 @@ table {
         <svg class="mb-3" width="100" height="100" viewBox="0 0 24 24" style="fill: var(--primary);">
           <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 6c1.4 0 2.5 1.1 2.5 2.5S13.4 12 12 12s-2.5-1.1-2.5-2.5S10.6 7 12 7zm0 10c-2.7 0-5.8-1.29-6-2.9 1.2-1.1 3.5-1.6 6-1.6s4.8.5 6 1.6c-.2 1.61-3.3 2.9-6 2.9z"/>
         </svg>
-        <h3 class="card-title">Proteção Contra Violência</h3>
-        <p class="card-text">Direito à proteção contra todas as formas de violência e discriminação</p>
+        <h3 class="card-title">Prote&#xe7;&#xe3;o Contra Viol&#xea;ncia</h3>
+        <p class="card-text">Direito &#xe0; prote&#xe7;&#xe3;o contra todas as formas de viol&#xea;ncia e discrimina&#xe7;&#xe3;o</p>
       </div>
     </div>
 
@@ -457,8 +529,8 @@ table {
           <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7-.25c.22 0 .41.1.55.25.12.13.2.31.2.5 0 .41-.34.75-.75.75s-.75-.34-.75-.75c0-.19.08-.37.2-.5.14-.15.33-.25.55-.25zM12 7c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm6 12H6v-1.4c0-2 4-3.1 6-3.1s6 1.1 6 3.1V19z"/>
           <path d="M12 8l1.5 1.5h2l.5 1.5.5-1.5h2l1.5-1.5-1.5-1.5h-2l-.5-1.5-.5 1.5h-2z"/>
         </svg>
-        <h3 class="card-title">Saúde e Bem-estar</h3>
-        <p class="card-text">Direito ao acesso à saúde integral e de qualidade</p>
+        <h3 class="card-title">Sa&#xfa;de e Bem-estar</h3>
+        <p class="card-text">Direito ao acesso &#xe0; sa&#xfa;de integral e de qualidade</p>
       </div>
     </div>
 
@@ -469,7 +541,7 @@ table {
           <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
         </svg>
         <h3 class="card-title">Direitos Trabalhistas</h3>
-        <p class="card-text">Direito à igualdade salarial e proteção no ambiente de trabalho</p>
+        <p class="card-text">Direito &#xe0; igualdade salarial e prote&#xe7;&#xe3;o no ambiente de trabalho</p>
       </div>
     </div>
 
@@ -477,148 +549,148 @@ table {
 </section>
 
 <section style="padding: 2rem; text-align: center; background-color: #f5f5f5; margin: 2rem 0;">
-  <h2 style="color: var(--primary); margin-bottom: 1rem;">Denúncias e Apoio</h2>
+  <h2 style="color: var(--primary); margin-bottom: 1rem;">Den&#xfa;ncias e Apoio</h2>
   <div style="max-width: 800px; margin: 0 auto;">
-    <p style="font-size: 1.2rem; margin-bottom: 1rem;">Você não está sozinha! Se precisar de ajuda ou quiser fazer uma denúncia, utilize um dos canais abaixo:</p>
+    <p style="font-size: 1.2rem; margin-bottom: 1rem;">Voc&#xea; n&#xe3;o est&#xe1; sozinha! Se precisar de ajuda ou quiser fazer uma den&#xfa;ncia, utilize um dos canais abaixo:</p>
     <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin: 1.5rem 0;">
       <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <h3 style="color: var(--primary);">Ligue 180</h3>
-        <p>Central de Atendimento à Mulher</p>
+        <p>Central de Atendimento &#xe0; Mulher</p>
         <p style="font-size: 0.9rem;">24 horas por dia, 7 dias por semana</p>
       </div>
       <div style="background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <h3 style="color: var(--primary);">Ligue 190</h3>
-        <p>Polícia Militar</p>
-        <p style="font-size: 0.9rem;">Para emergências imediatas</p>
+        <p>Pol&#xed;cia Militar</p>
+        <p style="font-size: 0.9rem;">Para emerg&#xea;ncias imediatas</p>
       </div>
     </div>
-    <button class="cta-button" onclick="openModal('denuncia-form')" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-      Fazer Denúncia Online
+    <button class="cta-button" onclick="openModal(&apos;denuncia-form&apos;)" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+      Fazer Den&#xfa;ncia Online
     </button>
   </div>
 </section>
 
 <section style="background: var(--primary); color: var(--light); padding: 2rem; text-align: center; margin: 2rem 0;">
   <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
-    <h2>Fortalecendo Direitos, Construindo Políticas Públicas</h2>
+    <h2>Fortalecendo Direitos, Construindo Pol&#xed;ticas P&#xfa;blicas</h2>
     <svg width="24" height="24" viewBox="0 0 24 24" style="fill: #ff0000;">
       <path d="M12 2l2.4 7.4h7.6l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4-6.2-4.5h7.6z"/>
     </svg>
   </div>
   <p style="font-size: 1.2rem; margin-top: 1rem;">
-    Mulheres em Ação
+    Mulheres em A&#xe7;&#xe3;o
   </p>
 </section>
 
 <main class="cards-container">
   <div class="card animate-fade">
     <h3>Lei Maria da Penha</h3>
-    <p>Conheça seus direitos e proteções garantidos pela Lei 11.340/2006</p>
-    <button class="cta-button" onclick="openModal('maria-penha')">Ler Mais</button>
+    <p>Conhe&#xe7;a seus direitos e prote&#xe7;&#xf5;es garantidos pela Lei 11.340/2006</p>
+    <button class="cta-button" onclick="openModal(&apos;maria-penha&apos;)">Ler Mais</button>
   </div>
 
   <div class="card animate-fade">
-    <h3>Políticas de Saúde</h3>
-    <p>Informações sobre programas e serviços de saúde específicos para mulheres</p>
-    <button class="cta-button" onclick="openModal('saude')">Explorar</button>
+    <h3>Pol&#xed;ticas de Sa&#xfa;de</h3>
+    <p>Informa&#xe7;&#xf5;es sobre programas e servi&#xe7;os de sa&#xfa;de espec&#xed;ficos para mulheres</p>
+    <button class="cta-button" onclick="openModal(&apos;saude&apos;)">Explorar</button>
   </div>
 
   <div class="card animate-fade">
     <h3>Igualdade no Trabalho</h3>
-    <p>Recursos e informações sobre direitos trabalhistas e igualdade de gênero</p>
-    <button class="cta-button" onclick="openModal('trabalho')">Descobrir</button>
+    <p>Recursos e informa&#xe7;&#xf5;es sobre direitos trabalhistas e igualdade de g&#xea;nero</p>
+    <button class="cta-button" onclick="openModal(&apos;trabalho&apos;)">Descobrir</button>
   </div>
 </main>
 
 <!-- Modais -->
 <div id="saiba-mais" class="modal">
   <div class="modal-content">
-    <span class="close-button" onclick="closeModal('saiba-mais')">&times;</span>
-    <h2>Sobre o Mulheres em Ação</h2>
-    <p>O Mulheres em Ação é uma iniciativa dedicada a promover e proteger os direitos das mulheres através de:</p>
+    <span class="close-button" onclick="closeModal(&apos;saiba-mais&apos;)">&#xd7;</span>
+    <h2>Sobre o Mulheres em A&#xe7;&#xe3;o</h2>
+    <p>O Mulheres em A&#xe7;&#xe3;o &#xe9; uma iniciativa dedicada a promover e proteger os direitos das mulheres atrav&#xe9;s de:</p>
     <ul>
-      <li>Informação sobre direitos e políticas públicas</li>
-      <li>Apoio e orientação para denúncias</li>
+      <li>Informa&#xe7;&#xe3;o sobre direitos e pol&#xed;ticas p&#xfa;blicas</li>
+      <li>Apoio e orienta&#xe7;&#xe3;o para den&#xfa;ncias</li>
       <li>Recursos educacionais</li>
-      <li>Conexão com redes de apoio</li>
+      <li>Conex&#xe3;o com redes de apoio</li>
     </ul>
-    <p>Nossa missão é fortalecer o papel da mulher na sociedade e garantir acesso a todos os seus direitos.</p>
+    <p>Nossa miss&#xe3;o &#xe9; fortalecer o papel da mulher na sociedade e garantir acesso a todos os seus direitos.</p>
   </div>
 </div>
 
 <div id="maria-penha" class="modal">
   <div class="modal-content">
-    <span class="close-button" onclick="closeModal('maria-penha')">&times;</span>
+    <span class="close-button" onclick="closeModal(&apos;maria-penha&apos;)">&#xd7;</span>
     <h2>Lei Maria da Penha</h2>
-    <p>A Lei Maria da Penha (Lei 11.340/2006) é um marco na proteção dos direitos das mulheres, oferecendo:</p>
+    <p>A Lei Maria da Penha (Lei 11.340/2006) &#xe9; um marco na prote&#xe7;&#xe3;o dos direitos das mulheres, oferecendo:</p>
     <ul>
-      <li>Medidas protetivas de urgência</li>
-      <li>Punições mais rigorosas para agressores</li>
-      <li>Assistência social às vítimas</li>
-      <li>Programas de recuperação e reeducação</li>
+      <li>Medidas protetivas de urg&#xea;ncia</li>
+      <li>Puni&#xe7;&#xf5;es mais rigorosas para agressores</li>
+      <li>Assist&#xea;ncia social &#xe0;s v&#xed;timas</li>
+      <li>Programas de recupera&#xe7;&#xe3;o e reeduca&#xe7;&#xe3;o</li>
     </ul>
   </div>
 </div>
 
 <div id="saude" class="modal">
   <div class="modal-content">
-    <span class="close-button" onclick="closeModal('saude')">&times;</span>
-    <h2>Políticas de Saúde para Mulheres</h2>
-    <p>O Sistema Único de Saúde oferece diversos programas específicos para mulheres:</p>
+    <span class="close-button" onclick="closeModal(&apos;saude&apos;)">&#xd7;</span>
+    <h2>Pol&#xed;ticas de Sa&#xfa;de para Mulheres</h2>
+    <p>O Sistema &#xda;nico de Sa&#xfa;de oferece diversos programas espec&#xed;ficos para mulheres:</p>
     <ul>
-      <li>Pré-natal e acompanhamento gestacional</li>
-      <li>Prevenção do câncer de mama e colo do útero</li>
+      <li>Pr&#xe9;-natal e acompanhamento gestacional</li>
+      <li>Preven&#xe7;&#xe3;o do c&#xe2;ncer de mama e colo do &#xfa;tero</li>
       <li>Planejamento familiar</li>
-      <li>Atendimento especializado em violência contra a mulher</li>
+      <li>Atendimento especializado em viol&#xea;ncia contra a mulher</li>
     </ul>
   </div>
 </div>
 
 <div id="trabalho" class="modal">
   <div class="modal-content">
-    <span class="close-button" onclick="closeModal('trabalho')">&times;</span>
+    <span class="close-button" onclick="closeModal(&apos;trabalho&apos;)">&#xd7;</span>
     <h2>Direitos Trabalhistas das Mulheres</h2>
-    <p>Conheça seus direitos no ambiente de trabalho:</p>
+    <p>Conhe&#xe7;a seus direitos no ambiente de trabalho:</p>
     <ul>
-      <li>Igualdade salarial para mesmas funções</li>
-      <li>Proteção à maternidade</li>
-      <li>Combate ao assédio moral e sexual</li>
-      <li>Não discriminação por gênero</li>
+      <li>Igualdade salarial para mesmas fun&#xe7;&#xf5;es</li>
+      <li>Prote&#xe7;&#xe3;o &#xe0; maternidade</li>
+      <li>Combate ao ass&#xe9;dio moral e sexual</li>
+      <li>N&#xe3;o discrimina&#xe7;&#xe3;o por g&#xea;nero</li>
     </ul>
   </div>
 </div>
 
 <div id="denuncia-form" class="modal">
   <div class="modal-content" style="max-width: 800px;">
-    <span class="close-button" onclick="closeModal('denuncia-form')">&times;</span>
-    <h2>Formulário de Denúncia</h2>
-    <p style="color: #666; margin-bottom: 1rem;">Todas as informações são confidenciais e serão tratadas com sigilo.</p>
+    <span class="close-button" onclick="closeModal(&apos;denuncia-form&apos;)">&#xd7;</span>
+    <h2>Formul&#xe1;rio de Den&#xfa;ncia</h2>
+    <p style="color: #666; margin-bottom: 1rem;">Todas as informa&#xe7;&#xf5;es s&#xe3;o confidenciais e ser&#xe3;o tratadas com sigilo.</p>
     
     <form id="denunciaForm" class="needs-validation" onsubmit="handleDenunciaSubmit(event)" novalidate>
       <div class="mb-3">
-        <label for="tipo-denuncia" class="form-label">Tipo de Denúncia:*</label>
+        <label for="tipo-denuncia" class="form-label">Tipo de Den&#xfa;ncia:*</label>
         <select class="form-select" id="tipo-denuncia" required>
-          <option value="">Selecione o tipo de denúncia</option>
-          <option value="violencia-domestica">Violência Doméstica</option>
-          <option value="assedio-moral">Assédio Moral</option>
-          <option value="assedio-sexual">Assédio Sexual</option>
-          <option value="discriminacao">Discriminação de Gênero</option>
+          <option value>Selecione o tipo de den&#xfa;ncia</option>
+          <option value="violencia-domestica">Viol&#xea;ncia Dom&#xe9;stica</option>
+          <option value="assedio-moral">Ass&#xe9;dio Moral</option>
+          <option value="assedio-sexual">Ass&#xe9;dio Sexual</option>
+          <option value="discriminacao">Discrimina&#xe7;&#xe3;o de G&#xea;nero</option>
           <option value="outros">Outros</option>
         </select>
       </div>
 
       <div class="mb-3">
-        <label for="data-ocorrencia" class="form-label">Data da Ocorrência:*</label>
+        <label for="data-ocorrencia" class="form-label">Data da Ocorr&#xea;ncia:*</label>
         <input type="date" class="form-control" id="data-ocorrencia" required>
       </div>
 
       <div class="mb-3">
-        <label for="local-ocorrencia" class="form-label">Local da Ocorrência:*</label>
-        <input type="text" class="form-control" id="local-ocorrencia" required placeholder="Endereço ou local onde ocorreu">
+        <label for="local-ocorrencia" class="form-label">Local da Ocorr&#xea;ncia:*</label>
+        <input type="text" class="form-control" id="local-ocorrencia" required placeholder="Endere&#xe7;o ou local onde ocorreu">
       </div>
 
       <div class="mb-3">
-        <label for="descricao" class="form-label">Descrição detalhada do ocorrido:*</label>
+        <label for="descricao" class="form-label">Descri&#xe7;&#xe3;o detalhada do ocorrido:*</label>
         <textarea class="form-control" id="descricao" rows="5" required placeholder="Descreva em detalhes o que aconteceu"></textarea>
       </div>
 
@@ -631,27 +703,27 @@ table {
 
       <div class="mb-3 form-check">
         <input type="checkbox" class="form-check-input" id="anonima" onclick="toggleDadosContato()">
-        <label class="form-check-label" for="anonima">Desejo fazer denúncia anônima</label>
+        <label class="form-check-label" for="anonima">Desejo fazer den&#xfa;ncia an&#xf4;nima</label>
       </div>
 
       <div style="background: #f8f8f8; padding: 1rem; border-radius: 4px; margin: 1rem 0;">
         <p style="font-size: 0.9rem; color: #666;">
-          Em caso de emergência, ligue imediatamente:<br>
-          180 - Central de Atendimento à Mulher<br>
-          190 - Polícia Militar
+          Em caso de emerg&#xea;ncia, ligue imediatamente:<br>
+          180 - Central de Atendimento &#xe0; Mulher<br>
+          190 - Pol&#xed;cia Militar
         </p>
       </div>
 
-      <button type="submit" class="cta-button" style="width: 100%;">Enviar Denúncia</button>
+      <button type="submit" class="cta-button" style="width: 100%;">Enviar Den&#xfa;ncia</button>
     </form>
   </div>
 </div>
 
 <footer class="footer">
-  <p> 2025 Mulheres em Ação - Todos os direitos reservados</p>
+  <p> 2025 Mulheres em A&#xe7;&#xe3;o - Todos os direitos reservados</p>
   <p>Entre em contato: contato@mulheresemacao.org</p>
   <p style="margin-top: 1rem; font-style: italic;">Desenvolvido por: Leonardo Goulart Lopes<br>
-  Analista de Sistemas e Especialista em Ciência da Computação</p>
+  Analista de Sistemas e Especialista em Ci&#xea;ncia da Computa&#xe7;&#xe3;o</p>
 </footer>
 
 <a href="https://wa.me/5553999427999" target="_blank" class="whatsapp-float">
@@ -664,106 +736,125 @@ table {
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Animação suave para os cards
-    const cards = document.querySelectorAll('.card');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
+<script>document.addEventListener('DOMContentLoaded', function () {
+  const cards = document.querySelectorAll('.card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
     });
-
-    cards.forEach(card => {
-        card.style.opacity = 0;
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'all 0.5s ease-in-out';
-        observer.observe(card);
-    });
+  });
+  cards.forEach(card => {
+    card.style.opacity = 0;
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'all 0.5s ease-in-out';
+    observer.observe(card);
+  });
+  function setMobileVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  window.addEventListener('resize', setMobileVH);
+  setMobileVH();
 });
-
-// Funções para controle dos modais
 function openModal(modalId) {
-    const modal = document.getElementById(modalId);
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; 
-    
-    // If it's the denúncia form, ensure it's scrolled to top
-    if(modalId === 'denuncia-form') {
-        const modalContent = modal.querySelector('.modal-content');
-        modalContent.scrollTop = 0;
-    }
+  const modal = document.getElementById(modalId);
+  modal.style.display = 'block';
+  handleModalOpen(modalId);
 }
-
 function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.body.style.overflow = 'auto'; 
+  document.getElementById(modalId).style.display = 'none';
+  handleModalClose();
 }
-
-// Fecha o modal se clicar fora dele
-window.onclick = function(event) {
-    if (event.target.className === 'modal') {
-        event.target.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
-
+window.onclick = function (event) {
+  if (event.target.className === 'modal') {
+    event.target.style.display = 'none';
+    handleModalClose();
+  }
+};
 function toggleDadosContato() {
-    const anonima = document.getElementById('anonima');
-    const nome = document.getElementById('nome');
-    const telefone = document.getElementById('telefone');
-    const email = document.getElementById('email');
-    
-    if (anonima.checked) {
-        nome.value = '';
-        telefone.value = '';
-        email.value = '';
-        nome.disabled = true;
-        telefone.disabled = true;
-        email.disabled = true;
-    } else {
-        nome.disabled = false;
-        telefone.disabled = false;
-        email.disabled = false;
-    }
+  const anonima = document.getElementById('anonima');
+  const nome = document.getElementById('nome');
+  const telefone = document.getElementById('telefone');
+  const email = document.getElementById('email');
+  if (anonima.checked) {
+    nome.value = '';
+    telefone.value = '';
+    email.value = '';
+    nome.disabled = true;
+    telefone.disabled = true;
+    email.disabled = true;
+  } else {
+    nome.disabled = false;
+    telefone.disabled = false;
+    email.disabled = false;
+  }
 }
-
 function handleDenunciaSubmit(event) {
-    event.preventDefault();
-    
-    const tipoDenuncia = document.getElementById('tipo-denuncia').value;
-    const dataOcorrencia = document.getElementById('data-ocorrencia').value;
-    const localOcorrencia = document.getElementById('local-ocorrencia').value;
-    const descricao = document.getElementById('descricao').value;
-    
-    if (!tipoDenuncia || !dataOcorrencia || !localOcorrencia || !descricao) {
-        alert('Por favor, preencha todos os campos obrigatórios.');
-        return;
-    }
-    
-    alert('Sua denúncia foi registrada com sucesso. Em caso de emergência, ligue imediatamente para 180 ou 190.');
-    closeModal('denuncia-form');
-    document.getElementById('denunciaForm').reset();
+  event.preventDefault();
+  const tipoDenuncia = document.getElementById('tipo-denuncia').value;
+  const dataOcorrencia = document.getElementById('data-ocorrencia').value;
+  const localOcorrencia = document.getElementById('local-ocorrencia').value;
+  const descricao = document.getElementById('descricao').value;
+  if (!tipoDenuncia || !dataOcorrencia || !localOcorrencia || !descricao) {
+    alert('Por favor, preencha todos os campos obrigatórios.');
+    return;
+  }
+  alert('Sua denúncia foi registrada com sucesso. Em caso de emergência, ligue imediatamente para 180 ou 190.');
+  closeModal('denuncia-form');
+  document.getElementById('denunciaForm').reset();
 }
-
+function handleModalOpen(modalId) {
+  const modal = document.getElementById(modalId);
+  const modalContent = modal.querySelector('.modal-content');
+  modalContent.scrollTop = 0;
+  document.body.style.overflow = 'hidden';
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    document.body.style.position = 'fixed';
+  }
+}
+function handleModalClose() {
+  document.body.style.overflow = 'auto';
+  if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+    document.body.style.position = '';
+  }
+}
 (() => {
-  'use strict'
-  const forms = document.querySelectorAll('.needs-validation')
+  'use strict';
+
+  const forms = document.querySelectorAll('.needs-validation');
   Array.from(forms).forEach(form => {
     form.addEventListener('submit', event => {
       if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
+        event.preventDefault();
+        event.stopPropagation();
       }
-      form.classList.add('was-validated')
-    }, false)
-  })
+      form.classList.add('was-validated');
+    }, false);
+  });
 })();
-</script>
+function handleModalTouchMove(event) {
+  const modal = event.target.closest('.modal');
+  const modalContent = event.target.closest('.modal-content');
+  if (modal && !modalContent) {
+    event.preventDefault();
+  }
+}
+document.addEventListener('touchmove', handleModalTouchMove, {
+  passive: false
+});
+document.querySelectorAll('.modal-content').forEach(content => {
+  content.addEventListener('touchstart', function (e) {
+    this.allowTouchMove = true;
+  });
+  content.addEventListener('touchmove', function (e) {
+    if (this.allowTouchMove) {
+      e.stopPropagation();
+    }
+  });
+});</script>
 
 </body>
 </html>
