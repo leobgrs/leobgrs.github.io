@@ -763,15 +763,27 @@ function openModal(modalId) {
   const modal = document.getElementById(modalId);
   modal.style.display = 'block';
   handleModalOpen(modalId);
+  if (window.innerWidth <= 768) {
+    const navbar = document.querySelector('.navbar');
+    navbar.style.display = 'none';
+  }
 }
 function closeModal(modalId) {
   document.getElementById(modalId).style.display = 'none';
   handleModalClose();
+  if (window.innerWidth <= 768) {
+    const navbar = document.querySelector('.navbar');
+    navbar.style.display = '';
+  }
 }
 window.onclick = function (event) {
   if (event.target.className === 'modal') {
     event.target.style.display = 'none';
     handleModalClose();
+    if (window.innerWidth <= 768) {
+      const navbar = document.querySelector('.navbar');
+      navbar.style.display = '';
+    }
   }
 };
 function toggleDadosContato() {
@@ -854,6 +866,17 @@ document.querySelectorAll('.modal-content').forEach(content => {
       e.stopPropagation();
     }
   });
+});
+window.addEventListener('resize', () => {
+  const modal = document.querySelector('.modal[style*="display: block"]');
+  const navbar = document.querySelector('.navbar');
+  if (modal) {
+    if (window.innerWidth <= 768) {
+      navbar.style.display = 'none';
+    } else {
+      navbar.style.display = '';
+    }
+  }
 });</script>
 
 </body>
