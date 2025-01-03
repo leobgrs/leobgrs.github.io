@@ -1,0 +1,692 @@
+<html><head><base href="https://gestorobras.com/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geplan - Secretaria Municipal de Gestão, Planejamento e Captação de Recursos-Bagé</title>
+
+<style>
+  :root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --background-color: #ecf0f1;
+    --card-color: #ffffff;
+    --text-color: #34495e;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --accent-color-1: #e74c3c;
+    --accent-color-2: #f39c12;
+    --accent-color-3: #27ae60;
+    --accent-color-4: #8e44ad;
+  }
+
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+  }
+
+  .header h1 {
+    margin: 0;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+
+  .filters {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .filters select {
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: none;
+    background-color: white;
+    color: var(--primary-color);
+  }
+
+  .container {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .board {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    gap: 1.5rem;
+  }
+
+  .list {
+    flex: 0 0 auto;
+    width: 300px;
+    background-color: #f1f3f5;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+  }
+
+  .list:hover {
+    transform: translateY(-5px);
+  }
+
+  .list-header {
+    padding: 1rem;
+    font-weight: 500;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
+
+  .list-header:hover {
+    opacity: 0.9;
+  }
+
+  .list:nth-child(1) .list-header { background-color: var(--accent-color-1); }
+  .list:nth-child(2) .list-header { background-color: var(--accent-color-2); }
+  .list:nth-child(3) .list-header { background-color: var(--accent-color-3); }
+  .list:nth-child(4) .list-header { background-color: var(--accent-color-4); }
+
+  .card {
+    background-color: var(--card-color);
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 0.75rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    cursor: move;
+  }
+
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+  }
+
+  .card-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-details {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .importe {
+    font-weight: bold;
+  }
+
+  .progress-bar {
+    background-color: #e0e0e0;
+    height: 8px;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    overflow: hidden;
+  }
+
+  .progress {
+    height: 100%;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+  }
+
+  .add-card {
+    padding: 0.75rem;
+    color: var(--secondary-color);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease;
+  }
+
+  .add-card:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .board {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .list {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <h1>Geplan - Secretaria Municipal de Gestão, Planejamento e Captação de Recursos-Bagé</h1>
+ <h1>Secretária: Julia Reschke</h1>
+    <div class="filters">
+      <select id="comarcaFilter">
+        <option value="">Todas as regiões</option>
+      </select>
+      <select id="municipioFilter">
+        <option value="">Todos os bairros</option>
+      </select>
+    </div>
+  </header>
+  <div class="container">
+    <div class="board">
+      <div class="list">
+        <div class="list-header">A iniciar</div>
+        <div class="card" draggable="true" data-comarca="Centro" data-municipio="Centro">
+          <div class="card-title">Substituição de Tubulação na Rua General Osório</div>
+          <div class="card-details">
+            <div data-horas="proyecto">Horas de projeto: 40</div>
+            <div data-horas="licitacion">Horas de licitação: 30</div>
+            <div data-horas="ejecucion">Horas de execução: 50</div>
+            <div>Valor: <span class="importe">R$ 150.000</span></div>
+          </div>
+        </div>
+        <div class="card" draggable="true" data-comarca="Centro" data-municipio="Centro">
+          <div class="card-title">Reforma da Praça do Fogo</div>
+          <div class="card-details">
+            <div data-horas="proyecto">Horas de projeto: 30</div>
+            <div data-horas="licitacion">Horas de licitação: 20</div>
+            <div data-horas="ejecucion">Horas de execução: 30</div>
+            <div>Valor: <span class="importe">R$ 100.000</span></div>
+          </div>
+        </div>
+        <div class="card" draggable="true" data-comarca="Centro" data-municipio="Centro">
+          <div class="card-title">Revitalização da Avenida Sete de Setembro</div>
+          <div class="card-details">
+            <div data-horas="proyecto">Horas de projeto: 60</div>
+            <div data-horas="licitacion">Horas de licitação: 40</div>
+            <div data-horas="ejecucion">Horas de execução: 100</div>
+            <div>Valor: <span class="importe">R$ 200.000</span></div>
+          </div>
+        </div>
+        <div class="add-card">+ Adicionar um cartão</div>
+      </div>
+      <div class="list">
+        <div class="list-header">Em projeto</div>
+        <div class="card" draggable="true" data-comarca="Norte" data-municipio="Industrial">
+          <div class="card-title">Ampliação da Rede de Abastecimento no Bairro Industrial</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 300</div>
+            <div data-horas="realizadas">Horas realizadas: 45</div>
+            <div class="progress-bar"><div class="progress" style="width: 15%"></div></div>
+            <div>Progresso: 15%</div>
+            <div>Valor: <span class="importe">R$ 450.000</span></div>
+          </div>
+        </div>
+        <div class="card" draggable="true" data-comarca="Norte" data-municipio="Ivo Ferronato">
+          <div class="card-title">Reforma da Escola Municipal Ivo Ferronato</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 250</div>
+            <div data-horas="realizadas">Horas realizadas: 75</div>
+            <div class="progress-bar"><div class="progress" style="width: 30%"></div></div>
+            <div>Progresso: 30%</div>
+            <div>Valor: <span class="importe">R$ 300.000</span></div>
+          </div>
+        </div>
+        <div class="card" draggable="true" data-comarca="Norte" data-municipio="Industrial">
+          <div class="card-title">Construção de Pistas para Ciclistas</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 180</div>
+            <div data-horas="realizadas">Horas realizadas: 90</div>
+            <div class="progress-bar"><div class="progress" style="width: 50%"></div></div>
+            <div>Progresso: 50%</div>
+            <div>Valor: <span class="importe">R$ 150.000</span></div>
+          </div>
+        </div>
+        <div class="add-card">+ Adicionar um cartão</div>
+      </div>
+      <div class="list">
+        <div class="list-header">Licitação</div>
+        <div class="card" draggable="true" data-comarca="Sul" data-municipio="Popular">
+          <div class="card-title">Construção do Ginásio Municipal de Esportes</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 500</div>
+            <div data-horas="realizadas">Horas realizadas: 350</div>
+            <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
+            <div>Progresso: 70%</div>
+            <div>Valor: <span class="importe">R$ 600.000</span></div>
+          </div>
+        </div>
+        <div class="card" draggable="true" data-comarca="Sul" data-municipio="Passo do Onze">
+          <div class="card-title">Reforma do Centro de Saúde do Bairro Passo do Onze</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 150</div>
+            <div data-horas="realizadas">Horas realizadas: 120</div>
+            <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+            <div>Progresso: 80%</div>
+            <div>Valor: <span class="importe">R$ 200.000</span></div>
+          </div>
+        </div>
+        <div class="card" draggable="true" data-comarca="Sul" data-municipio="Morgado Rosa">
+          <div class="card-title">Construção de uma Creche no Bairro Morgado Rosa</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 220</div>
+            <div data-horas="realizadas">Horas realizadas: 198</div>
+            <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
+            <div>Progresso: 90%</div>
+            <div>Valor: <span class="importe">R$ 250.000</span></div>
+          </div>
+        </div>
+        <div class="add-card">+ Adicionar um cartão</div>
+      </div>
+      <div class="list">
+        <div class="list-header">Execução</div>
+        <div class="card" draggable="true" data-comarca="Leste" data-municipio="Getúlio Vargas">
+          <div class="card-title">Revitalização da Praça Getúlio Vargas</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 400</div>
+            <div data-horas="realizadas">Horas realizadas: 360</div>
+            <div class="progress-bar"><div class="progress" style="width: 90%"></div></div>
+            <div>Progresso: 90%</div>
+            <div>Valor: <span class="importe">R$ 500.000</span></div>
+          </div>
+        </div>
+        <div class="card" draggable="true" data-comarca="Leste" data-municipio="Menino Deus">
+          <div class="card-title">Ampliação da Escola Menino Deus</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 600</div>
+            <div data-horas="realizadas">Horas realizadas: 480</div>
+            <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+            <div>Progresso: 80%</div>
+            <div>Valor: <span class="importe">R$ 700.000</span></div>
+          </div>
+        </div>
+        <div class="card" draggable="true" data-comarca="Leste" data-municipio="Estrela D'Alva">
+          <div class="card-title">Reforma da Praça Estrela D'Alva</div>
+          <div class="card-details">
+            <div data-horas="previstas">Horas previstas: 100</div>
+            <div data-horas="realizadas">Horas realizadas: 95</div>
+            <div class="progress-bar"><div class="progress" style="width: 95%"></div></div>
+            <div>Progresso: 95%</div>
+            <div>Valor: <span class="importe">R$ 60.000</span></div>
+          </div>
+        </div>
+        <div class="add-card">+ Adicionar um cartão</div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="cardModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <div id="modalDetails">
+        <p>Horas de projeto: <input type="number" id="horasProyecto" min="0"></p>
+        <p>Atribuído a: <select id="workerProyecto"></select></p>
+        <p>Horas de licitação: <input type="number" id="horasLicitacion" min="0"></p>
+        <p>Atribuído a: <select id="workerLicitacion"></select></p>
+        <p>Horas de execução: <input type="number" id="horasEjecucion" min="0"></p>
+        <p>Atribuído a: <select id="workerEjecucion"></select></p>
+        <p>Horas previstas: <input type="number" id="horasPrevistas" min="0"></p>
+        <p>Horas realizadas: <input type="number" id="horasRealizadas" min="0"></p>
+        <p>Valor: <input type="number" id="importe" min="0" step="1000"></p>
+      </div>
+      <button id="saveModal">Salvar</button>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      const addCardButtons = document.querySelectorAll('.add-card');
+      let cardCounter = 0;
+      const workers = ['João Silva', 'Maria Oliveira', 'Carlos Pereira', 'Ana Souza', 'Luís Gomes'];
+      const modal = document.getElementById('cardModal');
+      const closeBtn = modal.querySelector('.close');
+      const saveBtn = document.getElementById('saveModal');
+
+      function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+
+      function populateWorkerDropdowns() {
+        const dropdowns = ['workerProyecto', 'workerLicitacion', 'workerEjecucion'];
+        dropdowns.forEach(id => {
+          const select = document.getElementById(id);
+          select.innerHTML = '';
+          workers.forEach(worker => {
+            const option = document.createElement('option');
+            option.value = worker;
+            option.textContent = worker;
+            select.appendChild(option);
+          });
+        });
+      }
+
+      const comarcaFilter = document.getElementById('comarcaFilter');
+      const municipioFilter = document.getElementById('municipioFilter');
+
+      const comarcas = ['Centro', 'Norte', 'Sul', 'Leste', 'Oeste'];
+      const municipios = {
+        'Centro': ['Centro', 'São Judas', 'Pedras Brancas'],
+        'Norte': ['Industrial', 'Ivo Ferronato', 'Malafaia'],
+        'Sul': ['Popular', 'Passo do Onze', 'Morgado Rosa'],
+        'Leste': ['Getúlio Vargas', 'Menino Deus', 'Estrela D\'Alva'],
+        'Oeste': ['São Martin', 'Floresta', 'Damé']
+      };
+
+      comarcas.forEach(comarca => {
+        const option = document.createElement('option');
+        option.value = comarca;
+        option.textContent = comarca;
+        comarcaFilter.appendChild(option);
+      });
+
+      comarcaFilter.addEventListener('change', (e) => {
+        const selectedComarca = e.target.value;
+        municipioFilter.innerHTML = '<option value="">Todos os bairros</option>';
+        if (selectedComarca) {
+          municipios[selectedComarca].forEach(municipio => {
+            const option = document.createElement('option');
+            option.value = municipio;
+            option.textContent = municipio;
+            municipioFilter.appendChild(option);
+          });
+        }
+        filterCards();
+      });
+
+      municipioFilter.addEventListener('change', filterCards);
+
+      function filterCards() {
+        const selectedComarca = comarcaFilter.value;
+        const selectedMunicipio = municipioFilter.value;
+        
+        document.querySelectorAll('.card').forEach(card => {
+          const cardComarca = card.dataset.comarca;
+          const cardMunicipio = card.dataset.municipio;
+          
+          const comarcaMatch = !selectedComarca || cardComarca === selectedComarca;
+          const municipioMatch = !selectedMunicipio || cardMunicipio === selectedMunicipio;
+          
+          card.style.display = comarcaMatch && municipioMatch ? 'block' : 'none';
+        });
+      }
+
+      addCardButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const newCardTitle = prompt('Digite o título da nova obra:');
+          if (newCardTitle) {
+            const listType = this.closest('.list').querySelector('.list-header').textContent;
+            let newCardHTML = '';
+            const comarca = prompt('Digite a região:');
+            const municipio = prompt('Digite o bairro:');
+
+            if (listType === 'A iniciar') {
+              const horasProyecto = parseInt(prompt('Digite as horas de projeto:')) || 0;
+              const horasLicitacion = parseInt(prompt('Digite as horas de licitação:')) || 0;
+              const horasEjecucion = parseInt(prompt('Digite as horas de execução:')) || 0;
+              const importe = parseInt(prompt('Digite o valor:')) || 0;
+
+              newCardHTML = `
+                <div class="card-title">${newCardTitle}</div>
+                <div class="card-details">
+                  <div data-horas="proyecto">Horas de projeto: ${horasProyecto}</div>
+                  <div data-horas="licitacion">Horas de licitação: ${horasLicitacion}</div>
+                  <div data-horas="ejecucion">Horas de execução: ${horasEjecucion}</div>
+                  <div>Valor: <span class="importe">R$ ${formatNumber(importe)}</span></div>
+                </div>
+              `;
+            } else {
+              const horasPrevistas = parseInt(prompt('Digite as horas previstas:')) || 0;
+              const horasRealizadas = parseInt(prompt('Digite as horas realizadas:')) || 0;
+              const importe = parseInt(prompt('Digite o valor:')) || 0;
+              const progresso = horasPrevistas > 0 ? Math.round((horasRealizadas / horasPrevistas) * 100) : 0;
+
+              newCardHTML = `
+                <div class="card-title">${newCardTitle}</div>
+                <div class="card-details">
+                  <div data-horas="previstas">Horas previstas: ${horasPrevistas}</div>
+                  <div data-horas="realizadas">Horas realizadas: ${horasRealizadas}</div>
+                  <div class="progress-bar"><div class="progress" style="width: ${progresso}%"></div></div>
+                  <div>Progresso: ${progresso}%</div>
+                  <div>Valor: <span class="importe">R$ ${formatNumber(importe)}</span></div>
+                </div>
+              `;
+            }
+            const newCard = document.createElement('div');
+            newCard.className = 'card';
+            newCard.setAttribute('draggable', true);
+            newCard.id = `card-${cardCounter++}`;
+            newCard.dataset.comarca = comarca;
+            newCard.dataset.municipio = municipio;
+            newCard.innerHTML = newCardHTML;
+            this.parentNode.insertBefore(newCard, this);
+            addDragListeners(newCard);
+          }
+        });
+      });
+
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(addDragListeners);
+
+      const lists = document.querySelectorAll('.list');
+      lists.forEach(list => {
+        list.addEventListener('dragover', dragOver);
+        list.addEventListener('drop', drop);
+      });
+
+      function addDragListeners(card) {
+        card.addEventListener('dragstart', dragStart);
+        card.addEventListener('dragend', dragEnd);
+        card.addEventListener('dblclick', showCardModal);
+      }
+
+      function dragStart(e) {
+        e.dataTransfer.setData('text/plain', e.target.id);
+        setTimeout(() => {
+          e.target.style.opacity = '0.5';
+        }, 0);
+      }
+
+      function dragEnd(e) {
+        e.target.style.opacity = '1';
+      }
+
+      function dragOver(e) {
+        e.preventDefault();
+      }
+
+      function drop(e) {
+        e.preventDefault();
+        const cardId = e.dataTransfer.getData('text');
+        const card = document.getElementById(cardId);
+        
+        if (!card) return;
+
+        let targetElement = e.target;
+        while (targetElement && !targetElement.classList.contains('list')) {
+          targetElement = targetElement.parentElement;
+        }
+        
+        if (targetElement && targetElement.classList.contains('list')) {
+          const sourceList = card.closest('.list');
+          const targetList = targetElement;
+          
+          if (sourceList !== targetList) {
+            updateCardStructure(card, sourceList.querySelector('.list-header').textContent, targetList.querySelector('.list-header').textContent);
+          }
+          
+          const addCardElement = targetList.querySelector('.add-card');
+          if (addCardElement) {
+            targetList.insertBefore(card, addCardElement);
+          } else {
+            targetList.appendChild(card);
+          }
+        }
+      }
+
+      function updateCardStructure(card, sourceStage, targetStage) {
+        const details = card.querySelector('.card-details');
+        const title = card.querySelector('.card-title').textContent;
+        const importe = details.querySelector('.importe').textContent;
+
+        if (sourceStage === 'A iniciar' && targetStage !== 'A iniciar') {
+          const horasProyecto = details.querySelector('[data-horas="proyecto"]').textContent.split(': ')[1];
+          const horasLicitacion = details.querySelector('[data-horas="licitacion"]').textContent.split(': ')[1];
+          const horasEjecucion = details.querySelector('[data-horas="ejecucion"]').textContent.split(': ')[1];
+          const horasPrevistas = parseInt(horasProyecto) + parseInt(horasLicitacion) + parseInt(horasEjecucion);
+
+          details.innerHTML = `
+            <div data-horas="previstas">Horas previstas: ${horasPrevistas}</div>
+            <div data-horas="realizadas">Horas realizadas: 0</div>
+            <div class="progress-bar"><div class="progress" style="width: 0%"></div></div>
+            <div>Progresso: 0%</div>
+            <div>Valor: <span class="importe">${importe}</span></div>
+          `;
+        } else if (sourceStage !== 'A iniciar' && targetStage === 'A iniciar') {
+          const horasPrevistas = details.querySelector('[data-horas="previstas"]').textContent.split(': ')[1];
+          const thirdHoras = Math.floor(parseInt(horasPrevistas) / 3);
+
+          details.innerHTML = `
+            <div data-horas="proyecto">Horas de projeto: ${thirdHoras}</div>
+            <div data-horas="licitacion">Horas de licitação: ${thirdHoras}</div>
+            <div data-horas="ejecucion">Horas de execução: ${thirdHoras}</div>
+            <div>Valor: <span class="importe">${importe}</span></div>
+          `;
+        }
+
+        if (sourceStage !== 'A iniciar' && targetStage !== 'A iniciar') {
+          updateProgress(card);
+        }
+      }
+
+      function updateProgress(card) {
+        const details = card.querySelector('.card-details');
+        const horasPrevistas = parseInt(details.querySelector('[data-horas="previstas"]').textContent.split(': ')[1]);
+        const horasRealizadas = parseInt(details.querySelector('[data-horas="realizadas"]').textContent.split(': ')[1]);
+        const progresso = horasPrevistas > 0 ? Math.round((horasRealizadas / horasPrevistas) * 100) : 0;
+
+        details.querySelector('.progress-bar .progress').style.width = `${progresso}%`;
+        details.querySelector('div:nth-child(4)').textContent = `Progresso: ${progresso}%`;
+      }
+
+      closeBtn.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      function showCardModal(e) {
+        const card = e.currentTarget;
+        const title = card.querySelector('.card-title').textContent;
+        const details = card.querySelector('.card-details');
+
+        document.getElementById('modalTitle').textContent = title;
+
+        const horasProyecto = details.querySelector('[data-horas="proyecto"]');
+        const horasLicitacion = details.querySelector('[data-horas="licitacion"]');
+        const horasEjecucion = details.querySelector('[data-horas="ejecucion"]');
+        const horasPrevistas = details.querySelector('[data-horas="previstas"]');
+        const horasRealizadas = details.querySelector('[data-horas="realizadas"]');
+        const importe = details.querySelector('.importe');
+
+        document.getElementById('horasProyecto').value = horasProyecto ? horasProyecto.textContent.split(': ')[1] : '';
+        document.getElementById('horasLicitacion').value = horasLicitacion ? horasLicitacion.textContent.split(': ')[1] : '';
+        document.getElementById('horasEjecucion').value = horasEjecucion ? horasEjecucion.textContent.split(': ')[1] : '';
+        document.getElementById('horasPrevistas').value = horasPrevistas ? horasPrevistas.textContent.split(': ')[1] : '';
+        document.getElementById('horasRealizadas').value = horasRealizadas ? horasRealizadas.textContent.split(': ')[1] : '';
+        document.getElementById('importe').value = importe ? importe.textContent.replace('R$', '').trim() : '';
+
+        populateWorkerDropdowns();
+
+        modal.style.display = "block";
+        modal.dataset.cardId = card.id;
+      }
+
+      saveBtn.onclick = function() {
+        const cardId = modal.dataset.cardId;
+        const card = document.getElementById(cardId);
+        if (card) {
+          const details = card.querySelector('.card-details');
+          const listType = card.closest('.list').querySelector('.list-header').textContent;
+
+          if (listType === 'A iniciar') {
+            details.innerHTML = `
+              <div data-horas="proyecto">Horas de projeto: ${document.getElementById('horasProyecto').value} (Atribuído a: ${document.getElementById('workerProyecto').value})</div>
+              <div data-horas="licitacion">Horas de licitação: ${document.getElementById('horasLicitacion').value} (Atribuído a: ${document.getElementById('workerLicitacion').value})</div>
+              <div data-horas="ejecucion">Horas de execução: ${document.getElementById('horasEjecucion').value} (Atribuído a: ${document.getElementById('workerEjecucion').value})</div>
+              <div>Valor: <span class="importe">${formatNumber(document.getElementById('importe').value)}R$</span></div>
+            `;
+          } else {
+            const horasPrevistas = parseInt(document.getElementById('horasPrevistas').value) || 0;
+            const horasRealizadas = parseInt(document.getElementById('horasRealizadas').value) || 0;
+            const progresso = horasPrevistas > 0 ? Math.round((horasRealizadas / horasPrevistas) * 100) : 0;
+
+            details.innerHTML = `
+              <div data-horas="previstas">Horas previstas: ${horasPrevistas}</div>
+              <div data-horas="realizadas">Horas realizadas: ${horasRealizadas}</div>
+              <div class="progress-bar"><div class="progress" style="width: ${progresso}%"></div></div>
+              <div>Progresso: ${progresso}%</div>
+              <div>Valor: <span class="importe">${formatNumber(document.getElementById('importe').value)}R$</span></div>
+            `;
+          }
+        }
+        modal.style.display = "none";
+      };
+
+      document.querySelectorAll('.card-details').forEach(details => {
+        const importeElement = details.querySelector('div:last-child');
+        if (importeElement && importeElement.textContent.startsWith('Valor:')) {
+          const importe = parseInt(importeElement.textContent.split(':')[1].replace('R$', '').replace('.', ''));
+          importeElement.innerHTML = `Valor: <span class="importe">${formatNumber(importe)}R$</span>`;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
