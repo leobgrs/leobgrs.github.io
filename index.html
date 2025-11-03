@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Navegação - Prefeitura Municipal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .nav-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .nav-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .nav-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .nav-card h2 {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .nav-card p {
+            font-size: 0.95em;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding: 20px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏛️ Portal de Navegação</h1>
+            <p>Prefeitura Municipal - Acesso Rápido aos Sistemas</p>
+        </header>
+
+        <div class="nav-grid">
+            <a href="GOVERNOPT.html" class="nav-card">
+                <div class="icon">🇵🇹</div>
+                <h2>Governo PT</h2>
+                <p>Informações e documentos do governo</p>
+            </a>
+
+            <a href="GEPLAN.html" class="nav-card">
+                <div class="icon">📊</div>
+                <h2>GEPLAN</h2>
+                <p>Gestão e Planejamento</p>
+            </a>
+
+            <a href="investimentos.html" class="nav-card">
+                <div class="icon">💰</div>
+                <h2>Investimentos</h2>
+                <p>Relatórios e dados de investimentos</p>
+            </a>
+
+            <a href="orca.html" class="nav-card">
+                <div class="icon">📈</div>
+                <h2>Orçamento</h2>
+                <p>Gestão orçamentária municipal</p>
+            </a>
+
+            <a href="construcao.html" class="nav-card">
+                <div class="icon">🏗️</div>
+                <h2>Construção</h2>
+                <p>Obras e infraestrutura</p>
+            </a>
+
+            <a href="servicos.html" class="nav-card">
+                <div class="icon">🔧</div>
+                <h2>Serviços</h2>
+                <p>Serviços municipais disponíveis</p>
+            </a>
+
+            <a href="mulher.html" class="nav-card">
+                <div class="icon">👩</div>
+                <h2>Mulher</h2>
+                <p>Políticas e programas para mulheres</p>
+            </a>
+
+            <a href="roberta.html" class="nav-card">
+                <div class="icon">👤</div>
+                <h2>Roberta</h2>
+                <p>Perfil e informações</p>
+            </a>
+
+            <a href="login.html" class="nav-card">
+                <div class="icon">🔐</div>
+                <h2>Login</h2>
+                <p>Acesso ao sistema</p>
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Prefeitura Municipal de Bagé - Todos os direitos reservados</p>
+        </footer>
+    </div>
+</body>
+</html>
