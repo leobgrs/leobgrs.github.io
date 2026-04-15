@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Lelinho Lopes 13.800 | Deputado Estadual - PT | A força do povo gaúcho</title>
+  <title>Lelinho Lopes 13.800 | Deputado Estadual - PT | Destaque Vermelho</title>
   <!-- Fontes modernas -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- AOS Animação -->
@@ -19,7 +20,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #d9041c 0%, #9b0212 100%);
+      background: linear-gradient(145deg, #c90016 0%, #8b0000 100%);
       background-attachment: fixed;
       scroll-behavior: smooth;
       color: #1e1e2a;
@@ -31,97 +32,148 @@
       padding: 1.5rem 2rem;
     }
 
-    /* --- DESTAQUE DO NOME LELINHO LOPES COM MÚLTIPLOS TONS DE VERMELHO --- */
-    .name-highlight {
-      display: inline-block;
-    }
-    .name-lelinho {
-      font-size: 4rem;
-      font-weight: 900;
-      background: linear-gradient(135deg, #E60000, #B22222, #8B0000, #D84B2C);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 2px 12px rgba(180, 0, 0, 0.2);
-      letter-spacing: -0.02em;
-      transition: 0.2s;
-    }
-    .name-lopes {
-      font-size: 3.8rem;
-      font-weight: 800;
-      background: linear-gradient(145deg, #C41E3A, #A52A2A, #DC143C, #E25822);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      text-shadow: 0 1px 8px rgba(190, 0, 0, 0.15);
-      margin-left: 6px;
-    }
-    /* versão responsiva */
-    @media (max-width: 680px) {
-      .name-lelinho { font-size: 2.4rem; }
-      .name-lopes { font-size: 2.2rem; }
-    }
-
-    .hero {
+    /* --- DESTAQUE MÁXIMO DO NOME LELINHO LOPES --- */
+    .hero-name-container {
       text-align: center;
-      padding: 1rem 0.5rem 0.5rem;
+      margin: 0.5rem 0 1rem;
+      position: relative;
     }
-    .badge-pt {
-      background: #c90016;
-      color: #FFDE7A;
-      font-weight: 800;
-      padding: 0.4rem 1.2rem;
-      border-radius: 60px;
-      font-size: 0.85rem;
-      letter-spacing: 1px;
+    
+    /* Efeito de destaque supremo */
+    .super-name {
       display: inline-block;
-      margin-bottom: 1rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      position: relative;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));
     }
-    .numero-campanha {
-      font-size: 2.5rem;
+    
+    .name-lelinho {
+      font-family: 'Bebas Neue', 'Inter', sans-serif;
+      font-size: 6rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #FFE5B4, #FFD700, #FFA500, #FF4500, #FF0000, #CC0000);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 18px rgba(255, 80, 40, 0.6), 0 4px 12px rgba(0,0,0,0.3);
+      letter-spacing: 2px;
+      animation: gradientShift 3s ease infinite, subtleGlow 1.8s ease-in-out infinite alternate;
+      display: inline-block;
+    }
+    
+    .name-lopes {
+      font-family: 'Bebas Neue', 'Inter', sans-serif;
+      font-size: 5.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #FFD966, #FFB347, #FF6347, #DC143C, #B22222, #8B0000);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 15px rgba(220, 20, 60, 0.7), 0 3px 10px rgba(0,0,0,0.3);
+      letter-spacing: 2px;
+      animation: gradientShift 3.5s ease infinite, glowPulse 1.5s infinite alternate;
+      margin-left: 12px;
+      display: inline-block;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes subtleGlow {
+      0% { text-shadow: 0 0 12px rgba(255, 50, 0, 0.4), 0 4px 12px rgba(0,0,0,0.3); }
+      100% { text-shadow: 0 0 30px rgba(255, 80, 0, 0.9), 0 0 8px #ffcc33, 0 4px 12px black; }
+    }
+    
+    @keyframes glowPulse {
+      0% { text-shadow: 0 0 10px rgba(200, 0, 0, 0.5), 0 3px 10px black; }
+      100% { text-shadow: 0 0 28px #ff4d4d, 0 0 10px #ffaa33, 0 3px 12px black; }
+    }
+    
+    /* Versão responsiva para o nome gigante */
+    @media (max-width: 780px) {
+      .name-lelinho { font-size: 3.8rem; }
+      .name-lopes { font-size: 3.6rem; margin-left: 4px; }
+    }
+    @media (max-width: 550px) {
+      .name-lelinho { font-size: 2.6rem; }
+      .name-lopes { font-size: 2.4rem; }
+    }
+    
+    /* Underline de destaque e estrelas decorativas */
+    .name-underline {
+      width: 120px;
+      height: 5px;
+      background: linear-gradient(90deg, #ffcc00, #e30613, #ffcc00);
+      margin: 0.5rem auto 0.8rem;
+      border-radius: 10px;
+      box-shadow: 0 0 12px #ffb347;
+    }
+    
+    .badge-pt {
+      background: #1a1a2e;
+      color: #FFD966;
       font-weight: 800;
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      font-size: 0.9rem;
+      letter-spacing: 1.5px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    }
+    
+    .numero-campanha {
+      font-size: 2.8rem;
+      font-weight: 900;
       background: #FFD966;
-      color: #B22222;
-      padding: 0.3rem 1.8rem;
+      color: #b91c1c;
+      padding: 0.3rem 2rem;
       border-radius: 100px;
       display: inline-block;
       margin: 0.8rem 0;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-      letter-spacing: 4px;
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+      letter-spacing: 6px;
+      border: 2px solid white;
     }
+    
     .slogan {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0.5rem auto 0;
-      font-weight: 500;
-      background: rgba(0,0,0,0.05);
+      font-size: 1.25rem;
+      max-width: 750px;
+      margin: 0 auto;
+      font-weight: 600;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(6px);
+      padding: 0.7rem 1.8rem;
+      border-radius: 60px;
+      color: #FFF5E6;
       display: inline-block;
-      padding: 0.5rem 1.8rem;
-      border-radius: 40px;
-      backdrop-filter: blur(2px);
-      color: #2c2c3a;
     }
+    
     .profile-wrapper {
       display: flex;
       justify-content: center;
-      margin: 1.8rem 0;
+      margin: 2rem 0;
     }
     .profile-img-modern {
       max-width: 340px;
       width: 90%;
       border-radius: 2rem;
-      box-shadow: 0 25px 40px -10px rgba(0, 0, 0, 0.5);
-      border: 4px solid rgba(255,255,240,0.95);
-      transition: 0.25s;
+      box-shadow: 0 30px 40px -10px rgba(0, 0, 0, 0.6);
+      border: 5px solid #FFDD99;
+      transition: 0.2s;
     }
+    
     /* Cards estatísticos */
     .stats-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1.8rem;
-      margin: 2rem 0;
+      margin: 2.5rem 0;
     }
     .stat-card {
       background: white;
@@ -129,55 +181,46 @@
       padding: 1.5rem 1.2rem;
       flex: 1 1 200px;
       text-align: center;
-      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
+      box-shadow: 0 20px 35px -8px rgba(0,0,0,0.3);
     }
     .stat-card i {
       font-size: 2.5rem;
-      background: linear-gradient(145deg, #d62828, #9b2226);
+      background: linear-gradient(145deg, #e30613, #a1121f);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 0.8rem;
     }
     .stat-card h3 {
       font-size: 2rem;
       font-weight: 800;
-      color: #b91c1c;
+      color: #c1121f;
     }
-
-    /* Área do quiz com tons vermelhos modernos */
+    
+    /* Quiz moderno */
     .quiz-modern {
       background: white;
       border-radius: 2rem;
       padding: 2rem;
       margin: 2.5rem 0;
-      box-shadow: 0 25px 45px rgba(0,0,0,0.2);
-    }
-    .quiz-header {
-      text-align: center;
-      margin-bottom: 1.5rem;
+      box-shadow: 0 25px 45px rgba(0,0,0,0.25);
     }
     .quiz-header h2 {
       font-size: 2rem;
       font-weight: 800;
-      background: linear-gradient(120deg, #c91a1a, #8b1e1e);
+      background: linear-gradient(120deg, #b91c1c, #e63946);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
     }
     .question-box {
-      background: #fff4f2;
+      background: #fff3f0;
       padding: 1.5rem;
       border-radius: 1.5rem;
-      border-left: 8px solid #e63946;
-      margin-bottom: 2rem;
+      border-left: 8px solid #e30613;
     }
     .question-text {
       font-size: 1.45rem;
       font-weight: 700;
-      line-height: 1.3;
-      color: #2c2c2c;
     }
     .options-grid {
       display: grid;
@@ -185,52 +228,28 @@
       gap: 1rem;
     }
     .opt-btn {
-      background: #fef2f1;
+      background: #fef0ed;
       border: none;
       border-radius: 60px;
       padding: 0.9rem 1rem;
       font-weight: 600;
-      font-size: 1rem;
-      text-align: left;
       display: flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
-      transition: all 0.2s ease;
-      color: #1e1e2a;
-      font-family: 'Inter', sans-serif;
-    }
-    .opt-btn i {
-      font-size: 1.3rem;
-      color: #c1121f;
-      width: 28px;
+      transition: 0.2s;
     }
     .opt-btn:hover {
-      background: #ffe0db;
+      background: #ffe0d9;
       transform: translateX(6px);
-    }
-    .score-panel {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-      gap: 1rem;
     }
     .score-badge {
       background: #b91c1c;
-      color: #FFE8C5;
+      color: #FFE6C7;
       padding: 0.5rem 1.8rem;
       border-radius: 60px;
       font-weight: 700;
     }
-    .message-feedback {
-      font-weight: 600;
-      padding: 0.7rem 1.2rem;
-      border-radius: 60px;
-    }
-
-    /* Compromissos */
     .compromissos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
@@ -242,19 +261,17 @@
       padding: 1.8rem;
       border-radius: 2rem;
       text-align: center;
-      transition: all 0.2s;
-      box-shadow: 0 12px 22px rgba(0,0,0,0.08);
+      box-shadow: 0 15px 25px rgba(0,0,0,0.1);
     }
     .comp-card i {
       font-size: 2.5rem;
-      background: linear-gradient(145deg, #c62828, #8b2c2c);
+      background: linear-gradient(145deg, #c62828, #9b2226);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
-      margin-bottom: 1rem;
     }
     .cta-modern {
-      background: #FFDD88;
+      background: #FFDEA5;
       border-radius: 2rem;
       padding: 2rem;
       text-align: center;
@@ -266,7 +283,6 @@
       border-radius: 2rem 2rem 0 0;
       padding: 2rem;
       text-align: center;
-      margin-top: 2rem;
     }
     .whatsapp-float {
       position: fixed;
@@ -282,31 +298,35 @@
       font-size: 32px;
       color: white;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-      transition: 0.2s;
       z-index: 99;
+      transition: 0.2s;
     }
     .whatsapp-float:hover { transform: scale(1.08); background: #1da956; }
-    button:disabled { opacity: 0.7; cursor: default; transform: none !important; }
-
+    button:disabled { opacity: 0.7; cursor: default; transform: none; }
+    
     @media (max-width: 680px) {
       .container { padding: 1rem; }
       .question-text { font-size: 1.2rem; }
-      .options-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="hero" data-aos="fade-down">
+  <div class="hero" style="text-align: center;" data-aos="fade-down">
     <div class="badge-pt">
-      <i class="fas fa-star-of-life"></i> PARTIDO DOS TRABALHADORES - PT | 13
+      <i class="fas fa-star-of-life"></i> PT - PARTIDO DOS TRABALHADORES | 13
     </div>
-    <!-- Nome com destaque em diferentes tons de vermelho -->
-    <div class="name-highlight">
-      <span class="name-lelinho">LELINHO</span>
-      <span class="name-lopes">LOPES</span>
+    
+    <!-- Nome com destaque supremo (3D + gradiente animado + glow) -->
+    <div class="hero-name-container">
+      <div class="super-name">
+        <span class="name-lelinho">LELINHO</span>
+        <span class="name-lopes">LOPES</span>
+      </div>
+      <div class="name-underline"></div>
     </div>
+    
     <div class="numero-campanha">
       13 800
     </div>
@@ -314,77 +334,58 @@
   </div>
 
   <div class="profile-wrapper" data-aos="zoom-in">
-    <img src="lelinho.jpg" alt="Lelinho Lopes - candidato a deputado estadual PT" class="profile-img-modern" onerror="this.src='https://placehold.co/500x500/e30613/white?text=Lelinho+13.800'">
+    <img src="lelinho.jpg" alt="Lelinho Lopes - Deputado Estadual 13.800" class="profile-img-modern" onerror="this.src='https://placehold.co/500x500/e30613/white?text=Lelinho+13.800'">
   </div>
 
-  <!-- Cards de impacto -->
+  <!-- Cards -->
   <div class="stats-grid" data-aos="fade-up">
     <div class="stat-card">
-      <i class="fas fa-chart-simple"></i>
+      <i class="fas fa-chart-line"></i>
       <h3>+6.800 votos</h3>
-      <p>Recorde em Bagé<br>Vereador mais votado da história</p>
+      <p>Recorde histórico em Bagé<br>Vereador mais votado</p>
     </div>
     <div class="stat-card">
       <i class="fas fa-hand-holding-heart"></i>
       <h3>Saúde & Social</h3>
-      <p>Frente prioritária de atuação e defesa da população</p>
+      <p>Prioridade na luta do mandato</p>
     </div>
     <div class="stat-card">
       <i class="fas fa-landmark"></i>
       <h3>Fiscalização</h3>
-      <p>Experiência em defender o povo na Câmara de Bagé</p>
+      <p>Defesa do povo e transparência</p>
     </div>
   </div>
 
-  <!-- QUIZ INTERATIVO -->
-  <div class="quiz-modern" data-aos="flip-up" id="quizBlock">
-    <div class="quiz-header">
+  <!-- QUIZ -->
+  <div class="quiz-modern" data-aos="flip-up">
+    <div class="quiz-header" style="text-align: center;">
       <i class="fas fa-brain" style="font-size: 2rem; color:#b91c1c;"></i>
       <h2>Desafio Lelinho Lopes 13.800</h2>
-      <p>Teste seus conhecimentos sobre o candidato que é a voz do povo gaúcho</p>
+      <p>Você conhece a trajetória do candidato do povo?</p>
     </div>
     <div class="question-box">
       <div class="question-text" id="dynamicQuestion">
-        Carregando compromisso com o Rio Grande...
+        Carregando...
       </div>
     </div>
     <div class="options-grid" id="optionsGrid"></div>
-    <div class="score-panel">
-      <div class="score-badge" id="scoreDisplay">
-        <i class="fas fa-trophy"></i> Pontuação: 0
-      </div>
-      <div id="quizMessage" class="message-feedback"></div>
+    <div class="score-panel" style="display: flex; justify-content: space-between; margin-top: 1.8rem; flex-wrap: wrap;">
+      <div class="score-badge" id="scoreDisplay"><i class="fas fa-trophy"></i> Pontuação: 0</div>
+      <div id="quizMessage" class="message-feedback" style="font-weight: 600;"></div>
     </div>
   </div>
 
-  <!-- Bandeiras / Compromissos -->
+  <!-- Compromissos -->
   <div data-aos="fade-right">
     <h2 style="color: white; font-size: 1.8rem; text-align: center; margin-bottom: 1rem;"><i class="fas fa-bullhorn"></i> Compromissos com o Rio Grande</h2>
     <div class="compromissos">
-      <div class="comp-card">
-        <i class="fas fa-hospital-user"></i>
-        <h3>Saúde pública de verdade</h3>
-        <p>Ampliar UPAs, farmácias populares e valorizar os servidores da saúde.</p>
-      </div>
-      <div class="comp-card">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>Educação e juventude</h3>
-        <p>Escolas em tempo integral, merenda de qualidade e combate à evasão escolar.</p>
-      </div>
-      <div class="comp-card">
-        <i class="fas fa-hand-peace"></i>
-        <h3>Assistência social</h3>
-        <p>Combate à fome, tarifa zero no transporte e moradia digna para todos.</p>
-      </div>
-      <div class="comp-card">
-        <i class="fas fa-tractor"></i>
-        <h3>Agricultura familiar</h3>
-        <p>Apoio ao pequeno produtor e desenvolvimento sustentável do campo.</p>
-      </div>
+      <div class="comp-card"><i class="fas fa-hospital-user"></i><h3>Saúde pública de verdade</h3><p>Mais UPAs, farmácia popular e valorização dos profissionais.</p></div>
+      <div class="comp-card"><i class="fas fa-graduation-cap"></i><h3>Educação integral</h3><p>Escolas em tempo integral, merenda de qualidade e combate à evasão.</p></div>
+      <div class="comp-card"><i class="fas fa-hand-peace"></i><h3>Assistência social</h3><p>Tarifa zero, moradia digna e combate à fome.</p></div>
+      <div class="comp-card"><i class="fas fa-tractor"></i><h3>Agricultura familiar</h3><p>Apoio ao pequeno produtor e desenvolvimento sustentável.</p></div>
     </div>
   </div>
 
-  <!-- CTA engajamento -->
   <div class="cta-modern" data-aos="zoom-in">
     <i class="fas fa-vote-yea" style="font-size: 2.8rem; color:#b22222;"></i>
     <h3 style="font-size: 1.7rem; margin: 0.5rem 0;">Lelinho na Luta! Vote 13.800</h3>
@@ -398,7 +399,7 @@
 <footer>
   <p><i class="fas fa-heart" style="color:#e63946;"></i> Lelinho Lopes - Deputado Estadual | PT 13.800</p>
   <p>Desenvolvido por Leonardo Goulart Lopes | (53) 99942-7999 | Campanha autorizada</p>
-  <p style="margin-top: 6px; font-size: 0.8rem;">Bagé - RS | Unidos por um estado mais justo e popular</p>
+  <p style="margin-top: 6px;">Bagé - RS | Unidos por um estado mais justo e popular</p>
 </footer>
 
 <a href="https://wa.me/5553999427999" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
@@ -408,8 +409,7 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 700, once: true });
-
-  // Base de perguntas com informações da campanha de Lelinho
+  
   const perguntas = [
     { text: "Qual recorde histórico Lelinho Lopes conquistou na última eleição em Bagé?", options: ["Vereador mais votado da história do município", "Prefeito mais jovem do RS", "Deputado federal mais votado", "Secretário mais influente"], correct: "Vereador mais votado da história do município" },
     { text: "Lelinho Lopes é orgulhosamente filiado a qual partido comprometido com as causas populares?", options: ["PT - Partido dos Trabalhadores", "PSDB", "MDB", "NOVO"], correct: "PT - Partido dos Trabalhadores" },
@@ -420,17 +420,17 @@
   ];
 
   let remaining = [];
-  let currentQuestionObj = null;
+  let current = null;
   let score = 0;
-  let quizActiveFlag = true;
-  let waitForNext = false;
+  let active = true;
+  let waiting = false;
 
-  const questionElem = document.getElementById('dynamicQuestion');
+  const questionEl = document.getElementById('dynamicQuestion');
   const optionsContainer = document.getElementById('optionsGrid');
   const scoreSpan = document.getElementById('scoreDisplay');
   const messageDiv = document.getElementById('quizMessage');
 
-  function shuffleArray(arr) {
+  function shuffle(arr) {
     for (let i = arr.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -442,16 +442,16 @@
     scoreSpan.innerHTML = `<i class="fas fa-trophy"></i> Pontuação: ${score}`;
   }
 
-  function loadNext() {
-    if (!quizActiveFlag) return;
+  function loadQuestion() {
+    if (!active) return;
     if (remaining.length === 0) {
-      finalizarQuiz();
+      finishQuiz();
       return;
     }
-    currentQuestionObj = remaining.pop();
-    questionElem.textContent = currentQuestionObj.text;
+    current = remaining.pop();
+    questionEl.textContent = current.text;
     optionsContainer.innerHTML = '';
-    const shuffledOpts = shuffleArray([...currentQuestionObj.options]);
+    const shuffledOpts = shuffle([...current.options]);
     shuffledOpts.forEach(opt => {
       const btn = document.createElement('button');
       btn.className = 'opt-btn';
@@ -469,30 +469,29 @@
   }
 
   function handleAnswer(selected, btn) {
-    if (waitForNext || !quizActiveFlag) return;
+    if (waiting || !active) return;
     const allBtns = document.querySelectorAll('.opt-btn');
-    allBtns.forEach(bt => { bt.disabled = true; bt.style.pointerEvents = 'none'; });
+    allBtns.forEach(b => { b.disabled = true; b.style.pointerEvents = 'none'; });
     
-    const isCorrect = (selected === currentQuestionObj.correct);
+    const isCorrect = (selected === current.correct);
     if (isCorrect) {
       score++;
       updateScoreUI();
-      messageDiv.innerHTML = `<i class="fas fa-check-circle"></i> Correto! ${currentQuestionObj.correct} – É com essa luta que Lelinho representa o povo! +1 ponto`;
+      messageDiv.innerHTML = `<i class="fas fa-check-circle"></i> Correto! ${current.correct} – Lelinho representa essa luta! +1 ponto`;
       messageDiv.style.color = "#155724";
       messageDiv.style.background = "#d4edda";
       btn.style.background = "#2ecc71";
       btn.style.color = "white";
       btn.querySelector('i').style.color = "white";
     } else {
-      messageDiv.innerHTML = `<i class="fas fa-times-circle"></i> Errado! A resposta correta é: "${currentQuestionObj.correct}". Lelinho Lopes segue firme na defesa do RS.`;
+      messageDiv.innerHTML = `<i class="fas fa-times-circle"></i> Errado! A resposta correta é: "${current.correct}". Lelinho Lopes segue firme na defesa do RS.`;
       messageDiv.style.color = "#721c24";
       messageDiv.style.background = "#f8d7da";
       btn.style.background = "#e74c3c";
       btn.style.color = "white";
       btn.querySelector('i').style.color = "white";
-      // destacar botão correto
       for (let bt of allBtns) {
-        if (bt.innerText.includes(currentQuestionObj.correct) || bt.textContent.includes(currentQuestionObj.correct)) {
+        if (bt.innerText.includes(current.correct) || bt.textContent.includes(current.correct)) {
           bt.style.background = "#2ecc71";
           bt.style.color = "white";
           bt.querySelector('i').style.color = "white";
@@ -500,52 +499,45 @@
         }
       }
     }
-    waitForNext = true;
+    waiting = true;
     setTimeout(() => {
-      waitForNext = false;
-      if (remaining.length === 0 && currentQuestionObj) {
-        finalizarQuiz();
-      } else {
-        loadNext();
-      }
-    }, 1800);
+      waiting = false;
+      if (remaining.length === 0 && current) finishQuiz();
+      else loadQuestion();
+    }, 1700);
   }
 
-  function finalizarQuiz() {
-    quizActiveFlag = false;
+  function finishQuiz() {
+    active = false;
     const total = perguntas.length;
-    let msgFinal = "";
-    if (score === total) msgFinal = `🏆 Impressionante! Você gabaritou (${score}/${total})! Lelinho Lopes conta com sua força! VOTE 13.800! 🏆`;
-    else if (score >= total-2) msgFinal = `🔥 Excelente! Você acertou ${score}/${total}. Compartilhe e ajude a espalhar a campanha de Lelinho!`;
-    else msgFinal = `👍 Você acertou ${score}/${total}. Conheça mais propostas no WhatsApp e apoie Lelinho 13.800!`;
+    let finalMsg = "";
+    if (score === total) finalMsg = `🏆 GABARITOU! ${score}/${total} – Você é guerreiro como Lelinho! VOTE 13.800! 🏆`;
+    else if (score >= total-2) finalMsg = `🔥 Excelente! ${score}/${total}. Compartilhe e fortaleça a campanha!`;
+    else finalMsg = `👍 Você acertou ${score}/${total}. Conheça mais propostas no WhatsApp e apoie Lelinho 13.800!`;
     
-    questionElem.innerHTML = `<div style="text-align:center"><i class="fas fa-flag-checkered" style="font-size:2.2rem; color:#c1121f;"></i><br/><span style="font-size:1.6rem; font-weight:800;">Desafio concluído</span><br/>${msgFinal}<br/><button id="restartQuizBtn" style="margin-top:20px; background:#b91c1c; border:none; color:white; padding:12px 26px; border-radius:50px; font-weight:bold; cursor:pointer;"><i class="fas fa-sync-alt"></i> Recomeçar Desafio</button></div>`;
+    questionEl.innerHTML = `<div style="text-align:center"><i class="fas fa-flag-checkered" style="font-size:2rem; color:#c1121f;"></i><br/><span style="font-size:1.6rem; font-weight:800;">Desafio concluído</span><br/>${finalMsg}<br/><button id="restartQuizBtn" style="margin-top:20px; background:#b91c1c; border:none; color:white; padding:12px 28px; border-radius:50px; font-weight:bold; cursor:pointer;"><i class="fas fa-redo-alt"></i> Recomeçar Desafio</button></div>`;
     optionsContainer.innerHTML = '';
     messageDiv.innerHTML = '';
-    const restartButton = document.getElementById('restartQuizBtn');
-    if (restartButton) {
-      restartButton.addEventListener('click', () => {
-        resetQuiz();
-      });
-    }
+    const restart = document.getElementById('restartQuizBtn');
+    if (restart) restart.addEventListener('click', () => resetQuiz());
   }
 
   function resetQuiz() {
-    remaining = shuffleArray([...perguntas]);
+    remaining = shuffle([...perguntas]);
     score = 0;
     updateScoreUI();
-    quizActiveFlag = true;
-    waitForNext = false;
+    active = true;
+    waiting = false;
     messageDiv.innerHTML = '';
-    loadNext();
+    loadQuestion();
   }
 
-  // Inicialização
-  remaining = shuffleArray([...perguntas]);
+  // iniciar
+  remaining = shuffle([...perguntas]);
   score = 0;
   updateScoreUI();
-  quizActiveFlag = true;
-  loadNext();
+  active = true;
+  loadQuestion();
 </script>
 </body>
 </html>
