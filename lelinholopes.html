@@ -332,7 +332,7 @@
   <div class="stats-grid" data-aos="fade-up">
     <div class="stat-card">
       <i class="fas fa-chart-line"></i>
-      <h3>+6.800 votos</h3>
+      <h3>+5.600 votos</h3>
       <p>Recorde histórico em Bagé<br>Vereador mais votado</p>
     </div>
     <div class="stat-card">
@@ -379,7 +379,7 @@
 
   <div class="cta-modern" data-aos="zoom-in">
     <i class="fas fa-vote-yea" style="font-size: 2.8rem; color:#b22222;"></i>
-    <h3 style="font-size: 1.7rem; margin: 0.5rem 0;">Lelinho na Luta! Vote 13.800</h3>
+    <h3 style="font-size: 1.7rem; margin: 0.5rem 0;">Lelinho na Luta!</h3>
     <p style="font-weight: 500;">“Vou levar para a Assembleia a experiência de fiscalização e a coragem de defender os mais pobres”</p>
     <div style="margin-top: 1.5rem;">
       <a href="https://wa.me/5553999427999?text=Oi%2C%20quero%20apoiar%20Lelinho%2013800!" target="_blank" style="background:#25D366; color:white; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-flex; gap: 8px;"><i class="fab fa-whatsapp"></i> Apoiar pelo WhatsApp</a>
@@ -502,9 +502,9 @@
     active = false;
     const total = perguntas.length;
     let finalMsg = "";
-    if (score === total) finalMsg = `🏆 GABARITOU! ${score}/${total} – Você é guerreiro como Lelinho! VOTE 13.800! 🏆`;
+    if (score === total) finalMsg = `🏆 GABARITOU! ${score}/${total} – Você é guerreiro como Lelinho! 🏆`;
     else if (score >= total-2) finalMsg = `🔥 Excelente! ${score}/${total}. Compartilhe e fortaleça a campanha!`;
-    else finalMsg = `👍 Você acertou ${score}/${total}. Conheça mais propostas no WhatsApp e apoie Lelinho 13.800!`;
+    else finalMsg = `👍 Você acertou ${score}/${total}. Conheça mais propostas no WhatsApp e apoie Lelinho!`;
     
     questionEl.innerHTML = `<div style="text-align:center"><i class="fas fa-flag-checkered" style="font-size:2rem; color:#c1121f;"></i><br/><span style="font-size:1.6rem; font-weight:800;">Desafio concluído</span><br/>${finalMsg}<br/><button id="restartQuizBtn" style="margin-top:20px; background:#b91c1c; border:none; color:white; padding:12px 28px; border-radius:50px; font-weight:bold; cursor:pointer;"><i class="fas fa-redo-alt"></i> Recomeçar Desafio</button></div>`;
     optionsContainer.innerHTML = '';
