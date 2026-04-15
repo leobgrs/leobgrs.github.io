@@ -1,417 +1,293 @@
 <html> 
   <head>
     <base href="https://leobgrs.github.io/">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conheça a Candidata: A Trajetória de Roberta Mércio em Bagé</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-     <link rel="icon" type="image/png" href="roberta.jpg">
-<style>
-  :root {
-   --primary-color:#8210bc;
-    --secondary-color: #ffd700;
-    
-   --background-color: #fff; /* Índigo */
-    --text-color: #333333;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lelinho Lopes: Deputado Estadual - Trajetória e Propostas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+      :root {
+        --primary-color: #e30613; /* Vermelho PT */
+        --secondary-color: #ffffff;
+        --accent-color: #ffcc00; /* Amarelo para detalhes */
+        --text-color: #333333;
+      }
 
-    
-  }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #f4f4f4;
+        background-image: linear-gradient(135deg, #e30613 0%, #a3040d 100%);
+        background-attachment: fixed;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 20px;
+      }
 
-  body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--background-color);
-   /* background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23f0f8ff"/><path d="M0 0L100 100M100 0L0 100" stroke="%23d3e5f2" stroke-width="2"/></svg>');
-    */
-background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%238210bc;stop-opacity:1"/><stop offset="100%" style="stop-color:%23ffd700;stop-opacity:1"/></linearGradient></defs><rect width="100%" height="100%" fill="url(%23grad1)"/></svg>');
+      .game-header {
+        background-color: var(--secondary-color);
+        color: var(--primary-color);
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px 10px 0 0;
+        margin-bottom: 20px;
+        border-bottom: 5px solid var(--accent-color);
+      }
 
-    background-repeat: repeat;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    padding: 20px;
-  }
+      .game-header h2 {
+        font-size: 1.8em;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
 
-  .game-header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px 10px 0 0;
-    margin-bottom: 20px;
-  }
+      .profile-image-container {
+        text-align: center;
+        margin-bottom: 30px;
+      }
 
-  .game-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8em;
-    margin-bottom: 10px;
-  }
+      .profile-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        width: 500px;
+        border: 4px solid white;
+      }
 
-  .game-header p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1em;
-  }
+      .game-container {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+        padding: 30px;
+        max-width: 800px;
+        width: 100%;
+        margin: 0 auto;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
-  .profile-image-container {
-    text-align: center;
-    margin-bottom: 30px;
-  }
+      h1 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 2.2em;
+        text-align: center;
+      }
 
-  .profile-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 500px;
-    object-fit: cover;
-    object-position: center;
-  }
+      .question-area {
+        margin-bottom: 20px;
+        background-color: #fff3f3;
+        padding: 20px;
+        border-left: 5px solid var(--primary-color);
+        border-radius: 8px;
+        width: 100%;
+      }
 
-  .profile-caption {
-    font-style: italic;
-    color: var(--text-color);
-    margin-top: 10px;
-  }
+      .question {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: var(--text-color);
+      }
 
-  .game-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    text-align: center;
-    max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    border: 2px solid var(--primary-color);
-    flex: 1;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+      .options-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        width: 100%;
+      }
 
-  h1 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    font-size: 2.5em;
-    font-family: 'Playfair Display', serif;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  }
+      .option-button {
+        background-color: var(--primary-color);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer; 
+        font-size: 1.1em;
+        padding: 18px;
+        transition: 0.3s;
+        font-weight: bold;
+      }
 
-  .question-area {
-    margin-bottom: 20px;
-    background-color: var(--secondary-color);
-    padding: 15px;
-    border-radius: 8px;
-    width: 100%;
-    max-width: 600px;
-  }
+      .option-button:hover {
+        background-color: #b3050f;
+        transform: translateY(-3px);
+      }
 
-  .question {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    font-weight: bold;
-    color: var(--text-color);
-    font-family: 'Playfair Display', serif;
-  }
+      .score {
+        margin-top: 20px;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
 
-  .options-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 600px;
-  }
+      footer {
+        text-align: center;
+        padding: 20px;
+        background-color: white;
+        color: var(--primary-color);
+        font-size: 0.9em;
+        margin-top: 20px;
+        border-radius: 10px;
+        font-weight: bold;
+      }
 
-  .option-button {
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer; 
-    font-size: 1em;
-    padding: 15px;
-    transition: all 0.3s ease;
-    font-family: 'Roboto', sans-serif;
-  }
+      .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25D366;
+        color: white;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+        z-index: 1000;
+      }
 
-  .option-button:hover, .option-button:focus {
-    background-color: #2980b9;
-    transform: scale(1.05);
-    outline: none;
-  }
-
-  .score, .message {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    font-weight: bold;
-  }
-
-  .message {
-    height: 1.5em;
-  }
-
-  footer {
-    text-align: center;
-    padding: 15px;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 0.9em;
-    margin-top: 20px;
-    border-radius: 0 0 10px 10px;
-    width: 100%;
-  }
-
-  footer p {
-    margin: 5px 0;
-  }
- /* Estilo para o botão flutuante do WhatsApp */
-  .whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #25D366;
-    color: white;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    z-index: 1000;
-  }
-
-  .whatsapp-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-  }
-  @media (max-width: 600px) {
-    .options-container {
-      grid-template-columns: 1fr;
-    }
-
-    body {
-      padding: 10px;
-    }
-
-    .game-container {
-      padding: 20px;
-    }
-
-    h1 {
-      font-size: 2em;
-    }
-
-    .game-header h2 {
-      font-size: 1.5em;
-    }
-
-    .game-header p {
-      font-size: 0.9em;
-    }
-
-    .profile-image {
-      width: 100%;
-    }
-     .whatsapp-button {
-      width: 50px;
-      height: 50px;
-      font-size: 25px;
-    }
-  }
-</style>
-</head>
+      @media (max-width: 600px) {
+        .options-container { grid-template-columns: 1fr; }
+        h1 { font-size: 1.6em; }
+      }
+    </style>
+  </head>
 <body>
+
   <header class="game-header">
-    <h2>Desafio Eleitoral: Conheça a Carreira e Propostas da Candidata à Prefeitura de Bagé</h2>
-    <p>Caminho à Prefeitura: Quanto Você Sabe Sobre Nossa Candidata?</p>
+    <h2>Lelinho Lopes: A Voz de Bagé na Assembleia</h2>
+    <p>O Vereador Mais Votado da História Quer Fazer Mais pelo RS!</p>
   </header>
 
   <div class="profile-image-container">
-    <img src="./roberta.jpg" alt="Imagem de campanha política mostrando uma mulher sorridente com cabelos castanhos, vestindo uma blusa azul, em frente a um fundo colorido com elementos gráficos de campanha eleitoral" class="profile-image">
-    <p class="profile-caption">Roberta Mércio, candidata à prefeitura de Bagé</p>
+    <img src="lelinho_venceu.jpg" alt="Lelinho Lopes - Vereador mais votado da história de Bagé" class="profile-image">
   </div>
 
   <div class="game-container">
-    <h1>Desafio Político: Conheça Roberta Mércio</h1>
+    <h1>Desafio: Você conhece o Lelinho?</h1>
     <div class="question-area">
-      <p class="question" id="question">Carregando pergunta...</p>
+      <p class="question" id="question">Carregando desafio...</p>
     </div>
-    <div class="options-container" id="options-container">
-      <!-- Options will be dynamically added here -->
-    </div>
+    <div class="options-container" id="options-container"></div>
     <div class="score" id="score">Pontuação: 0</div>
-    <div class="message" id="message"></div>
-  
+    <div id="message" style="margin-top: 10px; font-weight: bold;"></div>
   </div>
 
   <footer>
-    <p>Desafio Eleitoral: Conheça a Carreira e Propostas da Candidata à Prefeitura de Bagé</p>
-    <p>Desenvolvido por Leonardo Goulart Lopes | Contato: (53) 99942-7999</p>
+    <p>Campanha Lelinho Lopes - Deputado Estadual</p>
+    <p>Desenvolvido por Leonardo Goulart Lopes | (53) 99942-7999</p>
   </footer>
-<a href="https://wa.me/5553999427999" class="whatsapp-button" target="_blank" rel="noopener noreferrer" aria-label="Contatar o desenvolvedor LeoBGRS via WhatsApp" title="Contatar o desenvolvedor LeoBGRS">
+
+  <a href="https://wa.me/5553999427999" class="whatsapp-button" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
- 
-</body>
-</html>
 
-<script>
-    const questionElement = document.getElementById('question');
-   const optionsContainer = document.getElementById('options-container');
-   const scoreElement = document.getElementById('score');
-  const messageElement = document.getElementById('message');
-
-   let currentQuestion = null;
-  let score = 0;
-  let availableQuestions = [];
-
+  <script>
     const questions = [
-           {
-        question: "A qual partido político Roberta Mércio é filiada?",
-        options: ["PDT", "MDB", "PSDB", "PL"],
-        correctAnswer: "PL"
+      {
+        question: "Qual marca histórica Lelinho Lopes atingiu na última eleição em Bagé?",
+        options: ["Vereador mais votado da história", "Prefeito mais jovem", "Secretário de Saúde", "Deputado mais votado"],
+        correctAnswer: "Vereador mais votado da história"
       },
       {
-        question: "Qual cargo Roberta Mércio ocupou antes de se candidatar à prefeitura?",
-        options: ["Coordenadora de Comunicação na Prefeitura", "Deputada Estadual", "Secretária Municipal", "Deputada Federal"],
-        correctAnswer: "Coordenadora de Comunicação na Prefeitura"
-      },
-            {
-        question: "Qual é o plano de Roberta Mércio para o transporte público em Bagé?",
-        options: ["Renovação da frota", "Ampliação de linhas", "Tarifa reduzida", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores"
-      },
-     {
-        question: "Qual é a proposta de Roberta Mércio para o meio ambiente em Bagé?",
-        options: ["Ampliação de áreas verdes", "Coleta seletiva", "Energias renováveis", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores"
+        question: "A qual partido político Lelinho Lopes é filiado?",
+        options: ["PT", "PL", "MDB", "PSDB"],
+        correctAnswer: "PT"
       },
       {
-        question: "Qual é uma das principais propostas de Roberta Mércio para a saúde em Bagé?",
-        options: ["Construção de novo hospital", "Ampliação do atendimento básico", "Contratação de mais médicos", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores"
+        question: "Qual é o número de Lelinho para Deputado Estadual (Exemplo)?",
+        options: ["13800", "13123", "22222", "15000"],
+        correctAnswer: "13800"
       },
       {
-        question: "Qual projeto Roberta Mércio propõe para o desenvolvimento econômico de Bagé?",
-        options: ["Bagé Empreendedora", "Inova Bagé", "Crescer Juntos", "Futuro Econômico"],
-        correctAnswer: "Inova Bagé"
+        question: "Qual área de atuação tem sido o forte do trabalho de Lelinho em Bagé?",
+        options: ["Saúde e Social", "Indústria", "Privatizações", "Agronegócio"],
+        correctAnswer: "Saúde e Social"
       },
       {
-        question: "Qual é o foco principal do plano de educação de Roberta Mércio?",
-        options: ["Educação tecnológica", "Ensino integral", "Valorização dos professores", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores"
-      },
-      {
-        question: "Qual proposta Roberta Mércio apresenta para a cultura em Bagé?",
-        options: ["Festival de Artes", "Restauração de patrimônios históricos", "Criação de centros culturais", "Todas as anteriores"],
-        correctAnswer: "Todas as anteriores"
-      },
-         
-      {
-        question: "Qual é o lema da campanha de Roberta Mércio?",
-        options: ["Bagé para Todos", "Juntos por Bagé", "Renovação e Progresso", "Futuro Melhor"],
-        correctAnswer: "Juntos por Bagé"
-      },
-       {
-        question: "Em que ano Roberta Mércio iniciou sua carreira política?",
-        options: ["2012", "2016", "2020", "2008"],
-        correctAnswer: "2016"
+        question: "Lelinho Lopes propõe levar para a Assembleia Legislativa a experiência de:",
+        options: ["Fiscalização e defesa do povo", "Aumento de impostos", "Criação de novos cargos", "Venda de estatais"],
+        correctAnswer: "Fiscalização e defesa do povo"
       }
-    //Adicione mais perguntas aqui
     ];
 
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-
-    function displayQuestion(question) {
-      questionElement.textContent = question.question;
-      optionsContainer.innerHTML = '';
-      
-      shuffleArray(question.options).forEach(option => {
-        const button = document.createElement('button');
-        button.textContent = option;
-        button.classList.add('option-button');
-        button.addEventListener('click', () => checkAnswer(option));
-        optionsContainer.appendChild(button);
-      });
-    }
-
-    function checkAnswer(selectedAnswer) {
-      const buttons = document.querySelectorAll('.option-button');
-      buttons.forEach(button => {
-        button.disabled = true;
-        if (button.textContent === currentQuestion.correctAnswer) {
-          button.style.backgroundColor = '#4CAF50';
-        } else if (button.textContent === selectedAnswer && selectedAnswer !== currentQuestion.correctAnswer) {
-          button.style.backgroundColor = '#F44336';
-        }
-      });
-
-      if (selectedAnswer === currentQuestion.correctAnswer) {
-        score++;
-        messageElement.textContent = 'Correto! Muito bem!';
-        messageElement.style.color = '#4CAF50';
-      } else {
-        messageElement.textContent = `Incorreto. A resposta correta é: ${currentQuestion.correctAnswer}`;
-        messageElement.style.color = '#F44336';
-      }
-      scoreElement.textContent = `Pontuação: ${score}`;
-      setTimeout(newQuestion, 3000);
-    }
-
-    function newQuestion() {
-      messageElement.textContent = '';
-      if (availableQuestions.length > 0) {
-        const randomIndex = Math.floor(Math.random() * availableQuestions.length);
-        currentQuestion = availableQuestions.splice(randomIndex, 1)[0];
-        displayQuestion(currentQuestion);
-      } else {
-questionElement.innerHTML = `
-    <div style="text-align: justify;">
-        Muito obrigado por participar! Parabéns por chegar até o final e conhecer melhor as propostas de Roberta Mércio. Juntos, podemos construir uma Bagé mais forte e próspera!
-    </div><br><br>
-    <div style="text-align: center; font-size: 40px; font-weight: bold; animation: blink 1s infinite;">
-        VOTE 22 ROBERTA MÉRCIO!!!
-           
-    </div><br><br>
-      <button onclick="location.reload()" style="background-color: var(--primary-color); color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 1.2em; cursor: pointer;">
-  Recarregar Página
-</button>
-    <style>
-        @keyframes blink {
-            0% { color: green; }
-           50% { color: #3E4095; } /* Azul da bandeira do Brasil */
-            100% { color: green; }
-        }
-    </style>
-`;        optionsContainer.innerHTML = '';
-        messageElement.textContent = '';
-      }
-    }
+    let availableQuestions = [];
+    let currentQuestion = null;
+    let score = 0;
 
     function startQuiz() {
       availableQuestions = [...questions];
       score = 0;
-      scoreElement.textContent = `Pontuação: ${score}`;
+      document.getElementById('score').textContent = `Pontuação: ${score}`;
       newQuestion();
     }
 
-    // Inicia o quiz ao carregar a página
+    function newQuestion() {
+      if (availableQuestions.length === 0) {
+        showFinalMessage();
+        return;
+      }
+      const index = Math.floor(Math.random() * availableQuestions.length);
+      currentQuestion = availableQuestions.splice(index, 1)[0];
+      
+      document.getElementById('question').textContent = currentQuestion.question;
+      const container = document.getElementById('options-container');
+      container.innerHTML = '';
+      document.getElementById('message').textContent = '';
+
+      currentQuestion.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.textContent = opt;
+        btn.className = 'option-button';
+        btn.onclick = () => check(opt, btn);
+        container.appendChild(btn);
+      });
+    }
+
+    function check(selected, btn) {
+      const allBtns = document.querySelectorAll('.option-button');
+      allBtns.forEach(b => b.disabled = true);
+
+      if (selected === currentQuestion.correctAnswer) {
+        score++;
+        btn.style.backgroundColor = "#2ecc71";
+        document.getElementById('message').textContent = "Correto! É o Lelinho com o povo!";
+        document.getElementById('message').style.color = "#2ecc71";
+      } else {
+        btn.style.backgroundColor = "#e74c3c";
+        document.getElementById('message').textContent = `A resposta correta era: ${currentQuestion.correctAnswer}`;
+        document.getElementById('message').style.color = "#e74c3c";
+      }
+      
+      document.getElementById('score').textContent = `Pontuação: ${score}`;
+      setTimeout(newQuestion, 2000);
+    }
+
+    function showFinalMessage() {
+      document.getElementById('question').innerHTML = `
+        <div style="text-align: center;">
+          <h2 style="color: var(--primary-color)">Obrigado pelo apoio!</h2>
+          <p>Você conhece bem a trajetória de Lelinho Lopes. No Rio Grande, ele é a nossa voz!</p>
+          <br>
+          <h1 style="font-size: 3em; color: var(--primary-color); animation: pulse 1s infinite;">VOTE 13800!</h1>
+          <br>
+          <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer;">Refazer Desafio</button>
+        </div>
+      `;
+      document.getElementById('options-container').innerHTML = '';
+    }
+
     window.onload = startQuiz;
-</script>
+  </script>
+</body>
+</html>
