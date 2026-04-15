@@ -1,293 +1,616 @@
-<html> 
-  <head>
-    <base href="https://leobgrs.github.io/">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lelinho Lopes: Deputado Estadual - Trajetória e Propostas</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-      :root {
-        --primary-color: #e30613; /* Vermelho PT */
-        --secondary-color: #ffffff;
-        --accent-color: #ffcc00; /* Amarelo para detalhes */
-        --text-color: #333333;
-      }
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Lelinho Lopes 13.800 | Deputado Estadual - PT | A força do povo gaúcho</title>
+  <!-- Fontes modernas -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (ícones modernos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS Animação ao scroll -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(145deg, #e00713 0%, #9a0310 100%);
+      background-attachment: fixed;
+      scroll-behavior: smooth;
+      color: #1e1e2a;
+    }
 
-      body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f4f4f4;
-        background-image: linear-gradient(135deg, #e30613 0%, #a3040d 100%);
-        background-attachment: fixed;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        padding: 20px;
-      }
+    /* Efeito vidro e modernidade */
+    .glass-card {
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(0px);
+      border-radius: 2rem;
+      box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-      .game-header {
-        background-color: var(--secondary-color);
-        color: var(--primary-color);
-        padding: 20px;
-        text-align: center;
-        border-radius: 10px 10px 0 0;
-        margin-bottom: 20px;
-        border-bottom: 5px solid var(--accent-color);
-      }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
 
-      .game-header h2 {
-        font-size: 1.8em;
-        margin-bottom: 10px;
-        text-transform: uppercase;
-      }
+    /* cabeçalho hero */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
 
-      .profile-image-container {
-        text-align: center;
-        margin-bottom: 30px;
-      }
+    .badge-pt {
+      background: #e30613;
+      color: #FFD966;
+      font-weight: 800;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
 
-      .profile-image {
-        max-width: 100%;
-        height: auto;
-        border-radius: 15px;
-        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        width: 500px;
-        border: 4px solid white;
-      }
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #e30613, #b00b12);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
+      letter-spacing: -0.5px;
+    }
 
-      .game-container {
-        background-color: rgba(255, 255, 255, 0.95);
-        border-radius: 15px;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-        padding: 30px;
-        max-width: 800px;
-        width: 100%;
-        margin: 0 auto;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
+    .hero h1 span {
+      background: none;
+      color: #1a1a2e;
+      display: inline-block;
+    }
 
-      h1 {
-        color: var(--primary-color);
-        margin-bottom: 20px;
-        font-size: 2.2em;
-        text-align: center;
-      }
+    .numero-campanha {
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: #FFD966;
+      color: #e30613;
+      padding: 0.2rem 1.5rem;
+      border-radius: 100px;
+      display: inline-block;
+      margin: 1rem 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      letter-spacing: 4px;
+    }
 
-      .question-area {
-        margin-bottom: 20px;
-        background-color: #fff3f3;
-        padding: 20px;
-        border-left: 5px solid var(--primary-color);
-        border-radius: 8px;
-        width: 100%;
-      }
+    .profile-wrapper {
+      display: flex;
+      justify-content: center;
+      margin: 1.5rem 0;
+    }
 
-      .question {
-        font-size: 1.3em;
-        font-weight: bold;
-        color: var(--text-color);
-      }
+    .profile-img-modern {
+      max-width: 320px;
+      width: 90%;
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.4);
+      border: 4px solid white;
+      transition: 0.3s;
+    }
 
-      .options-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        width: 100%;
-      }
+    /* cards de destaques */
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
 
-      .option-button {
-        background-color: var(--primary-color);
-        border: none;
-        border-radius: 8px;
-        color: white;
-        cursor: pointer; 
-        font-size: 1.1em;
-        padding: 18px;
-        transition: 0.3s;
-        font-weight: bold;
-      }
+    .stat-card {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.5rem 1.8rem;
+      flex: 1 1 200px;
+      text-align: center;
+      transition: all 0.25s;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
 
-      .option-button:hover {
-        background-color: #b3050f;
-        transform: translateY(-3px);
-      }
+    .stat-card i {
+      font-size: 2.5rem;
+      color: #e30613;
+      margin-bottom: 0.8rem;
+    }
 
-      .score {
-        margin-top: 20px;
-        font-size: 1.2em;
-        font-weight: bold;
-        color: var(--primary-color);
-      }
+    .stat-card h3 {
+      font-size: 1.9rem;
+      font-weight: 800;
+    }
 
-      footer {
-        text-align: center;
-        padding: 20px;
-        background-color: white;
-        color: var(--primary-color);
-        font-size: 0.9em;
-        margin-top: 20px;
-        border-radius: 10px;
-        font-weight: bold;
-      }
+    /* quiz area moderna */
+    .quiz-modern {
+      background: white;
+      border-radius: 2rem;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
 
-      .whatsapp-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        background-color: #25D366;
-        color: white;
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        text-decoration: none;
-        z-index: 1000;
-      }
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 1.8rem;
+    }
 
-      @media (max-width: 600px) {
-        .options-container { grid-template-columns: 1fr; }
-        h1 { font-size: 1.6em; }
-      }
-    </style>
-  </head>
+    .quiz-header h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e30613;
+    }
+
+    .quiz-header p {
+      color: #4a4a5a;
+    }
+
+    .question-box {
+      background: #fff6f5;
+      padding: 1.5rem;
+      border-radius: 1.5rem;
+      border-left: 8px solid #e30613;
+      margin-bottom: 2rem;
+    }
+
+    .question-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .opt-btn {
+      background: #f0f2f5;
+      border: none;
+      border-radius: 3rem;
+      padding: 1rem 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #1e1e2a;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .opt-btn i {
+      font-size: 1.4rem;
+      color: #e30613;
+      width: 28px;
+    }
+
+    .opt-btn:hover {
+      background: #ffe1df;
+      transform: translateX(6px);
+    }
+
+    .score-panel {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 1.8rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .score-badge {
+      background: #e30613;
+      color: white;
+      padding: 0.5rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 700;
+    }
+
+    .message-feedback {
+      font-weight: 600;
+      padding: 0.8rem;
+      border-radius: 1rem;
+    }
+
+    /* seção compromissos */
+    .compromissos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+
+    .comp-card {
+      background: white;
+      padding: 1.8rem;
+      border-radius: 1.8rem;
+      transition: 0.2s;
+      text-align: center;
+    }
+
+    .comp-card i {
+      font-size: 2.8rem;
+      color: #e30613;
+      margin-bottom: 1rem;
+    }
+
+    /* rodapé */
+    footer {
+      background: #0f0f1c;
+      color: #f0f0f0;
+      border-radius: 2rem 2rem 0 0;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: white;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: 0.2s;
+      z-index: 99;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+      background: #20b859;
+    }
+
+    button:disabled {
+      opacity: 0.7;
+      cursor: default;
+      transform: none !important;
+    }
+
+    @keyframes pulseRed {
+      0% { transform: scale(1); opacity: 1;}
+      100% { transform: scale(1.02); background: #ffd966; color:#b3050f;}
+    }
+    
+    .animate-pulse-simple {
+      animation: pulseRed 0.8s infinite alternate;
+    }
+
+    @media (max-width: 680px) {
+      .container { padding: 1rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .numero-campanha { font-size: 2rem; }
+      .question-text { font-size: 1.2rem; }
+      .options-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
 <body>
 
-  <header class="game-header">
-    <h2>Lelinho Lopes: A Voz de Bagé na Assembleia</h2>
-    <p>O Vereador Mais Votado da História Quer Fazer Mais pelo RS!</p>
-  </header>
-
-  <div class="profile-image-container">
-    <img src="lelinho.jpg" alt="Lelinho Lopes - Vereador mais votado da história de Bagé" class="profile-image">
-  </div>
-
-  <div class="game-container">
-    <h1>Desafio: Você conhece o Lelinho?</h1>
-    <div class="question-area">
-      <p class="question" id="question">Carregando desafio...</p>
+  <div class="container">
+    <!-- Hero / cabeçalho moderno -->
+    <div class="hero" data-aos="fade-down">
+      <div class="badge-pt">
+        <i class="fas fa-star-of-life"></i> PARTIDO DOS TRABALHADORES - PT
+      </div>
+      <h1>Lelinho Lopes <span>13.800</span></h1>
+      <div class="numero-campanha">
+        13 800
+      </div>
+      <p style="font-size: 1.2rem; max-width: 600px; margin-top: 0.5rem; font-weight: 500;">O vereador mais votado da história de Bagé agora quer representar todo o RS na Assembleia Legislativa</p>
     </div>
-    <div class="options-container" id="options-container"></div>
-    <div class="score" id="score">Pontuação: 0</div>
-    <div id="message" style="margin-top: 10px; font-weight: bold;"></div>
+
+    <!-- Foto principal com moldura moderna -->
+    <div class="profile-wrapper" data-aos="zoom-in">
+      <img src="lelinho.jpg" alt="Lelinho Lopes - Deputado Estadual PT" class="profile-img-modern" onerror="this.src='https://placehold.co/500x500/e30613/white?text=Lelinho+Lopes'">
+    </div>
+
+    <!-- Cards de impacto (dados importantes) -->
+    <div class="stats-grid" data-aos="fade-up">
+      <div class="stat-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>+6.500</h3>
+        <p>Votos em Bagé<br>(recorde histórico)</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-hand-holding-heart"></i>
+        <h3>1º Lugar</h3>
+        <p>Vereador mais votado<br>da história da cidade</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-hospital-user"></i>
+        <h3>Saúde & Social</h3>
+        <p>Frente de atuação<br>prioritária</p>
+      </div>
+    </div>
+
+    <!-- QUIZ INTERATIVO MODERNO -->
+    <div class="quiz-modern" data-aos="flip-up" id="quizBlock">
+      <div class="quiz-header">
+        <i class="fas fa-brain" style="font-size: 2rem; color:#e30613;"></i>
+        <h2>Desafio Lelinho 13.800</h2>
+        <p>Teste seus conhecimentos sobre a trajetória e propostas do futuro deputado</p>
+      </div>
+      <div class="question-box">
+        <div class="question-text" id="dynamicQuestion">
+          Carregando compromisso com o povo...
+        </div>
+      </div>
+      <div class="options-grid" id="optionsGrid"></div>
+      <div class="score-panel">
+        <div class="score-badge" id="scoreDisplay">
+          <i class="fas fa-trophy"></i> Pontuação: 0
+        </div>
+        <div id="quizMessage" class="message-feedback"></div>
+      </div>
+    </div>
+
+    <!-- Compromissos e bandeiras do mandato (PT / Moderno) -->
+    <div data-aos="fade-right">
+      <h2 style="color: white; font-size: 1.8rem; text-align: center; margin: 2rem 0 0.5rem;"><i class="fas fa-bullhorn"></i> Bandeiras de Luta</h2>
+      <div class="compromissos">
+        <div class="comp-card">
+          <i class="fas fa-ambulance"></i>
+          <h3>Saúde Pública de qualidade</h3>
+          <p>Ampliar UPAs, mais leitos e valorizar os profissionais da saúde no interior.</p>
+        </div>
+        <div class="comp-card">
+          <i class="fas fa-chalkboard-user"></i>
+          <h3>Educação & Juventude</h3>
+          <p>Escolas em tempo integral, ciência e combate à evasão escolar.</p>
+        </div>
+        <div class="comp-card">
+          <i class="fas fa-hand-peace"></i>
+          <h3>Defesa dos mais pobres</h3>
+          <p>Fortalecer assistência social, tarifa zero no transporte e moradia digna.</p>
+        </div>
+        <div class="comp-card">
+          <i class="fas fa-industry"></i>
+          <h3>Desenvolvimento do RS</h3>
+          <p>Incentivo à agricultura familiar, geração de emprego e renda.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chamada para ação e engajamento -->
+    <div style="background: #FFD966; border-radius: 2rem; padding: 2rem; text-align: center; margin: 2rem 0;" data-aos="zoom-in">
+      <i class="fas fa-vote-yea" style="font-size: 3rem; color:#e30613;"></i>
+      <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">Lelinho na Luta! Vote 13.800</h3>
+      <p style="font-weight: 500;">“Chegou a hora de levar a experiência de fiscalização e defesa do povo para a Assembleia Legislativa”</p>
+      <div style="margin-top: 1.2rem;">
+        <a href="https://wa.me/5553999427999?text=Oi%2C%20quero%20apoiar%20Lelinho%2013800!" target="_blank" style="background:#25D366; color:white; padding: 12px 28px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-flex; gap: 8px;"><i class="fab fa-whatsapp"></i> Apoiar pelo WhatsApp</a>
+      </div>
+    </div>
   </div>
 
   <footer>
-    <p>Campanha Lelinho Lopes - Deputado Estadual</p>
-    <p>Desenvolvido por Leonardo Goulart Lopes | (53) 99942-7999</p>
+    <p><i class="fas fa-heart" style="color:#e30613;"></i> Lelinho Lopes - Deputado Estadual | PT 13.800</p>
+    <p>Desenvolvido por Leonardo Goulart Lopes | (53) 99942-7999 | Campanha autorizada</p>
+    <p style="margin-top: 8px; font-size: 0.8rem;">Bagé - Rio Grande do Sul | Juntos por um estado mais justo</p>
   </footer>
 
-  <a href="https://wa.me/5553999427999" class="whatsapp-button" target="_blank">
+  <a href="https://wa.me/5553999427999" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    const questions = [
+    AOS.init({ duration: 800, once: true });
+    
+    // Base de perguntas atualizada com tom de campanha PT + informações verdadeiras do contexto
+    const questionBank = [
       {
-        question: "Qual marca histórica Lelinho Lopes atingiu na última eleição em Bagé?",
-        options: ["Vereador mais votado da história", "Prefeito mais jovem", "Secretário de Saúde", "Deputado mais votado"],
-        correctAnswer: "Vereador mais votado da história"
+        text: "Qual marco histórico Lelinho Lopes atingiu na última eleição municipal em Bagé?",
+        options: ["Vereador mais votado da história", "Prefeito mais jovem de Bagé", "Secretário de Saúde mais atuante", "Deputado mais votado da região"],
+        correct: "Vereador mais votado da história"
       },
       {
-        question: "A qual partido político Lelinho Lopes é filiado?",
-        options: ["PT", "PL", "MDB", "PSDB"],
-        correctAnswer: "PT"
+        text: "Lelinho Lopes é filiado a qual partido político, comprometido com as causas sociais e trabalhistas?",
+        options: ["PT - Partido dos Trabalhadores", "PSDB", "MDB", "PL"],
+        correct: "PT - Partido dos Trabalhadores"
       },
       {
-        question: "Qual é o número de Lelinho para Deputado Estadual (Exemplo)?",
-        options: ["13800", "13123", "22222", "15000"],
-        correctAnswer: "13800"
+        text: "Qual o número de urna de Lelinho para Deputado Estadual nas eleições?",
+        options: ["13.800", "13.123", "12.345", "15.000"],
+        correct: "13.800"
       },
       {
-        question: "Qual área de atuação tem sido o forte do trabalho de Lelinho em Bagé?",
-        options: ["Saúde e Social", "Indústria", "Privatizações", "Agronegócio"],
-        correctAnswer: "Saúde e Social"
+        text: "Qual área tem sido o principal foco do mandato de Lelinho como vereador e que ele quer ampliar como deputado?",
+        options: ["Saúde e Assistência Social", "Privatizações e mercado", "Agronegócio exportador", "Segurança repressiva"],
+        correct: "Saúde e Assistência Social"
       },
       {
-        question: "Lelinho Lopes propõe levar para a Assembleia Legislativa a experiência de:",
-        options: ["Fiscalização e defesa do povo", "Aumento de impostos", "Criação de novos cargos", "Venda de estatais"],
-        correctAnswer: "Fiscalização e defesa do povo"
+        text: "Lelinho Lopes propõe levar para a Assembleia Legislativa a experiência adquirida em Bagé principalmente em:",
+        options: ["Fiscalização e defesa do povo", "Aumento de tarifas públicas", "Criação de cargos comissionados", "Desmonte de políticas públicas"],
+        correct: "Fiscalização e defesa do povo"
+      },
+      {
+        text: "Qual destas bandeiras representa a luta de Lelinho no parlamento?",
+        options: ["Moradia digna e transporte público de qualidade", "Privatização da saúde", "Redução de direitos trabalhistas", "Fim do SUS"],
+        correct: "Moradia digna e transporte público de qualidade"
       }
     ];
 
-    let availableQuestions = [];
-    let currentQuestion = null;
-    let score = 0;
+    let remainingQuestions = [];
+    let currentQ = null;
+    let currentScore = 0;
+    let quizActive = true;
+    let waitingTimeout = false;
 
-    function startQuiz() {
-      availableQuestions = [...questions];
-      score = 0;
-      document.getElementById('score').textContent = `Pontuação: ${score}`;
-      newQuestion();
+    const questionEl = document.getElementById('dynamicQuestion');
+    const optionsContainer = document.getElementById('optionsGrid');
+    const scoreSpan = document.getElementById('scoreDisplay');
+    const messageDiv = document.getElementById('quizMessage');
+
+    function updateScoreUI() {
+      scoreSpan.innerHTML = `<i class="fas fa-trophy"></i> Pontuação: ${currentScore}`;
     }
 
-    function newQuestion() {
-      if (availableQuestions.length === 0) {
-        showFinalMessage();
+    function shuffleArray(arr) {
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function initQuiz() {
+      // Cópia profunda e embaralha as perguntas
+      remainingQuestions = shuffleArray([...questionBank]);
+      currentScore = 0;
+      updateScoreUI();
+      messageDiv.innerHTML = '';
+      quizActive = true;
+      loadNextQuestion();
+    }
+
+    function loadNextQuestion() {
+      if (!quizActive) return;
+      if (remainingQuestions.length === 0) {
+        finishQuiz();
         return;
       }
-      const index = Math.floor(Math.random() * availableQuestions.length);
-      currentQuestion = availableQuestions.splice(index, 1)[0];
-      
-      document.getElementById('question').textContent = currentQuestion.question;
-      const container = document.getElementById('options-container');
-      container.innerHTML = '';
-      document.getElementById('message').textContent = '';
-
-      currentQuestion.options.forEach(opt => {
+      currentQ = remainingQuestions.pop();
+      questionEl.textContent = currentQ.text;
+      // Renderizar botões com ícones e design moderno
+      optionsContainer.innerHTML = '';
+      const optsShuffled = shuffleArray([...currentQ.options]);
+      optsShuffled.forEach(opt => {
         const btn = document.createElement('button');
-        btn.textContent = opt;
-        btn.className = 'option-button';
-        btn.onclick = () => check(opt, btn);
-        container.appendChild(btn);
+        btn.className = 'opt-btn';
+        // Ícone dinâmico
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-circle-check';
+        btn.appendChild(icon);
+        const spanText = document.createElement('span');
+        spanText.textContent = opt;
+        btn.appendChild(spanText);
+        btn.addEventListener('click', () => handleAnswer(opt, btn));
+        optionsContainer.appendChild(btn);
+      });
+      // remove any disabled message style
+      messageDiv.innerHTML = '';
+      messageDiv.className = 'message-feedback';
+    }
+
+    function handleAnswer(selected, btnElement) {
+      if (waitingTimeout || !quizActive) return;
+      // Desabilita todos os botões imediatamente
+      const allBtns = document.querySelectorAll('.opt-btn');
+      allBtns.forEach(btn => {
+        btn.style.pointerEvents = 'none';
+        btn.disabled = true;
+      });
+      
+      const isCorrect = (selected === currentQ.correct);
+      let feedbackMsg = '';
+      if (isCorrect) {
+        currentScore++;
+        updateScoreUI();
+        feedbackMsg = `✅ Correto! ${currentQ.correct} é a marca da luta de Lelinho! +1 ponto`;
+        messageDiv.style.color = '#1e7e34';
+        messageDiv.style.background = '#e6f4ea';
+        // destaca botão correto (verde)
+        btnElement.style.background = "#2ecc71";
+        btnElement.style.color = "white";
+        btnElement.querySelector('i').style.color = "white";
+      } else {
+        feedbackMsg = `❌ A resposta correta é: "${currentQ.correct}". Lelinho Lopes segue firme por um RS mais justo!`;
+        messageDiv.style.color = '#b91c1c';
+        messageDiv.style.background = '#fee2e2';
+        btnElement.style.background = "#e74c3c";
+        btnElement.style.color = "white";
+        btnElement.querySelector('i').style.color = "white";
+        // destacar em verde o botão correto (encontrar o botão que contém a resposta certa)
+        for (let btn of allBtns) {
+          if (btn.innerText.includes(currentQ.correct) || btn.textContent.includes(currentQ.correct)) {
+            btn.style.background = "#2ecc71";
+            btn.style.color = "white";
+            btn.querySelector('i').style.color = "white";
+            break;
+          }
+        }
+      }
+      messageDiv.innerHTML = `<i class="fas fa-comment-dots"></i> ${feedbackMsg}`;
+      
+      waitingTimeout = true;
+      setTimeout(() => {
+        waitingTimeout = false;
+        // reativar quiz
+        if (remainingQuestions.length === 0 && currentQ) {
+          finishQuiz();
+        } else {
+          loadNextQuestion();
+        }
+      }, 1800);
+    }
+
+    function finishQuiz() {
+      quizActive = false;
+      const totalQuestions = questionBank.length;
+      let finalMessage = '';
+      if (currentScore === totalQuestions) {
+        finalMessage = `🎉 Impressionante! Você acertou todas ${currentScore}/${totalQuestions}! Lelinho Lopes conta com seu apoio! Vote 13.800! 🎉`;
+      } else if (currentScore >= totalQuestions - 2) {
+        finalMessage = `🏆 Muito bem! Você fez ${currentScore}/${totalQuestions}. Conhece bem o trabalho de Lelinho. Compartilhe e fortaleça a campanha!`;
+      } else {
+        finalMessage = `👍 Você acertou ${currentScore}/${totalQuestions}. Que tal conhecer mais propostas de Lelinho? Acompanhe as redes e #Vote13800.`;
+      }
+      questionEl.innerHTML = `<div style="text-align:center"><i class="fas fa-flag-checkered" style="font-size:2.5rem; color:#e30613;"></i><br/><span style="font-size:1.5rem;">Desafio concluído!</span><br/>${finalMessage}<br/><button id="restartQuizBtn" style="margin-top:20px; background:#e30613; border:none; color:white; padding:12px 24px; border-radius:40px; font-weight:bold; cursor:pointer;"><i class="fas fa-redo-alt"></i> Recomeçar Desafio</button></div>`;
+      optionsContainer.innerHTML = '';
+      messageDiv.innerHTML = '';
+      const restartBtn = document.getElementById('restartQuizBtn');
+      if (restartBtn) {
+        restartBtn.addEventListener('click', () => {
+          // reset total
+          remainingQuestions = shuffleArray([...questionBank]);
+          currentScore = 0;
+          updateScoreUI();
+          quizActive = true;
+          waitingTimeout = false;
+          messageDiv.innerHTML = '';
+          loadNextQuestion();
+        });
+      }
+    }
+
+    // Iniciar o quiz moderno
+    initQuiz();
+    
+    // Fallback para imagem do perfil (caso lelinho.jpg não exista, mas manter aparência)
+    const profileImg = document.querySelector('.profile-img-modern');
+    if (profileImg) {
+      profileImg.addEventListener('error', function() {
+        this.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/1200px-Flag_of_Brazil.svg.png';
+        this.style.opacity = '0.7';
       });
     }
-
-    function check(selected, btn) {
-      const allBtns = document.querySelectorAll('.option-button');
-      allBtns.forEach(b => b.disabled = true);
-
-      if (selected === currentQuestion.correctAnswer) {
-        score++;
-        btn.style.backgroundColor = "#2ecc71";
-        document.getElementById('message').textContent = "Correto! É o Lelinho com o povo!";
-        document.getElementById('message').style.color = "#2ecc71";
-      } else {
-        btn.style.backgroundColor = "#e74c3c";
-        document.getElementById('message').textContent = `A resposta correta era: ${currentQuestion.correctAnswer}`;
-        document.getElementById('message').style.color = "#e74c3c";
-      }
-      
-      document.getElementById('score').textContent = `Pontuação: ${score}`;
-      setTimeout(newQuestion, 2000);
-    }
-
-    function showFinalMessage() {
-      document.getElementById('question').innerHTML = `
-        <div style="text-align: center;">
-          <h2 style="color: var(--primary-color)">Obrigado pelo apoio!</h2>
-          <p>Você conhece bem a trajetória de Lelinho Lopes. No Rio Grande, ele é a nossa voz!</p>
-          <br>
-          <h1 style="font-size: 3em; color: var(--primary-color); animation: pulse 1s infinite;">VOTE 13800!</h1>
-          <br>
-          <button onclick="location.reload()" style="padding: 10px 20px; cursor: pointer;">Refazer Desafio</button>
-        </div>
-      `;
-      document.getElementById('options-container').innerHTML = '';
-    }
-
-    window.onload = startQuiz;
   </script>
 </body>
 </html>
