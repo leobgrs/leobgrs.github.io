@@ -32,20 +32,20 @@
       padding: 1.5rem 2rem;
     }
 
-    /* --- DESTAQUE MÁXIMO DO NOME LELINHO LOPES --- */
+    /* --- DESTAQUE MÁXIMO DO NOME LELINHO LOPES (SEM BLUR, NÍTIDO) --- */
     .hero-name-container {
       text-align: center;
       margin: 0.5rem 0 1rem;
       position: relative;
     }
     
-    /* Efeito de destaque supremo */
     .super-name {
       display: inline-block;
       position: relative;
-      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.5));
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.4));
     }
     
+    /* Nomes com gradiente vibrante, sem text-shadow borrado, apenas brilho nítido */
     .name-lelinho {
       font-family: 'Bebas Neue', 'Inter', sans-serif;
       font-size: 6rem;
@@ -55,9 +55,9 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 18px rgba(255, 80, 40, 0.6), 0 4px 12px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 0px rgba(0,0,0,0.2), 4px 4px 8px rgba(0,0,0,0.2);
       letter-spacing: 2px;
-      animation: gradientShift 3s ease infinite, subtleGlow 1.8s ease-in-out infinite alternate;
+      animation: gradientShift 3s ease infinite;
       display: inline-block;
     }
     
@@ -70,30 +70,31 @@
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 15px rgba(220, 20, 60, 0.7), 0 3px 10px rgba(0,0,0,0.3);
+      text-shadow: 2px 2px 0px rgba(0,0,0,0.2), 3px 3px 6px rgba(0,0,0,0.2);
       letter-spacing: 2px;
-      animation: gradientShift 3.5s ease infinite, glowPulse 1.5s infinite alternate;
+      animation: gradientShift 3.5s ease infinite;
       margin-left: 12px;
       display: inline-block;
     }
     
+    /* Animação apenas do gradiente - sem glow borrado */
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
     
-    @keyframes subtleGlow {
-      0% { text-shadow: 0 0 12px rgba(255, 50, 0, 0.4), 0 4px 12px rgba(0,0,0,0.3); }
-      100% { text-shadow: 0 0 30px rgba(255, 80, 0, 0.9), 0 0 8px #ffcc33, 0 4px 12px black; }
+    /* Underline decorativo nítido */
+    .name-underline {
+      width: 140px;
+      height: 5px;
+      background: linear-gradient(90deg, #ffcc00, #e30613, #ffcc00);
+      margin: 0.5rem auto 0.8rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
     
-    @keyframes glowPulse {
-      0% { text-shadow: 0 0 10px rgba(200, 0, 0, 0.5), 0 3px 10px black; }
-      100% { text-shadow: 0 0 28px #ff4d4d, 0 0 10px #ffaa33, 0 3px 12px black; }
-    }
-    
-    /* Versão responsiva para o nome gigante */
+    /* Versão responsiva */
     @media (max-width: 780px) {
       .name-lelinho { font-size: 3.8rem; }
       .name-lopes { font-size: 3.6rem; margin-left: 4px; }
@@ -101,16 +102,6 @@
     @media (max-width: 550px) {
       .name-lelinho { font-size: 2.6rem; }
       .name-lopes { font-size: 2.4rem; }
-    }
-    
-    /* Underline de destaque e estrelas decorativas */
-    .name-underline {
-      width: 120px;
-      height: 5px;
-      background: linear-gradient(90deg, #ffcc00, #e30613, #ffcc00);
-      margin: 0.5rem auto 0.8rem;
-      border-radius: 10px;
-      box-shadow: 0 0 12px #ffb347;
     }
     
     .badge-pt {
@@ -318,7 +309,7 @@
       <i class="fas fa-star-of-life"></i> PT - PARTIDO DOS TRABALHADORES | 13
     </div>
     
-    <!-- Nome com destaque supremo (3D + gradiente animado + glow) -->
+    <!-- Nome com destaque supremo (gradiente animado + contraste nítido, sem glow embaçado) -->
     <div class="hero-name-container">
       <div class="super-name">
         <span class="name-lelinho">LELINHO</span>
