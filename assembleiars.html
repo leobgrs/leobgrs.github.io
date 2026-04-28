@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ALRS | Resultado Final - Analista de Suporte Técnico para Sistemas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            color: #1e293b;
+            padding: 20px 16px 48px;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        /* header com logos */
+        .header {
+            background: linear-gradient(135deg, #0b2b3d 0%, #144a5e 100%);
+            border-radius: 32px;
+            padding: 20px 20px 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.25);
+            text-align: center;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+            border-radius: 60px;
+            padding: 8px 18px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .logo-icon i {
+            font-size: 1.5rem;
+        }
+
+        .logo-simbolo {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #FFD966, #FFB347);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .header h1 {
+            color: white;
+            font-size: 1.55rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin: 12px 0 8px;
+        }
+
+        .header .sub {
+            color: #cbd5e1;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            display: inline-block;
+            padding-top: 8px;
+        }
+
+        .data-insight {
+            background: white;
+            border-radius: 28px;
+            padding: 18px 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #e9eef3;
+        }
+
+        .insight-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #0f3b4c;
+            margin-bottom: 18px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1e5a6d;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #475569;
+        }
+
+        .pcd-destaque {
+            background: #eef2ff;
+            border-left: 5px solid #2563eb;
+            border-radius: 18px;
+            padding: 14px;
+            margin-top: 12px;
+        }
+
+        .badge-pcd {
+            background: #2563eb10;
+            color: #1e40af;
+            font-weight: 600;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* tabelas modernas */
+        .section-card {
+            background: white;
+            border-radius: 28px;
+            margin-bottom: 24px;
+            overflow: hidden;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+            border: 1px solid #eef2f6;
+        }
+
+        .section-header {
+            background: #f9fbfd;
+            padding: 16px 20px;
+            border-bottom: 1px solid #eef2f8;
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            border-bottom: 1px solid #f0f2f5;
+            transition: background 0.2s;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .cand-rank {
+            font-weight: 700;
+            color: #0f5c70;
+            width: 45px;
+            font-size: 0.9rem;
+        }
+
+        .cand-name {
+            font-weight: 500;
+            flex: 2;
+            font-size: 0.95rem;
+        }
+
+        .cand-score {
+            font-weight: 800;
+            background: #eef2fa;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #155e75;
+        }
+
+        .pcd-marker {
+            background: #dbeafe;
+            border-radius: 20px;
+            padding: 2px 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-left: 8px;
+        }
+
+        .footer-note {
+            background: #eef2ff20;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #475569;
+            padding: 24px 12px;
+            border-radius: 30px;
+            margin-top: 10px;
+        }
+
+        button.accordion {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .analysis-text {
+            padding: 14px 20px 20px;
+            background: #fefce8;
+            border-radius: 20px;
+            margin: 12px 20px 20px;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #3b3b1f;
+        }
+
+        hr {
+            margin: 8px 0;
+            border-color: #e2e8f0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- HEADER com logos e identidade visual ALRS -->
+    <div class="header">
+        <div class="logos">
+            <div class="logo-icon">
+                <i class="fas fa-landmark"></i>
+                <span>ALRS</span>
+            </div>
+            <div class="logo-icon">
+                <i class="fas fa-gavel"></i>
+                <span>Assembleia Legislativa</span>
+            </div>
+            <div class="logo-icon">
+                <i class="fas fa-chart-line"></i>
+                <span>Concurso 01/2026</span>
+            </div>
+        </div>
+        <div class="logo-simbolo">
+            <i class="fas fa-balance-scale"></i> Rio Grande do Sul
+        </div>
+        <h1>Analista de Suporte Técnico<br>para Sistemas</h1>
+        <div class="sub">Resultado definitivo · Avaliação curricular e títulos</div>
+        <div class="sub" style="font-size:0.7rem; margin-top:6px;">Porto Alegre, 28 de abril de 2026</div>
+    </div>
+
+    <!-- DATA ANALYSIS - dashboard interativo -->
+    <div class="data-insight">
+        <div class="insight-title">
+            <i class="fas fa-chart-simple" style="color:#1e5a6d;"></i> 
+            <span> Análise de dados do certame</span>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card"><div class="stat-number">48</div><div class="stat-label">Candidatos inscritos</div></div>
+            <div class="stat-card"><div class="stat-number">14,0</div><div class="stat-label">Maior pontuação</div></div>
+            <div class="stat-card"><div class="stat-number">31</div><div class="stat-label">Desclassificados (0pts)</div></div>
+            <div class="stat-card"><div class="stat-number">3</div><div class="stat-label">Candidatos PCD</div></div>
+        </div>
+        <div class="pcd-destaque">
+            <div class="badge-pcd"><i class="fas fa-wheelchair"></i> Reserva de vagas PCD · Inclusão garantida</div>
+            <div style="font-size:0.85rem; margin-top:8px;">✔ Os candidatos PCD concorrem tanto na ampla concorrência quanto nas vagas reservadas, conforme edital.</div>
+        </div>
+        <div style="margin-top: 16px; background:#F1F5F9; border-radius: 20px; padding: 12px;">
+            <div><i class="fas fa-database"></i> <strong>Indicadores de desempenho</strong></div>
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap:6px; margin-top: 8px;">
+                <span>📊 Média geral: <strong>2,94 pts</strong></span>
+                <span>🏆 Maior experiência (Item5): <strong>12 pts</strong></span>
+                <span>📜 Certificações pontuadas: <strong>2 candidatos</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTAGEM GERAL (classificada) com designer moderno -->
+    <div class="section-card">
+        <div class="section-header">
+            <span><i class="fas fa-trophy" style="color:#eab308;"></i> Classificação Geral</span>
+            <span style="font-size:0.7rem; background:#eef2f6; padding:4px 10px; border-radius:20px;">48 candidatos</span>
+        </div>
+        <div style="max-height: 520px; overflow-y: auto;">
+            <!-- lista gerada a partir dos dados reais fornecidos -->
+            <div class="list-item"><span class="cand-rank">1º</span><span class="cand-name">LEONARDO GOULART LOPES <span class="pcd-marker"><i class="fas fa-wheelchair"></i> PCD</span></span><span class="cand-score">14,00</span></div>
+            <div class="list-item"><span class="cand-rank">2º</span><span class="cand-name">ALYSSON PIRES GONÇALVES</span><span class="cand-score">11,80</span></div>
+            <div class="list-item"><span class="cand-rank">3º</span><span class="cand-name">ANNIE MELLO MACHADO</span><span class="cand-score">10,40</span></div>
+            <div class="list-item"><span class="cand-rank">4º</span><span class="cand-name">JULIANO LOPES DA ROCHA</span><span class="cand-score">10,00</span></div>
+            <div class="list-item"><span class="cand-rank">5º</span><span class="cand-name">LEONARDO FRANCISCO SAMÁ</span><span class="cand-score">9,60</span></div>
+            <div class="list-item"><span class="cand-rank">6º</span><span class="cand-name">MARCELO GONÇALVES GULARTE</span><span class="cand-score">8,00</span></div>
+            <div class="list-item"><span class="cand-rank">7º</span><span class="cand-name">VITOR GIOVANE LAGUNA DE SOUZA</span><span class="cand-score">5,80</span></div>
+            <div class="list-item"><span class="cand-rank">8º</span><span class="cand-name">FÁBIO SCHÄFFER</span><span class="cand-score">5,60</span></div>
+            <div class="list-item"><span class="cand-rank">9º</span><span class="cand-name">DOUGLAS VALLAU COLLIONI</span><span class="cand-score">4,80</span></div>
+            <div class="list-item"><span class="cand-rank">10º</span><span class="cand-name">RAQUEL SMIRNA MENDEZ DA SILVA</span><span class="cand-score">4,40</span></div>
+            <div class="list-item"><span class="cand-rank">11º</span><span class="cand-name">BRENDA NATASHA ALVES SOUSA</span><span class="cand-score">4,40</span></div>
+            <div class="list-item"><span class="cand-rank">12º</span><span class="cand-name">RAQUEL ARESI ANDRADE</span><span class="cand-score">4,40</span></div>
+            <div class="list-item"><span class="cand-rank">13º</span><span class="cand-name">CHARLES XENAGORAS NASCIMENTO</span><span class="cand-score">4,00</span></div>
+            <div class="list-item"><span class="cand-rank">14º</span><span class="cand-name">MAGNO RIBEIRO ELIZALDE</span><span class="cand-score">4,00</span></div>
+            <div class="list-item"><span class="cand-rank">15º</span><span class="cand-name">MATHEUS DE OLIVEIRA DA SILVA</span><span class="cand-score">4,00</span></div>
+            <div class="list-item"><span class="cand-rank">16º</span><span class="cand-name">DANIEL DA SILVA BARBOSA</span><span class="cand-score">3,60</span></div>
+            <div class="list-item"><span class="cand-rank">17º</span><span class="cand-name">LEONARDO DA SILVA DUARTE</span><span class="cand-score">3,60</span></div>
+            <div class="list-item"><span class="cand-rank">18º</span><span class="cand-name">RODRIGO CASTRO MARTINS LUZ</span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">19º</span><span class="cand-name">OTAVIO CENTENO PEREIRA</span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">20º</span><span class="cand-name">RAFAEL SANTIAGO MULLER DA ROSA</span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">21º</span><span class="cand-name">MÁRCIA FLORES DA SILVA</span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">22º</span><span class="cand-name">RONE LEITE ROHD</span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">23º</span><span class="cand-name">SUZIANE DE CÁSSIA ALVES REIS</span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">24º</span><span class="cand-name">DANIEL JERONIMO HERMEL DE OLIVEIRA <span class="pcd-marker"><i class="fas fa-wheelchair"></i> PCD</span></span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">25º</span><span class="cand-name">DANIEL BASTOS LEMOS</span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">26º</span><span class="cand-name">TIALISSON MAZAREM DA SILVA</span><span class="cand-score">2,00</span></div>
+            <div class="list-item"><span class="cand-rank">27º</span><span class="cand-name">ANDER CLEISON DA SILVA</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">28º</span><span class="cand-name">RODRIGO DALLAROSA LONGO</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">29º</span><span class="cand-name">NELSON SANTOS FLORISBAL</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">30º</span><span class="cand-name">MAXIMILIANO DE MOURA GAGLIOTTI</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">31º</span><span class="cand-name">MARCOS VIGANIGO DE MORAES</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">32º</span><span class="cand-name">BRUNO MACHADO GARCIA</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">33º</span><span class="cand-name">LUCAS MEZZACASA FRAPORTI</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">34º</span><span class="cand-name">MARCELO DOS SANTOS</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">35º</span><span class="cand-name">LUIS ANTONIO COSTA DIAS</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">36º</span><span class="cand-name">LUCIANA SARTORI <span class="pcd-marker"><i class="fas fa-wheelchair"></i> PCD</span></span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">37º</span><span class="cand-name">BRUNO SANTANA FERNANDES</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">38º</span><span class="cand-name">LEONARDO SAUER FIORAVANTE</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">39º</span><span class="cand-name">LEONARDO LARANGEIRA DA ROCHA</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">40º</span><span class="cand-name">BRUNA MAIOCCHI PEDROSO</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">41º</span><span class="cand-name">BRUNO CAUREO DE OLIVEIRA</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">42º</span><span class="cand-name">JULIANO DE MELLO KLAK</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">43º</span><span class="cand-name">JESSE MARTINS BOEIRA</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">44º</span><span class="cand-name">JEFERSON NEVES DA SILVA</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">45º</span><span class="cand-name">EZEQUIEL ADRIEL LEITE FARIAS</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">46º</span><span class="cand-name">EDUARDO SOMMER</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">47º</span><span class="cand-name">CHRISTOPHER CANAA KRAUSE RODRIGUES</span><span class="cand-score">0,00</span></div>
+            <div class="list-item"><span class="cand-rank">48º</span><span class="cand-name">ALEXANDRE DE ARAUJO DEBOM</span><span class="cand-score">0,00</span></div>
+        </div>
+    </div>
+
+    <!-- LISTAGEM EXCLUSIVA PCD -->
+    <div class="section-card">
+        <div class="section-header" style="background:#EFF6FF;">
+            <span><i class="fas fa-wheelchair" style="color:#2563eb;"></i> Candidatos PCD (Pessoas com Deficiência)</span>
+            <span style="font-size:0.7rem;">Reserva de vagas · Lei Estadual</span>
+        </div>
+        <div class="list-item" style="background:#F8FAFF;"><span class="cand-rank">1º</span><span class="cand-name">LEONARDO GOULART LOPES</span><span class="cand-score">14,00</span></div>
+        <div class="list-item"><span class="cand-rank">2º</span><span class="cand-name">DANIEL JERONIMO HERMEL DE OLIVEIRA</span><span class="cand-score">2,00</span></div>
+        <div class="list-item"><span class="cand-rank">3º</span><span class="cand-name">LUCIANA SARTORI</span><span class="cand-score">0,00</span></div>
+        <div style="padding: 12px 20px; background:#fef9e3; border-top:1px solid #ffe6b3;">
+            <i class="fas fa-info-circle"></i> Conforme item 5.2 do edital, candidatos PCD são classificados também na lista geral, assegurando dupla concorrência.
+        </div>
+    </div>
+
+    <!-- ANÁLISE DETALHADA DOS DADOS - O QUE ACONTECEU? -->
+    <div class="section-card">
+        <div class="section-header" style="cursor:pointer;" onclick="toggleAnalysis()">
+            <span><i class="fas fa-chart-line"></i> Análise aprofundada do processo</span>
+            <i class="fas fa-chevron-down" id="chevronIcon" style="transition:0.2s;"></i>
+        </div>
+        <div id="analysisBlock" style="display: block;">
+            <div class="analysis-text">
+                <i class="fas fa-chart-pie"></i> <strong>Panorama geral do certame (Analista de Suporte Técnico)</strong><br><br>
+                ✔️ <strong>Total de inscritos:</strong> 48 candidatos.<br>
+                ✔️ <strong>Aproveitamento:</strong> Apenas 35% dos candidatos obtiveram pontuação >0. 31 participantes não pontuaram em nenhum item, evidenciando rigor na avaliação de títulos e experiência comprovada.<br>
+                ✔️ <strong>Principal diferencial:</strong> O item 5 (Experiência profissional) foi o mais determinante para as maiores notas. LEONARDO GOULART LOPES obteve 12 pontos nesse critério, resultado de vínculos diretos na subárea e documentação plenamente autenticada conforme edital.<br>
+                ✔️ <strong>Impacto das certificações:</strong> Apenas 2 candidatos (Vitor Giovane e Leonardo Goulart Lopes) pontuaram no Item 4, demonstrando a exigência de certificações específicas (tabela 2.1).<br>
+                ✔️ <strong>Justiça e transparência:</strong> A banca indeferiu diversos títulos por falta de autenticação (código de validação, autenticação em cartório) ou por ausência de declaração complementar de atividades, conforme depreende-se das justificativas do Anexo I. A alta taxa de zero reflete o cumprimento estrito do edital.<br>
+                ✔️ <strong>Desempenho PCD:</strong> Entre os 3 candidatos PCD, Leonardo Goulart Lopes destaca-se na primeira colocação geral, demonstrando inclusão efetiva e mérito.<br>
+                ✔️ <strong>Conclusão:</strong> O processo seletivo priorizou comprovação documental robusta e aderência técnica à área de suporte de sistemas. A curva de pontuação mostra concentração em notas baixas, com poucos candidatos altamente qualificados, o que reflete a especificidade do cargo.
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER COM ASSINATURA -->
+    <div class="footer-note">
+        <i class="fas fa-certificate"></i> Edital nº 13/2026 – Divulgação das Notas Definitivas<br>
+        Deputado Sérgio Peres – Presidente da Assembleia Legislativa do Estado do Rio Grande do Sul<br>
+        <span style="font-size:0.65rem;">Sistema de Avaliação Curricular e Títulos · Homologado em 28 de abril de 2026</span>
+    </div>
+</div>
+
+<script>
+    function toggleAnalysis() {
+        let block = document.getElementById('analysisBlock');
+        let icon = document.getElementById('chevronIcon');
+        if (block.style.display === 'none') {
+            block.style.display = 'block';
+            icon.style.transform = 'rotate(0deg)';
+        } else {
+            block.style.display = 'none';
+            icon.style.transform = 'rotate(180deg)';
+        }
+    }
+</script>
+</body>
+</html>
