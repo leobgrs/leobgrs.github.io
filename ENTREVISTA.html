@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Conversa e Sabor • Ep #48 · Educação e Pediatria</title>
+    <!-- Google Fonts & CSS reset moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fefaf5;
+            font-family: 'Inter', sans-serif;
+            color: #2c2418;
+            scroll-behavior: smooth;
+            line-height: 1.5;
+        }
+
+        /* container principal */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* header / hero */
+        .hero {
+            background: linear-gradient(135deg, #3b2a1f 0%, #5e3e28 100%);
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2.5rem;
+            color: white;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "🍷🍖";
+            font-size: 180px;
+            opacity: 0.08;
+            position: absolute;
+            bottom: -30px;
+            right: -20px;
+            pointer-events: none;
+            font-family: monospace;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #d9a13b;
+            color: #2c1a0e;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            max-width: 85%;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 70%;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn-watch {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background-color: #f5b642;
+            color: #2c1a0e;
+            padding: 0.8rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+            font-size: 1rem;
+        }
+
+        .btn-watch i {
+            font-size: 1.3rem;
+        }
+
+        .btn-watch:hover {
+            background-color: #ffcd7e;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(0,0,0,0.2);
+        }
+
+        /* cards grid para convidadas */
+        .speakers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 3rem 0 2rem;
+        }
+
+        .card-speaker {
+            background: white;
+            border-radius: 1.5rem;
+            flex: 1;
+            min-width: 260px;
+            padding: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            border: 1px solid #f0e2d4;
+        }
+
+        .card-speaker:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        .speaker-icon {
+            background: #f4e5d8;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .speaker-icon i {
+            font-size: 2.5rem;
+            color: #a56b3a;
+        }
+
+        .card-speaker h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .card-speaker .role {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #b87c4a;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .card-speaker p {
+            color: #3d3227;
+            font-size: 0.95rem;
+        }
+
+        /* citação em destaque */
+        .quote-block {
+            background: #fff3e9;
+            border-left: 8px solid #d9a13b;
+            border-radius: 1.2rem;
+            padding: 2rem 2rem;
+            margin: 2rem 0;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.2rem;
+            color: #2f241b;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .quote-block i {
+            color: #b3622e;
+            margin-right: 8px;
+            font-size: 1.4rem;
+        }
+
+        /* seção temas principais */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin: 2.5rem 0 1.2rem 0;
+            border-bottom: 3px solid #e7cfbb;
+            display: inline-block;
+            padding-bottom: 6px;
+        }
+
+        .insight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 1.5rem 0;
+        }
+
+        .insight-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 1.2rem;
+            border: 1px solid #f0e0d2;
+            transition: 0.2s;
+        }
+
+        .insight-card i {
+            font-size: 2rem;
+            color: #c17b42;
+            margin-bottom: 0.8rem;
+        }
+
+        .insight-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.6rem;
+            font-weight: 700;
+        }
+
+        .highlight-text {
+            background: linear-gradient(120deg, #fbead9 0%, #fbead9 40%, transparent 80%);
+            padding: 0.1rem 0.3rem;
+            font-weight: 500;
+        }
+
+        /* depoimento / fala marcante */
+        .testimony {
+            background: #2c2418;
+            color: #fef0e4;
+            border-radius: 2rem;
+            padding: 2rem 2.2rem;
+            margin: 2.2rem 0;
+        }
+
+        .testimony p {
+            font-size: 1.2rem;
+            line-height: 1.5;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .testimony-author {
+            margin-top: 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            color: #e2bc91;
+        }
+
+        /* botão + link */
+        .youtube-embed-wrapper {
+            background: #e7dbcf;
+            border-radius: 1.8rem;
+            padding: 1rem;
+            text-align: center;
+            margin: 2rem 0 1rem;
+        }
+
+        .video-link-btn {
+            background: #ff0000;
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            transition: 0.2s;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+        }
+
+        .video-link-btn:hover {
+            background: #cc0000;
+            transform: scale(1.02);
+        }
+
+        footer {
+            margin-top: 4rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #e2cfbf;
+            font-size: 0.85rem;
+            color: #6f5a48;
+        }
+
+        @media (max-width: 760px) {
+            .hero h1 { font-size: 1.8rem; max-width: 100%; }
+            .hero p { max-width: 100%; }
+            .container { padding: 1rem; }
+            .hero { padding: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Hero seção -->
+    <div class="hero">
+        <div class="hero-badge">
+            <i class="fas fa-microphone-alt"></i> EP #48 · Conversa e Sabor
+        </div>
+        <h1>Educação, encantamento e o futuro das crianças</h1>
+        <p>Uma conversa profunda sobre a sala de aula, a pediatria e os desafios de educar na era digital. Com Carla Jardim (educadora, bióloga) e Dra. Liziane Calil (pediatra).</p>
+        <a href="https://www.youtube.com/watch?v=LJubY1krss4" target="_blank" class="btn-watch">
+            <i class="fab fa-youtube"></i> Assistir episódio completo
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Convidadas -->
+    <div class="speakers-grid">
+        <div class="card-speaker">
+            <div class="speaker-icon"><i class="fas fa-chalkboard-user"></i></div>
+            <h3>Carla Jardim</h3>
+            <div class="role">Professora · Mestre em Melhoramento Genético</div>
+            <p>32 anos em sala de aula, defensora do encantamento e da educação como base da transformação. Idealizadora do projeto literário infantil sobre alimentação e hábitos saudáveis.</p>
+        </div>
+        <div class="card-speaker">
+            <div class="speaker-icon"><i class="fas fa-stethoscope"></i></div>
+            <h3>Dra. Liziane Calil</h3>
+            <div class="role">Médica Pediatra</div>
+            <p>"Mil vezes a pediatria" — apaixonada pelo desenvolvimento infantil e pela parceria entre saúde e educação. Referência em Bagé e região.</p>
+        </div>
+        <div class="card-speaker">
+            <div class="speaker-icon"><i class="fas fa-wine-glass-alt"></i></div>
+            <h3>Conversa & Sabor</h3>
+            <div class="role">Mediação · Rodrigo</div>
+            <p>Um programa acolhedor que une boa gastronomia, entrevistas profundas e convidados que fazem a diferença.</p>
+        </div>
+    </div>
+
+    <!-- Citação forte -->
+    <div class="quote-block">
+        <i class="fas fa-quote-left"></i> “Eu acho que o desafio é buscar essa admiração, porque tu só acreditas em quem tu admiras. E a gente não está mais conseguindo ter essa admiração. Por que sou professora? Porque tive professores que me fizeram brilhar o olho.”
+        <div style="margin-top: 12px; font-weight: 600;">— Carla Jardim</div>
+    </div>
+
+    <!-- Principais insights -->
+    <h2 class="section-title"><i class="fas fa-leaf"></i> Destaques da conversa</h2>
+    <div class="insight-grid">
+        <div class="insight-card">
+            <i class="fas fa-eye"></i>
+            <h4>Admiração como motor</h4>
+            <p>Para Carla, a admiração pelo mestre é o que inspira futuras gerações. Na era das telas, o professor precisa disputar a atenção com o imediatismo digital — mas o encantamento ainda é possível.</p>
+        </div>
+        <div class="insight-card">
+            <i class="fas fa-baby-carriage"></i>
+            <h4>Pediatria com propósito</h4>
+            <p>Dra. Liziane compartilha: "se eu olhar para trás, faria mil vezes a pediatria". A saúde da criança impacta desenvolvimento neurológico, social e emocional, sendo base para famílias inteiras.</p>
+        </div>
+        <div class="insight-card">
+            <i class="fas fa-hand-holding-heart"></i>
+            <h4>Saúde ↔ Educação</h4>
+            <p>“Aquela criança cresce com conhecimento em saúde e será um adulto pai que também terá esse conhecimento.” O investimento na educação caminha junto com o investimento na saúde.</p>
+        </div>
+        <div class="insight-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h4>Desafios da tecnologia</h4>
+            <p>Carla alerta: nunca foi tão difícil ser professor e mãe. “Meu medo é não saber como lidar com um mundo que mudou”. O Doutor Google pode ajudar, mas o vínculo humano permanece insubstituível.</p>
+        </div>
+    </div>
+
+    <!-- Tópicos emocionantes: maternidade + docência -->
+    <div class="testimony">
+        <p>📖 “Só como mãe, eu sou uma ótima professora. E como professora, eu não tenho conseguido ser uma boa mãe. Ambos os papéis se fundem porque envolvem a educação, que depende de muitas variáveis. Não se findam ao final de um dia, nem de uma vida.”</p>
+        <div class="testimony-author">— Carla Jardim, refletindo sobre o dilema entre dar aula e estar presente em casa</div>
+    </div>
+
+    <div class="insight-grid" style="margin-top: 0;">
+        <div class="insight-card">
+            <i class="fas fa-apple-alt"></i>
+            <h4>Projeto literário infantil</h4>
+            <p>O livro infantil (já no segundo volume) aborda alimentação saudável de forma lúdica. Dra. Liziane participa como parceira, e o retorno das crianças tem sido surpreendente — muitas já pedem o lançamento!</p>
+        </div>
+        <div class="insight-card">
+            <i class="fas fa-chalkboard"></i>
+            <h4>Professor como artista</h4>
+            <p>Assim como um ator ou advogado, o professor precisa encantar. Para Carla, o palco da sala de aula exige paixão e arte: “quando o professor não tem brilho no olho, ele não sobrevive ao magistério”.</p>
+        </div>
+        <div class="insight-card">
+            <i class="fas fa-hand-sparkles"></i>
+            <h4>Rede de apoio e vínculo</h4>
+            <p>Dra. Liziane destaca que hoje os pais fazem “entrevista pré-natal” e chegam mais preparados. Mas o mais essencial é criar momentos de conversa, jantar junto, presença. Não há fórmula mágica, mas o amor e a dedicação são o caminho.</p>
+        </div>
+    </div>
+
+    <!-- Trecho sobre o "Mar de cuspe" e medo -->
+    <div class="quote-block" style="background: #f7ede4;">
+        <i class="fas fa-water"></i> “Eu me sentia uma ótima mãe até ter filhos. Tudo o que eu achava que não ia acontecer com os meus filhos, eu me enxergo nisso. [...] a minha palavra que me define é <strong>medo</strong>.” 
+        <div style="margin-top: 8px;">— Carla, sobre os desafios contemporâneos da maternidade.</div>
+    </div>
+
+    <!-- Sabedoria conjunta -->
+    <h2 class="section-title"><i class="fas fa-heart"></i> O que fica dessa prosa</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0;">
+        <div style="flex: 1; min-width: 220px; background: #faf3ec; border-radius: 1.5rem; padding: 1.5rem;">
+            <i class="fas fa-shield-alt" style="font-size: 1.8rem; color: #9b5e2c;"></i>
+            <p style="margin-top: 10px; font-weight: 500;">✔ Não existe educação sem encantamento.<br>
+            ✔ A tecnologia veio para ficar, mas o vínculo humano é o que salva.<br>
+            ✔ Cada professor e cada pediatra é, antes de tudo, um agente de transformação.</p>
+        </div>
+        <div style="flex: 1; background: #2c2418; color: white; border-radius: 1.5rem; padding: 1.5rem;">
+            <i class="fas fa-star-of-life"></i>
+            <p style="margin-top: 10px; font-weight: 400; font-style: italic;">“Nós precisamos resgatar o encantamento. A minha geração talvez não consiga tanto, mas as novas meninas que estão vindo, quem sabe, conseguem fazer esse meio termo.”</p>
+            <div style="margin-top: 12px;">— Carla Jardim</div>
+        </div>
+    </div>
+
+    <!-- Link direto para assistir ao podcast -->
+    <div class="youtube-embed-wrapper">
+        <p style="margin-bottom: 1rem; font-weight: 500;"><i class="fab fa-youtube"></i> A conversa completa está disponível no YouTube — ideal para educadores, pais e estudantes que desejam se aprofundar no tema.</p>
+        <a href="https://www.youtube.com/watch?v=LJubY1krss4" target="_blank" class="video-link-btn">
+            <i class="fab fa-youtube fa-lg"></i> Ouvir episódio na íntegra
+            <i class="fas fa-external-link-alt"></i>
+        </a>
+        <p style="font-size: 0.8rem; margin-top: 0.8rem;">Episódio #48 · Conversa e Sabor · Direto da parrilla com vinho e churrasco de qualidade</p>
+    </div>
+
+    <!-- Pequena seção extra sobre projeto pedagógico (educação e saúde) -->
+    <div style="background: #fff8f2; border-radius: 1.8rem; padding: 1.8rem; margin: 2rem 0;">
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <div><i class="fas fa-book-open" style="font-size: 2.5rem; color: #b46f3a;"></i></div>
+            <div>
+                <h3 style="font-weight: 700; margin-bottom: 0.3rem;">Projeto "Conversa e Sabor" na sala de aula</h3>
+                <p>Material útil para professores que desejam trabalhar temas como alimentação saudável, saúde preventiva e papel do educador. As obras literárias citadas (primeiro volume sobre alimentos e segundo volume recém-lançado) são ferramentas para estimular hábitos e cidadania desde a infância.</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">📌 Dica pedagógica: use os trechos de Carla sobre “admiração” para rodas de conversa com adolescentes e discussões sobre profissão e propósito.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé com crédito e mensagem educacional -->
+    <footer>
+        <p><i class="fas fa-wine-bottle"></i> Conversa e Sabor — Um programa que une boa conversa, conhecimento e acolhimento. <br> Transcrição baseada no episódio #48 com Carla Jardim e Dra. Liziane Calil. Conteúdo rico para educadores, pais e profissionais de saúde. 
+        <br><span style="opacity: 0.6;">© 2025 · Material educativo com link original do YouTube.</span></p>
+        <div style="margin-top: 15px;">
+            <a href="https://www.youtube.com/watch?v=LJubY1krss4" target="_blank" style="color:#a75927; text-decoration: none; font-weight: 500;"><i class="fab fa-youtube"></i> Acesse o canal oficial</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
